@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html>
+<head> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Sign up Page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body style="padding-top: 80px;">
+ 
+<header>
+  <a href="home-page.html">
+  <img src="images/nirvasalogo.png" alt="nirvasa" class="logo" /> </a>
+<nav>
+<a href="home-page.html">Home</a>
+<a href="about-page.html">About </a>
+ <a href="shop.html">Shop</a>
+<a href="contact-us.html">Contact us</a>
+<a href="login.html">Login</a>
+</nav>
+
+</header>
+
+
+<main class="container">
+  <div class="signup-image">
+    <img src="images/computer-image.png" alt="image">
+    </div>
+   
+<div class="login-card">
+<h2>CREATE ACCOUNT</h2>
+<br><form>
+<div class="name-row">
+<div class="input-group">
+<input type="text" placeholder="First Name" class="firstname-input" id="firstname"/>
+<div id="fnameerror"></div>
+</div>
+
+<div class="input-group">
+<input type="text" placeholder="Last Name" class="lastname-input" id="lastname"/>
+<div id="lnameerror"></div>
+</div>
+</div>
+<div class="contact-row">
+  <div class="input-group">
+<input type="text" placeholder="Mobile Number"  class="mobilenumber-input" id="mobilenumber"/>
+<div id="mobileerror"></div>
+</div>
+<div class="input-group">
+<input type="email" placeholder="Email (Optional)" class="email-input" id="email"/>
+<div id="emailerror"></div>
+</div>
+</div>
+
+
+<div class="location-row">
+
+<div class="input-group">
+<select class="country-input" id="country">
+  <option value="">Select Country</option>
+  <option value="india">India</option>
+  <option value="usa">USA</option>
+  <option value="uk">UK</option>
+</select>
+<div id="countryerror"></div>
+</div>
+
+<div class="input-group">
+<select class="state-input" id="state">
+  <option value="">Select State</option>
+</select>
+<div id="stateerror"></div>
+</div>
+
+<div class="input-group">
+<select class="city-input" id="city">
+  <option value="">Select City</option>
+</select>
+<div id="cityerror"></div>
+</div>
+
+</div>
+<div class="input-group password-box">
+  <input type="password" placeholder="Password" id="password"/>
+  <i class="fa fa-eye toggle-password" onclick="togglePassword('password', this)"></i>
+  <div id="passworderror"></div>
+</div>
+
+<div class="input-group password-box">
+  <input type="password" placeholder="Confirm Password" id="confirmpassword"/>
+  <i class="fa fa-eye toggle-password" onclick="togglePassword('confirmpassword', this)"></i>
+  <div id="confirmerror"></div>
+</div>
+<div class="sign-up" >
+</div>
+<button   type="submit" class=" btn sign-up-btn">
+    Sign Up
+</button>
+</form>
+
+<div class="sign up"><p>     Already have an account?  
+   &nbsp;
+   <a href="login.html">Login</a>
+</p>
+</div>
+</div>
+</main>
+ <footer class="footer">
+    
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>About Us</h3>    
+      <p> Nirvasa healthcare is a leading digital healthcare platform in India, offering a comprehensive range of services to over 8 million patients.
+        </p><div class="footer-icons">
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+  </div>
+         
+         </div>
+    
+
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <a href="home-page.html">Home</a>
+      <a href="about-page.html" class="active">About</a>
+      <a href="contact-us.html">Contact</a> 
+      <a href="login.html" >Login</a>
+    
+      
+    </div>
+
+    <div class="footer-col">
+      <h3>Shop </h3>
+      <a href="#">Wellness</a>
+      <a href="#">Fitness </a>
+      <a href="#">Hair </a>
+      <a href="#">Skin</a>
+    </div>
+ 
+    
+
+ 
+   
+    <div class="footer-col">
+    <h3>Contact Us</h3>
+     <iframe 
+     class="iframe"
+     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.029665658376!2d77.08921097553812!3d28.50875517573249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d191e76ed11eb%3A0x7edb5edf6b72cfaf!2sNirvasa%20Healthcare%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1778834798858!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+   
+  </div>
+
+
+  <div class="footer-bottom">
+    <div class="border-line"></div>
+     <p>@ 2026 <b>Nirvasa</b>.All Rights Reserved.</p>
+    
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+let form = document.querySelector("form"); // Selecting form and input elements from HTML
+
+let firstname = document.getElementById("firstname");
+let lastname = document.getElementById("lastname");
+let mobilenumber = document.getElementById("mobilenumber");
+let country = document.getElementById("country");
+let state = document.getElementById("state");
+let city = document.getElementById("city");
+let password = document.getElementById("password");
+let confirmpassword = document.getElementById("confirmpassword");
+
+// addEventListener() is used to attach events to form fields
+// so validation functions run automatically on user actions.
+// Blur event is used to validate fields when user leaves the input box
+firstname.addEventListener("blur", validationfirstname);
+lastname.addEventListener("blur", validationlastname);
+mobilenumber.addEventListener("blur", validationmobilenumber);
+country.addEventListener("blur",validationcountry);
+state.addEventListener("blur",validationstate);
+city.addEventListener("blur",validationcity);
+password.addEventListener("blur", validationpassword);
+confirmpassword.addEventListener("blur", validationconfirmpassword);
+
+// Function to validate first name field
+function validationfirstname() {
+
+  let fname = firstname.value;
+  let fnameerror = document.getElementById("fnameerror");
+
+  if (fname == "") {
+    fnameerror.innerHTML = "First name is required";
+  }
+
+  else if (!/^[A-Za-z]+$/.test(fname)) {
+    fnameerror.innerHTML = "First name should contain only letters";
+  }
+
+  else if (fname.length < 3) {
+    fnameerror.innerHTML = "First name must be atleast 3 characters";
+  }
+
+  else {
+    fnameerror.innerHTML = "";
+  }
+}
+
+function validationlastname() {
+
+  let lname = lastname.value;
+  let lnameerror = document.getElementById("lnameerror");
+
+  if (lname == "") {
+    lnameerror.innerHTML = "Last name is required";
+  }
+
+  else if (!/^[A-Za-z]+$/.test(lname)) {
+    lnameerror.innerHTML = "Last name should contain only letters";
+  }
+
+  else if (lname.length < 3) {
+    lnameerror.innerHTML = "Last name must be atleast 3 characters";
+  }
+
+  else {
+    lnameerror.innerHTML = "";
+  }
+}
+
+function validationmobilenumber() {
+
+  let mobile = mobilenumber.value;
+  let mobileerror = document.getElementById("mobileerror");
+
+  if (mobile == "") {
+    mobileerror.innerHTML = "Mobile number is required";
+  }
+
+  else if (!/^[0-9]+$/.test(mobile)) {
+    mobileerror.innerHTML = "Only numbers allowed";
+  }
+
+  else if (mobile.length != 10) {
+    mobileerror.innerHTML = "Mobile number must be 10 digits";
+  }
+
+  else if (!/^[6789]/.test(mobile)) {
+    mobileerror.innerHTML = "Number must start with 6,7,8 or 9";
+  }
+
+  else {
+    mobileerror.innerHTML = "";
+  }
+}
+function validationcountry() {
+
+  let countryerror = document.getElementById("countryerror");
+
+  if (country.value == "") {
+    countryerror.innerHTML = "Country is required";
+  }
+
+  else {
+    countryerror.innerHTML = "";
+  }
+}
+
+function validationstate() {
+
+  let stateerror = document.getElementById("stateerror");
+
+  if (state.value == "") {
+    stateerror.innerHTML = "State is required";
+  }
+
+  else {
+    stateerror.innerHTML = "";
+  }
+}
+
+function validationcity() {
+
+  let cityerror = document.getElementById("cityerror");
+
+  if (city.value == "") {
+    cityerror.innerHTML = "City is required";
+  }
+
+  else {
+    cityerror.innerHTML = "";
+  }
+}
+
+// Dropdown selection logic is used to dynamically update
+// states based on selected country.
+country.addEventListener("change", function () {
+
+  state.innerHTML = `<option value="">Select State</option>`;
+  city.innerHTML = `<option value="">Select City</option>`;
+
+  if (country.value == "india") {
+    state.innerHTML += `<option value="haryana">Haryana</option>`;
+    state.innerHTML += `<option value="punjab">Punjab</option>`;
+    state.innerHTML += `<option value="up">UP</option>`;
+  }
+
+  else if (country.value == "usa") {
+    state.innerHTML += `<option value="california">California</option>`;
+    state.innerHTML += `<option value="texas">Texas</option>`;
+    state.innerHTML += `<option value="newyork">New york</option>`;
+  }
+
+  else if (country.value == "uk") {
+    state.innerHTML += `<option value="london">London</option>`;
+    state.innerHTML += `<option value="manchester">Manchester</option>`;
+  }
+});
+
+
+state.addEventListener("change", function () {
+
+  city.innerHTML = `<option value="">Select City</option>`;
+
+  if (state.value == "haryana") {
+    city.innerHTML += `<option>Hisar</option>`;
+    city.innerHTML += `<option>Gurugram</option>`;
+    city.innerHTML += `<option>Sirsa</option>`;
+  }
+  if (state.value == "punjab") {
+    city.innerHTML += `<option>Patiala</option>`;
+    city.innerHTML += `<option>Bathinda</option>`;
+    city.innerHTML += `<option>Mohali</option>`;
+  }
+
+  else if (state.value == "up") {
+    city.innerHTML += `<option>Lucknow</option>`;
+    city.innerHTML += `<option>Kanpur</option>`;
+    city.innerHTML += `<option>Agra</option>`;
+  }
+
+  else if (state.value == "california") {
+    city.innerHTML += `<option>Los Angeles</option>`;
+    city.innerHTML += `<option>San Diego</option>`;
+    city.innerHTML += `<option>San Jose</option>`;
+  }
+
+  else if (state.value == "texas") {
+    city.innerHTML += `<option>Houston</option>`;
+    city.innerHTML += `<option>Austin</option>`;
+    city.innerHTML += `<option>	Dallas</option>`;
+
+  }
+  else if (state.value == "newyork") {
+    city.innerHTML += `<option>New York City</option>`;
+    city.innerHTML += `<option>Buffalo</option>`;
+    city.innerHTML += `<option>Rochester</option>`;
+    city.innerHTML += `<option>Albany</option>`;
+
+  }
+
+  else if (state.value == "london") {
+    city.innerHTML += `<option>Central London</option>`;
+    city.innerHTML += `<option>Barnet</option>`;
+    city.innerHTML += `<option>Merton</option>`;
+  }
+
+  else if (state.value == "manchester") {
+    city.innerHTML += `<option>City Centre</option>`;
+    city.innerHTML += `<option>Salford</option>`;
+    city.innerHTML += `<option>Bolton</option>`;
+  }
+});
+// Function created to show or hide the password
+function togglePassword(fieldId, icon) {
+
+  // Select the input field using its id
+  let input = document.getElementById(fieldId);
+
+  // Check if the current input type is "password"
+  // Password type hides the text with dots/bullets
+  if (input.type === "password") {
+
+    // Change password field into normal text
+    // So the user can see the password
+    input.type = "text";
+
+    
+
+    // Add eye-slash icon
+    // This shows that the password is currently visible
+    icon.classList.add("fa-eye-slash");
+
+  } else {
+
+    // If password is already visible
+    // Change it back to hidden mode
+    input.type = "password";
+
+    
+
+    // Add normal eye icon again
+    icon.classList.add("fa-eye");
+  }
+}
+
+function validationpassword() {
+
+  let passwordvalue = password.value;
+  let passworderror = document.getElementById("passworderror");
+
+  if (passwordvalue == "") {
+    passworderror.innerHTML = "Password is required";
+  }
+
+  else {
+
+    let hasLength = passwordvalue.length >= 8;
+    let hasCapital = /[A-Z]/.test(passwordvalue);
+    let hasSmall = /[a-z]/.test(passwordvalue);
+    let hasNumber = /[0-9]/.test(passwordvalue);
+    let hasSpecial = /[@$!%*?&]/.test(passwordvalue);
+
+    passworderror.innerHTML = `
+
+    <div class="password-rules">
+
+      <div class="${hasLength ? 'valid' : 'invalid'}">
+        ${hasLength ? '✅' : '❌'} Atleast 8 Characters
+      </div>
+
+      <div class="${hasCapital ? 'valid' : 'invalid'}">
+        ${hasCapital ? '✅' : '❌'} Capital Letter
+      </div>
+
+      <div class="${hasSmall ? 'valid' : 'invalid'}">
+        ${hasSmall ? '✅' : '❌'} Small Letter
+      </div>
+
+      <div class="${hasNumber ? 'valid' : 'invalid'}">
+        ${hasNumber ? '✅' : '❌'} Number
+      </div>
+
+      <div class="${hasSpecial ? 'valid' : 'invalid'}">
+        ${hasSpecial ? '✅' : '❌'} Special Character
+      </div>
+
+    </div>
+    `;
+
+    if (
+      hasLength &&
+      hasCapital &&
+      hasSmall &&
+      hasNumber &&
+      hasSpecial
+    ) {
+      passworderror.innerHTML = "";
+    }
+  }
+}
+
+function validationconfirmpassword() {
+
+  let confirmpasswordvalue = confirmpassword.value;
+  let confirmerror = document.getElementById("confirmerror");
+
+  if (confirmpasswordvalue == "") {
+    confirmerror.innerHTML = "Confirm password is required";
+  }
+
+  else if (password.value !== confirmpasswordvalue) {
+    confirmerror.innerHTML = "Passwords do not match";
+  }
+
+  else {
+    confirmerror.innerHTML = "";
+  }
+}
+  
+// Listen for form submit event
+form.addEventListener("submit", function (e) {
+
+  // Prevent page from refreshing after submit
+  e.preventDefault();
+
+  // Run all validation functions
+  validationfirstname();
+  validationlastname();
+  validationmobilenumber();
+  validationcountry();
+  validationstate();
+  validationcity();
+  validationpassword();
+  validationconfirmpassword();
+
+  // Check password conditions manually again
+  let hasLength = password.value.length >= 8; // Password must be at least 8 characters
+  let hasCapital = /[A-Z]/.test(password.value); // Must contain uppercase letter
+  let hasSmall = /[a-z]/.test(password.value); // Must contain lowercase letter
+  let hasNumber = /[0-9]/.test(password.value); // Must contain number
+  let hasSpecial = /[@$!%*?&]/.test(password.value); // Must contain special character
+
+  // Check if all validation error messages are empty
+  if (
+
+    // First name error should be empty
+    document.getElementById("fnameerror").innerHTML === "" &&
+
+    // Last name error should be empty
+    document.getElementById("lnameerror").innerHTML === "" &&
+
+    // Mobile number error should be empty
+    document.getElementById("mobileerror").innerHTML === "" &&
+
+    // Country error should be empty
+    document.getElementById("countryerror").innerHTML === "" &&
+
+    // State error should be empty
+    document.getElementById("stateerror").innerHTML === "" &&
+
+    // City error should be empty
+    document.getElementById("cityerror").innerHTML === "" &&
+
+    // Password error should be empty
+    document.getElementById("passworderror").innerHTML === "" &&
+
+    // Confirm password error should be empty
+    document.getElementById("confirmerror").innerHTML === "" &&
+
+    // All password rules must be true
+    hasLength && hasCapital && hasSmall && hasNumber && hasSpecial
+  ) {
+
+    // Create object to store user data
+    let userdata = {
+
+      // Store first name
+      firstname: firstname.value,
+
+      // Store last name
+      lastname: lastname.value,
+
+      // Store mobile number
+      mobile: mobilenumber.value,
+
+      // Store email value
+      email: document.getElementById("email").value,
+
+      // Store country
+      country: country.value,
+
+      // Store state
+      state: state.value,
+
+      // Store city
+      city: city.value,
+    };
+
+// Get old users data from localStorage
+// If no users exist, create an empty array
+let oldUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+// Add new user data into users array
+oldUsers.push({
+
+  // Store firstname input value
+  firstname: firstname.value,
+
+  // Store lastname input value
+  lastname: lastname.value,
+
+  // Store mobile number input value
+  mobile: mobilenumber.value,
+
+  // Store email input value
+  email: document.getElementById("email").value,
+
+  // Store selected country
+  country: country.value,
+
+  // Store selected state
+  state: state.value,
+
+  // Store selected city
+  city: city.value,
+
+  // Store password input value
+  password: password.value
+
+});
+
+// Convert array into string and save into localStorage
+localStorage.setItem("users", JSON.stringify(oldUsers));
+
+// Clear all form fields after signup
+form.reset();
+
+setTimeout(() => {
+  alert("Sign up Successfully");
+}, 0);
+  }
+});
+</script>
+</body>
+
+</html>

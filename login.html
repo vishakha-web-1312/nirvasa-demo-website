@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Login Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body style="padding-top: 80px;">
+  <div class="overlay"></div>
+  <header>
+    <a href="home-page.html">
+    <img src="images/nirvasalogo.png" alt="nirvasa" class="logo" /></a>
+    <nav>
+<a href="home-page.html">Home</a>
+<a href="about-page.html">About</a>
+    <a href="shop.html">Shop</a>
+
+
+<a href="contact-us.html">Contact us</a>
+ <a href="login.html" class="active">Login</a>
+</nav>
+
+  </header>
+ 
+
+    <main class="container">
+      <div class="signup-image">
+        <img src="images/computer-image.png" alt="image">
+    </div>
+
+
+     
+      <div class="login-card">
+        <h2>LOGIN</h2>
+        <br>
+        <form>
+           <div class="input-group">
+          <input type="text" placeholder="Mobile Number" class="mobilenumber-input" id="mobilenumber">
+          <div id="mobileerror"></div>
+        </div>
+       <div class="input-group password-box">
+  <input type="password" placeholder="Password" id="password"/>
+  <i class="fa fa-eye toggle-password" onclick="togglePassword('password', this)"></i>
+  <div id="passworderror"></div>
+</div>
+
+        
+          
+       
+              <button type="submit"class=" btn login-btn">Login</button>
+
+       <p style="text-align:center;">---------- OR ----------</p>
+
+
+        <div class="social-login">
+          <button type="button" class=" google-btn"> 
+             <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" 
+         class="icon"> Login with Google </button>
+            <button type="button" class="microsoft-btn"> <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+         class="icon"> Login with Microsoft </button>
+          
+          </div></form>
+
+<br>
+
+        <div class="sign-up">
+          <p>
+            Don't have an account?   &nbsp;
+            <a href="sign-up.html"> Sign up </a>
+          </p>
+        </div>
+        
+      </div>
+    </main>
+ 
+
+
+   
+   <footer class="footer">
+    
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>About Us</h3>    
+      <p> Nirvasa healthcare is a leading digital healthcare platform in India, offering a comprehensive range of services to over 8 million patients.
+        </p><div class="footer-icons">
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+  </div>
+         
+         </div>
+    
+
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <a href="home-page.html">Home</a>
+      <a href="about-page.html" class="active">About</a>
+      <a href="contact-us.html">Contact</a> 
+      <a href="login.html" >Login</a>
+    
+      
+    </div>
+
+    <div class="footer-col">
+      <h3>Shop </h3>
+      <a href="#">Wellness</a>
+      <a href="#">Fitness </a>
+      <a href="#">Hair </a>
+      <a href="#">Skin</a>
+    </div>
+ 
+    
+
+ 
+   
+    <div class="footer-col">
+    <h3>Contact Us</h3>
+     <iframe 
+     class="iframe"
+     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.029665658376!2d77.08921097553812!3d28.50875517573249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d191e76ed11eb%3A0x7edb5edf6b72cfaf!2sNirvasa%20Healthcare%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1778834798858!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+   
+  </div>
+
+
+  <div class="footer-bottom">
+    <div class="border-line"></div>
+     <p>@ 2026 <b>Nirvasa</b>.All Rights Reserved.</p>
+    
+  </div>
+</footer>
+
+<script>
+
+// Selecting form and input elements from HTML
+
+let form = document.querySelector("form");
+
+// getElementById is used to select HTML elements using their id
+let mobilenumber = document.getElementById("mobilenumber");
+let password = document.getElementById("password");
+
+
+// addEventListener() is used to attach events to form fields
+// so validation functions run automatically on user actions.
+mobilenumber.addEventListener("blur", validationmobilenumber);
+password.addEventListener("blur", validationpassword);
+
+
+// Function to validate first name field
+function validationmobilenumber() {
+
+  let mobile = mobilenumber.value;
+  let mobileerror = document.getElementById("mobileerror");
+
+  if (mobile == "") {
+    mobileerror.innerHTML = "Mobile number is required";
+  }
+
+  else if (!/^[0-9]+$/.test(mobile)) {
+    mobileerror.innerHTML = "Only numbers allowed";
+  }
+
+  else if (mobile.length != 10) {
+    mobileerror.innerHTML = "Mobile number must be 10 digits";
+  }
+
+  else if (!/^[6789]/.test(mobile)) {
+    mobileerror.innerHTML = "Number must start with 6,7,8 or 9";
+  }
+
+  else {
+    mobileerror.innerHTML = "";
+  }
+}
+// Function created to show or hide the password
+function togglePassword(fieldId, icon) {
+
+  // Select the input field using its id
+  let input = document.getElementById(fieldId);
+
+  // Check if the current input type is "password"
+  // Password type hides the text with dots/bullets
+  if (input.type === "password") {
+
+    // Change password field into normal text
+    // So the user can see the password
+    input.type = "text";
+
+    
+
+    // Add eye-slash icon
+    // This shows that the password is currently visible
+   icon.classList.replace("fa-eye", "fa-eye-slash");
+
+  } else {
+
+    // If password is already visible
+    // Change it back to hidden mode
+    input.type = "password";
+
+    
+
+  
+    icon.classList.replace("fa-eye-slash", "fa-eye");
+}
+  }
+
+
+
+function validationpassword() {
+
+  let passwordvalue = password.value;
+  let passworderror = document.getElementById("passworderror");
+
+  if (passwordvalue == "") {
+    passworderror.innerHTML = "Password is required";
+  }
+
+  else {
+
+    let hasLength = passwordvalue.length >= 8;
+    let hasCapital = /[A-Z]/.test(passwordvalue);
+    let hasSmall = /[a-z]/.test(passwordvalue);
+    let hasNumber = /[0-9]/.test(passwordvalue);
+    let hasSpecial = /[@$!%*?&]/.test(passwordvalue);
+
+    passworderror.innerHTML = `
+      <div class="password-rules">
+
+        <div class="${hasLength ? 'valid' : 'invalid'}">
+          ${hasLength ? '✅' : '❌'} Atleast 8 Characters
+        </div>
+
+        <div class="${hasCapital ? 'valid' : 'invalid'}">
+          ${hasCapital ? '✅' : '❌'} Capital Letter
+        </div>
+
+        <div class="${hasSmall ? 'valid' : 'invalid'}">
+          ${hasSmall ? '✅' : '❌'} Small Letter
+        </div>
+
+        <div class="${hasNumber ? 'valid' : 'invalid'}">
+          ${hasNumber ? '✅' : '❌'} Number
+        </div>
+
+        <div class="${hasSpecial ? 'valid' : 'invalid'}">
+          ${hasSpecial ? '✅' : '❌'} Special Character
+        </div>
+
+      </div>
+    `;
+
+    if (hasLength && hasCapital && hasSmall && hasNumber && hasSpecial) {
+      passworderror.innerHTML = "";
+    }
+  }
+}
+// Get saved users from localStorage
+let users = JSON.parse(localStorage.getItem("users")) || [];
+
+// Get last registered user
+let lastUser = users[users.length - 1];
+
+// Autofill login fields
+if (lastUser) {
+
+  mobilenumber.value = lastUser.mobile;
+  password.value = lastUser.password;
+
+}
+
+// addEventListener is used to attach an event (like blur, change) to an element
+// so that a function runs automatically when that event happens
+form.addEventListener("submit", function (e) {
+
+  // Prevent page refresh
+  e.preventDefault();
+
+  // Run validations
+  validationmobilenumber();
+  validationpassword();
+
+  // Password conditions
+  let hasLength = password.value.length >= 8;
+  let hasCapital = /[A-Z]/.test(password.value);
+  let hasSmall = /[a-z]/.test(password.value);
+  let hasNumber = /[0-9]/.test(password.value);
+  let hasSpecial = /[@$!%*?&]/.test(password.value);
+
+  // Check validation errors first
+  if (
+
+    document.getElementById("mobileerror").innerHTML == "" &&
+    document.getElementById("passworderror").innerHTML == "" &&
+    hasLength &&
+    hasCapital &&
+    hasSmall &&
+    hasNumber &&
+    hasSpecial
+
+  ) {
+// Get saved users from localStorage
+// Find matching user
+let validUser = users.find(user =>
+
+  user.mobile === mobilenumber.value &&
+  user.password === password.value
+
+);
+
+// If no matching user found
+if (!validUser) {
+
+  alert("Invalid Mobile Number or Password");
+
+}
+
+// If matching user found
+else {
+
+  alert("Login Successfully");
+
+  form.reset();
+
+}
+
+  }
+
+});
+ 
+ 
+ </script>
+</body>
+
+</html>

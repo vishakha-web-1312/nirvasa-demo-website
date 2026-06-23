@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New Login Page</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            height: 100vh; 
+        }
+
+        .image {
+            flex: 7.5;   
+            overflow: hidden;
+        }
+
+        .image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .login-card {
+    flex: 2.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 40px 0 20px;
+    gap: 20px;
+    position: relative;
+    background-color: #ffffff;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.05);
+}
+h2 {
+    font-weight: 400;
+}
+
+
+.social-footer {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+}
+.social-footer a {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+ 
+  
+  
+}
+
+.social-footer a i {
+  font-size: 16px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+ 
+}
+.social-footer a:hover {
+    background: green;
+
+ 
+      }
+
+        input {
+            width: 80%;
+            padding: 12px 15px; 
+            border: 1px solid #d1d5db; 
+            border-radius: 8px;
+            
+            outline: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color:#111827;
+            box-shadow: 0 0 5px rgba(79, 70, 229, 0.2);
+        }
+        input::-ms-reveal,
+        input::-ms-clear {
+    display: none;
+         }
+        .btn {
+            width: 80%;
+            padding: 12px;
+            cursor: pointer;
+            background-color: #111827;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #374151; }
+
+        .social-login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+       }
+
+        .social-login button {
+            width: 80%;
+            margin-top: 10px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            background-color: white;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-login button:hover {
+            background-color: #f3f4f6; 
+        }
+
+        .password-box {
+            width: 80%;
+            position: relative;
+        }
+
+        .password-box input {
+         width: 100%;
+         padding: 10px 40px 10px 10px;
+        }
+
+
+         
+
+
+
+        .toggle-icon {
+           position: absolute;
+           right: 10px;
+          top: 50%;
+           transform: translateY(-50%);
+          cursor: pointer;
+          color: #555;
+        }
+        .password-rules{
+
+        text-align:left;
+        font-size:14px;
+        line-height:24px;
+     }
+     #passworderror,
+     #mobileerror{
+        width: 80%;
+        color: red;
+        font-size: 13px;
+        text-align: left;
+        margin-top: -12px;
+        min-height: 14px;
+        align-self: center;
+}
+.valid{
+  color: black;
+}
+
+.invalid{
+  color:red;
+}
+     #passworderror:empty,
+     #mobileerror:empty{
+  display:none;
+   }
+
+    </style>
+</head>
+
+<body>
+
+<main class="container">
+
+   
+    <div class="image">
+        <img src="computer.png" alt="side-image">
+    </div>
+
+    
+    <form class="login-card">
+        
+<h2>Login to NIRVASA</h2>
+        <input type="text" placeholder="Mobile number" id="mobilenumber">
+        <div id="mobileerror"></div>
+
+        <div class="password-box">
+    <input type="password" placeholder="Password" id="password">
+    <i class="fa fa-eye toggle-icon" onclick="togglePassword('password', this)"></i>
+
+             </div>
+             <div id="passworderror"></div>
+
+
+        <button class="btn login-btn">Login</button>
+
+        <p style="width: 80%; text-align: center; color: #6b7280; font-size: 14px; margin: 5px 0;">— OR —</p>
+
+        <div class="social-login">
+            <button type="button">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="20">
+                Login with Google
+            </button>
+
+            <button type="button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" width="20">
+                Login with Microsoft
+            </button>
+            </div>
+           
+            <div class="social-footer">
+
+    
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+  </div>
+
+        
+
+    </form>
+
+</main>
+
+<script>
+
+let form = document.querySelector("form");
+
+let mobilenumber = document.getElementById("mobilenumber");
+let password = document.getElementById("password");
+
+mobilenumber.addEventListener("blur", validationmobilenumber);
+password.addEventListener("blur", validationpassword);
+
+function validationmobilenumber() {
+
+  let mobile = mobilenumber.value;
+  let mobileerror = document.getElementById("mobileerror");
+
+  if (mobile == "") {
+    mobileerror.innerHTML = "Mobile number is required";
+  }
+
+  else if (!/^[0-9]+$/.test(mobile)) {
+    mobileerror.innerHTML = "Only numbers allowed";
+  }
+
+  else if (mobile.length != 10) {
+    mobileerror.innerHTML = "Mobile number must be 10 digits";
+  }
+
+  else if (!/^[6789]/.test(mobile)) {
+    mobileerror.innerHTML = "Number must start with 6,7,8 or 9";
+  }
+
+  else {
+    mobileerror.innerHTML = "";
+  }
+}
+
+function togglePassword(fieldId, icon) {
+
+  let input = document.getElementById(fieldId);
+
+  if (input.type === "password") {
+
+    input.type = "text";
+
+    icon.classList.replace("fa-eye", "fa-eye-slash");
+
+  } 
+  
+  else {
+
+    input.type = "password";
+
+    icon.classList.replace("fa-eye-slash", "fa-eye");
+  }
+}
+
+function validationpassword() {
+
+  let passwordvalue = password.value;
+  let passworderror = document.getElementById("passworderror");
+
+  if (passwordvalue == "") {
+    passworderror.innerHTML = "Password is required";
+  }
+
+  else {
+
+    let hasLength = passwordvalue.length >= 8;
+    let hasCapital = /[A-Z]/.test(passwordvalue);
+    let hasSmall = /[a-z]/.test(passwordvalue);
+    let hasNumber = /[0-9]/.test(passwordvalue);
+    let hasSpecial = /[@$!%*?&]/.test(passwordvalue);
+
+    passworderror.innerHTML = `
+
+      <div class="password-rules">
+
+        <div class="${hasLength ? 'valid' : 'invalid'}">
+          ${hasLength ? '✅' : '❌'} Atleast 8 Characters
+        </div>
+
+        <div class="${hasCapital ? 'valid' : 'invalid'}">
+          ${hasCapital ? '✅' : '❌'} Capital Letter
+        </div>
+
+        <div class="${hasSmall ? 'valid' : 'invalid'}">
+          ${hasSmall ? '✅' : '❌'} Small Letter
+        </div>
+
+        <div class="${hasNumber ? 'valid' : 'invalid'}">
+          ${hasNumber ? '✅' : '❌'} Number
+        </div>
+
+        <div class="${hasSpecial ? 'valid' : 'invalid'}">
+          ${hasSpecial ? '✅' : '❌'} Special Character
+        </div>
+
+      </div>
+
+    `;
+
+    if (
+      hasLength &&
+      hasCapital &&
+      hasSmall &&
+      hasNumber &&
+      hasSpecial
+    ) {
+
+      passworderror.innerHTML = "";
+    }
+  }
+}
+
+form.addEventListener("submit", function (e) {
+
+  e.preventDefault();
+
+  validationmobilenumber();
+  validationpassword();
+
+  let hasLength = password.value.length >= 8;
+  let hasCapital = /[A-Z]/.test(password.value);
+  let hasSmall = /[a-z]/.test(password.value);
+  let hasNumber = /[0-9]/.test(password.value);
+  let hasSpecial = /[@$!%*?&]/.test(password.value);
+
+  if (
+
+    document.getElementById("mobileerror").innerHTML == "" &&
+    document.getElementById("passworderror").innerHTML == "" &&
+    hasLength &&
+    hasCapital &&
+    hasSmall &&
+    hasNumber &&
+    hasSpecial
+
+  ) {
+
+    form.reset();
+
+setTimeout(() => {
+  alert("Login Successfully");
+}, 0);
+}
+}
+);
+
+</script>
+
+</body>
+</html>
