@@ -1097,7 +1097,7 @@ padding-top: 20px;
 
 .team-grid {
     display: grid;
-    gap: 25px;
+    gap: 15px;
         padding: 0px 90px;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
