@@ -2346,6 +2346,15 @@ gap: 40px;
     gap: 30px;
     padding: var(--lg);
   }
+  .trust-line {
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
+  .trust-item img {
+    width: 100px;
+    height: 100px;
+  }
 
   .map-area iframe {
     width: 100%;
@@ -2418,7 +2427,31 @@ gap: 40px;
   .contact-grid {
     grid-template-columns: 1fr;
   }
+  .trust-section {
+    padding: 60px 20px;
+  }
 
+  .trust-line {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .trust-item {
+    text-align: center;
+  }
+
+  .trust-item img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .trust-section h2 {
+    font-size: 22px;
+  }
+
+  .trust-section p {
+    font-size: 14px;
+  }
   .category-grid {
     grid-template-columns: 1fr;
   }
