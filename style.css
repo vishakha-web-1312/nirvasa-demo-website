@@ -641,6 +641,22 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     padding: var(--sd) var(--lg);
   }
 
+  nav {
+    gap: var(--md);
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .container {
     gap: 40px;
     flex-direction: column;
@@ -658,37 +674,58 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     margin-right: 0;
   }
 
-  .footer-container {
-    grid-template-columns: repeat(2, 1fr);
-    padding: var(--xl) var(--lg);
-  }
+ 
 
   .name-row,
   .contact-row,
   .location-row {
     flex-direction: column;
+    
   }
+  
+.name-row .input-group,
+.contact-row .input-group,
+.location-row .input-group {
+  flex: 1;
+  width: 100%;
 }
 
 
 
-
+}
 
 
 
 @media (max-width: 768px) {
 
-  header {
+     header {
     flex-direction: column;
     gap: 10px;
     padding: var(--md);
-    text-align: center;
   }
 
   nav {
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+ 
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+
 
   .container {
     flex-direction: column;
@@ -697,7 +734,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
   }
 
   .signup-image {
-    display: none; /* mobile pe image hide (clean UI) */
+    display: none; 
   }
 
   .login-card {
@@ -705,11 +742,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     padding: var(--lg);
   }
 
-  .footer-container {
-    grid-template-columns: 1fr;
-    padding: var(--lg);
-  }
-
+ 
   .btn {
     width: 100%;
   }
@@ -731,3 +764,13 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     gap: 5px;
   }
 }
+ 
+.name-row .input-group,
+.contact-row .input-group,
+.location-row .input-group {
+  flex: 1;
+  width: 100%;
+}
+
+
+
