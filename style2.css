@@ -1097,7 +1097,7 @@ padding-top: 20px;
 
 .team-grid {
     display: grid;
-    gap: 15px;
+    gap: 25px;
         padding: 0px 90px;
     grid-template-columns: repeat(4, 1fr);
     justify-content: center;
@@ -1130,7 +1130,10 @@ padding-top: 20px;
     object-fit: cover;
     display: block;
     max-width: none;
-    margin: 14px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 14px;
     
 }
 .doctor-info {
