@@ -2333,6 +2333,21 @@ gap: 40px;
   .category-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .contact-main {
+    flex-direction: column;
+    gap: 30px;
+    padding: var(--lg);
+  }
+
+  .map-area iframe {
+    width: 100%;
+    height: 350px;
+  }
+
+  .contact-form {
+    width: 100%;
+  }
 }
 
 
@@ -2414,5 +2429,28 @@ gap: 40px;
   .banner-content {
     position: static;
     width: 100%;
+  }
+
+  .contact-main {
+    flex-direction: column;
+    padding: var(--md);
+  }
+
+  .map-area iframe {
+    width: 100%;
+    height: 250px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 14px;
   }
 }
