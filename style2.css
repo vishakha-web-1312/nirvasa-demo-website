@@ -41,8 +41,8 @@
 
 body {
   
-    
-  
+   
+    overflow-x: hidden;
     min-height: 100vh;
     background: none;
   
@@ -2277,7 +2277,13 @@ gap: 40px;
 
 
 
+@media (max-width: 1300px){
 
+    .team-grid{
+        grid-template-columns: repeat(2, 285px);
+    }
+
+}
 
 
 
