@@ -40,7 +40,7 @@
     <div class="category-overlay">
         <h3>Wellness</h3>
         <p>Boost Your Confidence</p>
-        <a href="shop.html" class="category-link">
+        <a href="wellness.html" class="category-link">
     Explore <i class="fa fa-arrow-right"></i>
 </a>
     </div>
@@ -52,7 +52,7 @@
     <div class="category-overlay">
         <h3>Fitness</h3>
         <p>Stay active & healthy</p>
-<a href="shop.html" class="category-link">
+<a href="fitness.html" class="category-link">
     Explore <i class="fa fa-arrow-right"></i>
 </a>    </div>
 </div>
@@ -63,7 +63,7 @@
     <div class="category-overlay">
         <h3>Skin Care</h3>
         <p>Glow with confidence</p>
-        <a href="shop.html" class="category-link">
+        <a href="skin.html" class="category-link">
                 Explore <i class="fa fa-arrow-right"></i>
             </a>
     </div>
@@ -75,7 +75,7 @@
     <div class="category-overlay">
         <h3>Hair Care</h3>
         <p>Healthy hair, everyday</p>
-        <a href="shop.html" class="category-link">
+        <a href="hair.html" class="category-link">
     Explore <i class="fa fa-arrow-right"></i>
 </a>
     </div>
@@ -291,7 +291,7 @@
 <div class="section-header">
     <h2>Wellness</h2>
 
-    <a href="" class="view-all">
+    <a href="wellness.html" class="view-all">
         View All <i class="fa fa-chevron-right"></i>
     </a>
 </div>
@@ -491,7 +491,7 @@
 <div class="section-header">
     <h2>Fitness</h2>
 
-    <a href="" class="view-all">
+    <a href="fitness.html" class="view-all">
         View All <i class="fa fa-chevron-right"></i>
     </a>
 </div>
@@ -695,7 +695,7 @@
 <div class="section-header">
     <h2>Hair Care</h2>
 
-    <a href="" class="view-all">
+    <a href="hair.html" class="view-all">
         View All <i class="fa fa-chevron-right"></i>
     </a>
 </div>
@@ -894,7 +894,7 @@
 <div class="section-header">
     <h2>Skin Care</h2>
 
-    <a href="" class="view-all">
+    <a href="skin.html" class="view-all">
         View All <i class="fa fa-chevron-right"></i>
     </a>
 </div>
@@ -1132,7 +1132,10 @@
     </div>
 </div>
 
-
+<div class="cart-icon">
+    <i class="fa fa-shopping-bag"></i>
+    <span id="cartCount">0</span>
+</div>
 
  <footer class="footer">
     
@@ -1480,6 +1483,19 @@ document.addEventListener("click", function(e){
         }
 
     });
+
+    let count = 0;
+
+document.querySelectorAll(".cart-btn").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        count++;
+        document.getElementById("cartCount").textContent = count;
+
+    });
+
+});
 
 </script>
 

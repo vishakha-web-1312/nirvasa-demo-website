@@ -1461,7 +1461,7 @@ gap: 40px;
     margin-top: var(--md);
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:30px;
+    gap:50px;
 }
 
 
@@ -1700,7 +1700,28 @@ gap: 40px;
 
 
 
+.cart-icon{
+    position: fixed;
+    top:  13px;
+    right: 46px;
+    font-size: 28px;
+    z-index: 9999;
+}
 
+.cart-icon span{
+    position: absolute;
+    top: -6px;
+    right: -12px;
+    background: var(--primary);
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 
