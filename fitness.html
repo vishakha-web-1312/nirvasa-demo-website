@@ -339,6 +339,10 @@
     </div>
 
 </section>
+<div class="cart-icon">
+    <i class="fa fa-shopping-bag"></i>
+    <span id="cartCount">0</span>
+</div>
 
 <div class="modal" id="productModal">
     <div class="modal-content">
@@ -624,6 +628,18 @@
 
     });
 
+let count = 0;
+
+document.querySelectorAll(".cart-btn").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        count++;
+        document.getElementById("cartCount").textContent = count;
+
+    });
+
+});
 </script>
 
 </body>
