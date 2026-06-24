@@ -934,6 +934,8 @@ padding-top: 20px;
   border: none;
      background: var(--primary-dark);
   color: var(--white);
+    border-radius: 12px;
+
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
@@ -956,6 +958,8 @@ padding-top: 20px;
   content: "";
   position: absolute;
   height: 4px;
+      border-radius: 12px;
+
   background: var(--primary);
   width: 0;
   transition: width 1s ease-in-out;
@@ -976,6 +980,8 @@ padding-top: 20px;
   content: "";
   position: absolute;
   width: 4px;
+      border-radius: 12px;
+
   background: var(--primary);
   height: 0;
   transition: height 1s ease-in-out;
@@ -992,7 +998,8 @@ padding-top: 20px;
 }
 
 .item:hover::before {
-  width: 100%; 
+
+    width: 100%; 
 }
 .item:hover::after {
   width: 100%; 
@@ -1334,7 +1341,19 @@ gap: 40px;
     pointer-events: none;
     z-index: 0;
 }
-
+.category-section::after {
+        content: "";
+    position: absolute;
+    right: -63px;
+    top: 1%;
+    width: 334px;
+    height: 323px;
+    background: url(images/background5.png) no-repeat center;
+    background-size: contain;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: -80;
+}
 
 .category-container {
     margin-top: var(--lg);
@@ -1555,8 +1574,8 @@ gap: 40px;
 
 .product-slider{
     display:flex;
-    gap: 40px;
-    padding: 20px;
+    gap: 20px;
+    padding: 10px;
     width:100%;
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -1573,18 +1592,22 @@ gap: 40px;
     width: 100%;
     height: 250px;
     margin-bottom: 20px;
-    object-fit: contain;
      pointer-events: none;
+     overflow: hidden;
+    
+    object-fit: contain;
+    display: block;
     user-select: none;
     transition: transform 0.4s ease;
 }
 
-.product-card:hover img{
-    transform: scale(1.08);
-}
+ 
+
 .img-box{
-    position:relative;
-    overflow:hidden;
+     position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 250px; /* image height ke equal */
 }
 
 
@@ -1704,7 +1727,8 @@ gap: 40px;
     padding: 20px;
 
     box-shadow: var(--shadow);
-    overflow: hidden;
+       overflow: hidden;
+
 
     transition: all 0.4s ease;
 }
@@ -1955,9 +1979,12 @@ gap: 40px;
     gap: 40px;
 }
 
-.modal-left,
+.modal-left{
+    flex: 4;
+}
+
 .modal-right {
-    flex: 1;
+    flex: 6;
 }
 
 .modal-left {
@@ -1973,10 +2000,7 @@ gap: 40px;
     object-fit: contain;
 }
 
-.modal-right h3 {
-    font-size: 28px;
-    margin-bottom: 15px;
-}
+
 
 #modalRating,
 #modalPrice {
@@ -2005,6 +2029,12 @@ gap: 40px;
     align-items: center;
 }
 
+.modal-desc{
+    margin: 12px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
 #modalQty {
     width: 80px;
 }
@@ -2066,7 +2096,7 @@ gap: 40px;
     background-size: contain;
     opacity: 0.1;
     pointer-events: none;
-    z-index: 0;
+    z-index: -1;
 }
 
 
@@ -2087,7 +2117,7 @@ gap: 40px;
 
     transition: transform 0.3s ease,
                 box-shadow 0.3s ease,
-                background-color 1s ease-in-out;
+                background-color 1.5s ease-in-out;
 }
 .contact-item a{
     color: inherit;
@@ -2118,13 +2148,15 @@ gap: 40px;
   justify-content: center;
   position: relative;
   z-index: 2;
-}
 
+  transition: background-color 0.8s ease;
+}
 .icon-circle i {
   font-size: 36px;
   color: var(--primary-dark);
-}
 
+  transition: color 0.8s ease;
+}
 .icon-circle::before,
 .icon-circle::after {
   content: '';
@@ -2134,7 +2166,7 @@ gap: 40px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: all 1.5s ease; 
+  transition: all 0.5s ease; 
 }
 
 .icon-wrapper:hover .icon-circle::before,
@@ -2346,15 +2378,6 @@ gap: 40px;
     gap: 30px;
     padding: var(--lg);
   }
-  .trust-line {
-    gap: 60px;
-    flex-wrap: wrap;
-  }
-
-  .trust-item img {
-    width: 100px;
-    height: 100px;
-  }
 
   .map-area iframe {
     width: 100%;
@@ -2427,31 +2450,7 @@ gap: 40px;
   .contact-grid {
     grid-template-columns: 1fr;
   }
-  .trust-section {
-    padding: 60px 20px;
-  }
 
-  .trust-line {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-  .trust-item {
-    text-align: center;
-  }
-
-  .trust-item img {
-    width: 90px;
-    height: 90px;
-  }
-
-  .trust-section h2 {
-    font-size: 22px;
-  }
-
-  .trust-section p {
-    font-size: 14px;
-  }
   .category-grid {
     grid-template-columns: 1fr;
   }

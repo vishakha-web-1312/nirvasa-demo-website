@@ -99,7 +99,7 @@
             <div class="product-card">
                 <img src="images/xtrajosh.png" alt="bestseller1">
 
-        <h3>XTRAJOSH TABLET<br> (30 Tablets)</h3>
+        <h3>XTRAJOSH TABLET  (30 Tablets)</h3>
 <div class="rating">
     <i class="fa fa-star"></i>
     <i class="fa fa-star"></i>
@@ -173,7 +173,7 @@
            <div class="product-card">
                 <img src="images/Maxx-josh_400x.png" alt="bestseller3">
 
-                <h3>Maxx Josh Tablets <br>(60 Tabs)</h3>
+                <h3>Maxx Josh Tablets  (60 Tabs)</h3>
 
        <div class="rating">
      <i class="fa fa-star"></i>
@@ -206,7 +206,7 @@
     </div>
   <div class="product-card">
                 <img src="images/ShilajitResin_1_800x.png" alt="bestseller4">
-                <h3>Nirvasa Shilajit Resin <br>20g
+                <h3>Nirvasa Shilajit Resin   20gram
 </h3>
 
        <div class="rating">
@@ -240,7 +240,7 @@
 
   <div class="product-card">
            <img src="images/ACV_1_400x.png" alt="bestseller5">
-                <h3>Nirvasa ACV  Tablets<br>(15 Tabs)</h3>
+                <h3>Nirvasa ACV  Tablets (15 Tabs)</h3>
 
        <div class="rating">
     <i class="fa fa-star"></i>
@@ -373,7 +373,7 @@
            
   <div class="product-card">
                 <img src="images/ShilajitResin_1_800x.png" alt="wellness-img3">
-                <h3>Nirvasa Shilajit Resin <br>20g
+                <h3>Nirvasa Shilajit Resin   20gram
 </h3>
 
        <div class="rating">
@@ -407,7 +407,7 @@
 
   <div class="product-card">
            <img src="images/alphaman_gol_60_800x.png" alt="wellness-img4">
-                <h3>  Alphaman Gold <br>(60 Tablets)</h3>
+                <h3>  Alphaman Gold  (60 Tablets)</h3>
 
        <div class="rating">
     <i class="fa fa-star"></i>
@@ -441,7 +441,7 @@
            <div class="product-card">
                 <img src="images/Maxx-josh_400x.png" alt="wellness-img5">
 
-                <h3>Maxx Josh Tablets <br>(60 Tabs)</h3>
+                <h3>Maxx Josh Tablets  (60 Tabs)</h3>
 
        <div class="rating">
      <i class="fa fa-star"></i>
@@ -539,7 +539,7 @@
     <div class="product-card">
                 <img src="images/BCAA_1_800x.png" alt="fitness-img2">
 
-        <h3> BCAA Advanced <br> 210g</h3>
+        <h3>Nirvasa BCAA Advanced   210 gram</h3>
 <div class="rating">
     <i class="fa fa-star"></i>
     <i class="fa fa-star"></i>
@@ -641,7 +641,7 @@
 
   <div class="product-card">
            <img src="images/ACV_1_400x.png" alt="fitness-img5">
-                <h3>Nirvasa ACV  Tablets<br>(15 Tabs)</h3>
+                <h3>Nirvasa ACV  Tablets (15 Tabs)</h3>
 
        <div class="rating">
     <i class="fa fa-star"></i>
@@ -1041,7 +1041,7 @@
 
   <div class="product-card">
            <img src="images/ACV_1_400x.png" alt="skin-care-img5">
-                <h3>Nirvasa Hydro Pro Gel 50g</h3>
+                <h3>Nirvasa ACV  Tablets (15 Tabs)</h3>
 
        <div class="rating">
     <i class="fa fa-star"></i>
@@ -1102,6 +1102,8 @@
                 <h3 id="modalTitle"></h3>
 
                 <div class="rating" id="modalRating"></div>
+
+                <div id="modalDesc" class="modal-desc"></div>
 
                 <div class="price" id="modalPrice"></div>
 
@@ -1200,6 +1202,9 @@
     // Get rating element inside modal
     const modalRating = document.getElementById("modalRating");
 
+    // Get Description element inside modal
+     const modalDesc = document.getElementById("modalDesc");
+
     // Get price element inside modal
     const modalPrice = document.getElementById("modalPrice");
 
@@ -1221,11 +1226,14 @@ document.addEventListener("click", function(e){
     const title = card.querySelector("h3").innerHTML;
     const rating = card.querySelector(".rating").innerHTML;
     const price = card.querySelector(".price").innerHTML;
-
+    
     modalImage.src = image;
     modalTitle.innerHTML = title;
     modalRating.innerHTML = rating;
     modalPrice.innerHTML = price;
+
+    modalDesc.innerHTML =
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
 
     document.getElementById("modalQty").value = 1;
 
