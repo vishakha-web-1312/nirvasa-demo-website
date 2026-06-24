@@ -1703,6 +1703,7 @@ gap: 40px;
     top:  13px;
     right: 46px;
     font-size: 28px;
+    display: none;
     z-index: 9999;
 }
 
