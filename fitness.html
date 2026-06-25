@@ -445,6 +445,16 @@
     
   </div>
 </footer>
+<div id="cartPanel" class="cart-panel">
+    <div class="cart-header">
+        <h2>My Cart</h2>
+        <span id="closeCart">&times;</span>
+    </div>
+
+    <div id="cartItems" class="cart-items">
+        <p>No items added yet</p>
+    </div>
+</div>
 <script>
 
     //    MODAL SECTION   
@@ -628,24 +638,169 @@
 
     });
 
-let count = 0;
+
+//ADD to cart
+
+   let count = 0;
 
 const cartIcon = document.querySelector(".cart-icon");
+const cartItems = document.getElementById("cartItems");
 
-document.querySelectorAll(".cart-btn").forEach(button => {
+document.querySelectorAll(".product-card .cart-btn").forEach(button => {
 
-    button.addEventListener("click", () => {
+    button.addEventListener("click", function() {
 
-        count++;
-        document.getElementById("cartCount").textContent = count;
+        const card = this.closest(".product-card");
 
-        cartIcon.style.display = "flex"; 
+        const image = card.querySelector("img").src;
+        const title = card.querySelector("h3").innerHTML;
+        const newPrice = card.querySelector(".new-price").textContent;
+        const quantity = Number(card.querySelector(".quantity-input").value);
+
+        cartIcon.style.display = "flex";
+
+        if(cartItems.innerHTML.includes("No items added yet")){
+            cartItems.innerHTML = "";
+        }
+
+        // check same product already exists
+        const existingItem = [...document.querySelectorAll(".cart-item")]
+        .find(item =>
+            item.querySelector("h4").textContent === title
+        );
+
+        if(existingItem){
+
+            const qtyElement = existingItem.querySelector(".qty-value");
+
+            let currentQty = Number(qtyElement.textContent);
+
+            let totalQty = currentQty + quantity;
+
+            if(totalQty > 10){
+
+                alert("Maximum quantity allowed is 10");
+
+                return;
+            }
+
+            qtyElement.textContent = totalQty;
+
+        }
+
+        else{
+
+            count++;
+
+            document.getElementById("cartCount").textContent = count;
+
+            cartItems.innerHTML += `
+            <div class="cart-item">
+
+                <img src="${image}" alt="${title}">
+
+                <div class="cart-details">
+
+                    <h4>${title}</h4>
+
+                    <div class="price">
+                        <span class="new-price">${newPrice}</span>
+                    </div>
+
+                    <div class="cart-footer">
+
+                        <div class="cart-controls">
+
+                            <button class="qty-btn qty-minus">
+                                <i class="fa fa-minus"></i>
+                            </button>
+
+                            <span class="qty-value">${quantity}</span>
+
+                            <button class="qty-btn qty-plus">
+                                <i class="fa fa-plus"></i>
+                            </button>
+
+                        </div>
+
+                        <button class="delete-btn">
+                            <i class="fa fa-trash"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+            `;
+        }
 
     });
 
-});;
+});
 
+
+cartIcon.addEventListener("click", () => {
+    document.getElementById("cartPanel").classList.add("active");
+});
+
+document.getElementById("closeCart").addEventListener("click", () => {
+    document.getElementById("cartPanel").classList.remove("active");
+});
+
+
+document.addEventListener("click", function(e){
+
+    const plusBtn = e.target.closest(".qty-plus");
+    const minusBtn = e.target.closest(".qty-minus");
+    const deleteBtn = e.target.closest(".delete-btn");
+
+    if(plusBtn){
+
+        let qty = plusBtn.parentElement.querySelector(".qty-value");
+
+        let current = Number(qty.textContent);
+
+        if(current < 10){
+          qty.textContent = current + 1;
+}
+        else{
+          alert("Maximum quantity allowed is 10");
+}   
+    }
+
+    if(minusBtn){
+
+        let qty = minusBtn.parentElement.querySelector(".qty-value");
+
+        let current = Number(qty.textContent);
+
+        if(current > 1){
+            qty.textContent = current - 1;
+        }
+    }
+
+    if(deleteBtn){
+
+        deleteBtn.closest(".cart-item").remove();
+
+        count--;
+
+        if(count < 0){
+            count = 0;
+        }
+
+        document.getElementById("cartCount").textContent = count;
+
+        if(document.querySelectorAll(".cart-item").length === 0){
+
+            cartItems.innerHTML = "<p>No items added yet</p>";
+        }
+    }
+
+});
 </script>
+
 
 </body>
 </html>
