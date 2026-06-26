@@ -777,21 +777,14 @@ document.addEventListener("click", function(e){
             qty.textContent = current - 1;
         }
     }
-
     if(deleteBtn){
-
         deleteBtn.closest(".cart-item").remove();
-
         count--;
-
         if(count < 0){
             count = 0;
         }
-
         document.getElementById("cartCount").textContent = count;
-
         if(document.querySelectorAll(".cart-item").length === 0){
-
             cartItems.innerHTML = "<p>No items added yet</p>";
         }
     }

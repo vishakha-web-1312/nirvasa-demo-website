@@ -652,8 +652,7 @@ padding-top: 20px;
 }
 
 .faq-image img {
-    width: 100%;
-    height: auto;
+    width: 90%;
     object-fit: contain;
 }
 
@@ -934,7 +933,7 @@ padding-top: 20px;
     border-radius:120px 180px 120px 120px;
 
 
-    box-shadow:0 30px 60px rgba(0,0,0,.18);
+    box-shadow:var(--shadow);
 
 }
 
@@ -943,8 +942,6 @@ padding-top: 20px;
     width:100%;
     height:100%;
     object-fit:cover;
-
-
     transition:.5s;
 
 }
@@ -1013,6 +1010,150 @@ padding-top: 20px;
 
 
 
+.why-choose{
+    padding:   var(--extralarge);
+    position:relative;
+    overflow:hidden;
+    text-align: center;
+    background: var(--light-background);
+}
+
+
+.why-choose::before{
+    content:"";
+    position:absolute;
+    width:550px;
+    height:550px;
+    left: 0%;
+   background:#15803d14;
+    border-radius:50%;
+    top:133px;
+    filter:blur(120px);
+    z-index:-2;
+}
+
+.why-choose::after{
+
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:#15803d14;
+    border-radius:50%;
+    bottom:-180px;
+    right:-180px;
+    filter:blur(120px);
+    z-index:-2;
+}
+
+
+
+
+.why-container{
+   display:flex;
+   text-align: start;
+    align-items:center;
+    justify-content:space-between;
+   
+}
+
+
+
+
+
+.left-content{
+    flex:1;
+}
+
+
+.why-info-card{
+    background:#fff;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:var(--shadow);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+}
+
+.features-grid{
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 20px;
+  
+  flex-wrap: wrap;
+}
+
+.feature-list{
+  list-style: none;
+  flex: 1;
+  min-width: 260px;
+
+ 
+}
+
+.feature-list li{
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feature-list i{
+  color: #2e7d32;
+  font-size: 18px;
+}
+
+
+
+
+
+
+.left-content h2 span{
+
+    display:block;
+    color:var(--primary-dark);
+}
+
+
+.description{
+
+    max-width:620px;
+}
+
+.right-content{
+
+    flex:1;
+    display:grid;
+    
+    grid-template-columns:repeat(2,1fr);
+    gap:28px;
+  align-items: stretch;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1021,8 +1162,8 @@ padding-top: 20px;
 .approach{
 
     text-align:center;
-  padding: var(--extralarge) 110px;
-  background: var(--light-background);
+  padding: var(--extralarge) 110px 0px;
+  
   
   transition: all 0.3s ease;
   cursor: pointer;
