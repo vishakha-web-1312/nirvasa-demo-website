@@ -40,7 +40,7 @@
 
           
             <div class="product-card">
-                <img src="images/Shilajit-min-tiny_800x.png" alt="wellness-img1">
+                <img src="images/Shilajit-min-tiny_800x1.png" alt="wellness-img1">
 
         <h3>Nirvasa Pure Shilajit  (60 Tablets)</h3>
 <div class="rating">
@@ -70,13 +70,11 @@
         <button type="button" class="wish-btn">
             <i class="fa fa-heart"></i>
         </button>
-        <button type="button" class="view-btn">
-    <i class="fa fa-eye"></i>
-</button>
+        
    
     </div>
           <div class="product-card">
-                <img src="images/AshwagandhaGummies.png" alt=" wellness-img2">
+                <img src="images/AshwagandhaGummies1.png" alt=" wellness-img2">
 
                 <h3>Nirvasa Ashwagandha  (60 Tablets)</h3>
 
@@ -104,9 +102,7 @@
         <button type="button"  class="wish-btn">
             <i class="fa fa-heart"></i>
         </button>
-        <button type="button" class="view-btn">
-    <i class="fa fa-eye"></i>
-</button>
+        
     
     </div>
            
@@ -139,13 +135,11 @@
         <button type="button"  class="wish-btn">
             <i class="fa fa-heart"></i>
         </button>
-   <button type="button" class="view-btn">
-    <i class="fa fa-eye"></i>
-</button>
+   
     </div>
 
   <div class="product-card">
-           <img src="images/alphaman_gol_60_800x.png" alt="wellness-img4">
+           <img src="images/alphaman_gol_60_800x1.png" alt="wellness-img4">
                 <h3>  Nirvasa Alphaman Gold  (60 Tablets)</h3>
 
        <div class="rating">
@@ -172,10 +166,7 @@
         <button type="button"  class="wish-btn">
             <i class="fa fa-heart"></i>
         </button>
-        <button type="button" class="view-btn">
-    <i class="fa fa-eye"></i>
-</button>
-    
+      
             </div>
            <div class="product-card">
                 <img src="images/Maxx-josh_400x.png" alt="wellness-img5">
@@ -206,10 +197,7 @@
         <button type="button"  class="wish-btn">
             <i class="fa fa-heart"></i>
         </button>
-        <button type="button" class="view-btn">
-    <i class="fa fa-eye"></i>
-</button>
-    
+       
     </div>
 
         
@@ -221,7 +209,7 @@
 
          
             <div class="product-card">
-                <img src="images/Shilajit-min-tiny_800x.png" alt="wellness-img1">
+                <img src="images/Shilajit-min-tiny_800x1.png" alt="wellness-img1">
 
         <h3>Nirvasa Pure Shilajit  (60 Tablets)</h3>
 <div class="rating">
@@ -251,13 +239,12 @@
         <button type="button" class="wish-btn">
             <i class="fa fa-heart"></i>
         </button>
-        <button type="button" class="view-btn">
-    <i class="fa fa-eye"></i>
-</button>
+        
+        
    
     </div>
           <div class="product-card">
-                <img src="images/AshwagandhaGummies.png" alt=" wellness-img2">
+                <img src="images/AshwagandhaGummies1.png" alt=" wellness-img2">
 
                 <h3>Nirvasa Ashwagandha  (60 Tablets)</h3>
 
@@ -285,10 +272,7 @@
         <button type="button"  class="wish-btn">
             <i class="fa fa-heart"></i>
         </button>
-        <button type="button" class="view-btn">
-    <i class="fa fa-eye"></i>
-</button>
-    
+        
     </div>
            
   <div class="product-card">
@@ -320,9 +304,7 @@
         <button type="button"  class="wish-btn">
             <i class="fa fa-heart"></i>
         </button>
-   <button type="button" class="view-btn">
-    <i class="fa fa-eye"></i>
-</button>
+  
     </div>
        
 
@@ -479,51 +461,6 @@
     const closeBtn = document.querySelector(".close-modal");
 
 
-
-    // Select all "view" buttons on product cards
-    document.querySelectorAll(".view-btn").forEach(button => {
-
-        // When user clicks view button
-        button.addEventListener("click", function () {
-
-            // Find the closest product card of clicked button
-            const card = this.closest(".product-card");
-
-            // Get product image from card
-            const image = card.querySelector("img").src;
-
-            // Get product title from card
-            const title = card.querySelector("h3").innerHTML;
-
-            // Get rating HTML from card
-            const rating = card.querySelector(".rating").innerHTML;
-
-            // Get price HTML from card
-            const price = card.querySelector(".price").innerHTML;
-
-            // Set image in modal
-            modalImage.src = image;
-
-            // Set title in modal
-            modalTitle.innerHTML = title;
-
-            // Set rating in modal
-            modalRating.innerHTML = rating;
-
-            modalDesc.innerHTML = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-
-
-            // Set price in modal
-            modalPrice.innerHTML = price;
-
-            // Reset quantity input to 1
-            document.getElementById("modalQty").value = 1;
-
-            // Show modal popup
-            modal.style.display = "flex";
-        });
-
-    });
 
 
 
