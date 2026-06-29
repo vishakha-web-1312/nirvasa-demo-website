@@ -1800,12 +1800,14 @@ padding-top: 20px;
 .categories{
     padding: var(--extralarge);
     text-align:center;
+   
 }
 
 
 
 .category-grid{
     margin-top: 30px;
+    gap: 50px 17px;
     display:grid;
     grid-template-columns:repeat(4,1fr);
 }
@@ -2046,7 +2048,7 @@ padding-top: 20px;
 .cart-icon{
     position: fixed;
     top:  14px;
-    right: 14px;
+    right: 20px;
     font-size: 28px;
     display: none;
     z-index: 9999;

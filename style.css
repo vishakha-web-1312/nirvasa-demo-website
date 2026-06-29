@@ -12,9 +12,10 @@
   --lg: 24px;
   --xl: 40px;
   --xxl: 50px;
-  --primary: #22C55E;
-  --light-primary:#22c55e83;
-  --primary-dark: #15803d;
+   --extralarge:70px;
+   --primary: #15803d;
+  --light-primary:#22C55E;
+  --primary-dark: #214f39;;
   --light:#e8f5e9;
   --yellow:#f4b400;
   --light-background: #f5f5f5;
@@ -63,7 +64,7 @@ header{
     left:0;
     width:100%;
     z-index:1000;
- padding: var(--sd) 110px;
+ padding: var(--sd) var(--extralarge);
  box-shadow:var(--shadow);
   align-items:center;
   display: flex;
@@ -297,7 +298,7 @@ select:focus{
   display: grid;
  grid-template-columns: repeat(4,1fr);
   gap: var(--xl);
-  padding: var(--xl) 110px 0px;
+  padding: var(--xl) var(--extralarge) 0px;
   align-items: start;
   
 }
