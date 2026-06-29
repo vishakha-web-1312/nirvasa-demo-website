@@ -2075,7 +2075,6 @@ padding-top: 20px;
 .product-card{
     text-align: center;
     min-width: 350px;
-    box-shadow: var(--shadow);
     padding: 20px;
      transition: all 0.4s ease;
   position: relative;
@@ -2107,6 +2106,10 @@ padding-top: 20px;
     font-size: 18px;
     font-weight: 800;  
      margin-bottom: 2px;
+}
+.product-card:hover{
+        box-shadow: var(--shadow);
+
 }
 
 .product-actions{
