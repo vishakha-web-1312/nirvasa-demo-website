@@ -1671,7 +1671,7 @@ padding-top: 20px;
     content: "";
     position: absolute;
      left: -188px;
-    top: 37%;
+    top: 33%;
     width: 500px;
     height: 550px;
     background: url(images/background4.png) no-repeat center;
@@ -2074,14 +2074,10 @@ padding-top: 20px;
 
 .product-card{
     text-align: center;
-
     min-width: 350px;
-    
+    box-shadow: var(--shadow);
     padding: 20px;
-
-
-
-    transition: all 0.4s ease;
+     transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
 }
