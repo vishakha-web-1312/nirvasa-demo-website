@@ -48,7 +48,7 @@ body {
   
 }
 
-
+ 
 
 
 
@@ -2282,7 +2282,7 @@ padding-top: 20px;
 }
 
 .discount{
-    background: #dcfce7;
+    background: var(--light);
     color: var(--primary);
 
     border: none;
