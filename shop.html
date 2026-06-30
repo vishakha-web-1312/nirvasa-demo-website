@@ -1714,20 +1714,32 @@
 </footer>
 
 <div id="cartPanel" class="cart-panel">
+
     <div class="cart-header">
         <h2>My Cart</h2>
         <span id="closeCart">&times;</span>
     </div>
 
     <div id="cartItems" class="cart-items">
-        <p>No items added yet</p>
+        <p class="empty-cart">No items added yet</p>
     </div>
-</div>
 
+    <div id="cart-footer">
+
+
+        <div class="cart-total">
+            <h3>Total: ₹<span id="total-price">0</span></h3>
+        </div>
+
+        <button id="checkout-btn">Proceed to Checkout</button>
+
+    </div>
+
+</div>
 <script>
 
 
-
+let cartData = [];
 
 // QUANTITY VALIDATION
 
@@ -2130,8 +2142,33 @@ document.addEventListener("click", function(e){
     }
 
 });
+const image = card.querySelector("img").src;
+const title = card.querySelector("h3").textContent.trim();
+const newPrice = card.querySelector(".new-price").textContent;
+const quantity = Number(card.querySelector(".quantity-input").value);
+const priceNumber = parseInt(newPrice.replace(/[^0-9]/g, ""));
 
+cartData.push({
+    title,
+    price: priceNumber,
+    quantity
+});
+function updateTotal() {
 
+    let total = 0;
+
+    cartData.forEach(item => {
+        total += item.price * item.quantity;
+    });
+
+    document.getElementById("total-price").innerText = total;
+}
+cartData = cartData.filter(item => {
+    return item.title !== deleteBtn.closest(".cart-item")
+        .querySelector("h4").textContent;
+});
+
+updateTotal();
 </script>
 
 

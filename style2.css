@@ -545,7 +545,7 @@ padding-top: 20px;
   align-items:center;
   justify-content:center;
   background:#eaf5ee;
-  border-radius:12px;
+  border-radius: var(--radius-lg);
 }
 
 .explore-btn{
@@ -1945,7 +1945,7 @@ padding-top: 20px;
      position: relative;
     overflow: hidden;
     width: 100%;
-    height: 250px; /* image height ke equal */
+    height: 250px;
 }
 
 
@@ -2075,7 +2075,9 @@ padding-top: 20px;
 .product-card{
     text-align: center;
     min-width: 350px;
+    box-shadow: var(--shadow);
     padding: 20px;
+    border-radius: var(--radius-lg);
      transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
@@ -2106,10 +2108,6 @@ padding-top: 20px;
     font-size: 18px;
     font-weight: 800;  
      margin-bottom: 2px;
-}
-.product-card:hover{
-        box-shadow: var(--shadow);
-
 }
 
 .product-actions{
@@ -2627,7 +2625,10 @@ padding-top: 20px;
     box-shadow: -5px 0 15px rgba(0,0,0,.2);
     transition: .3s;
     z-index: 9999;
-    overflow-y: auto;
+    overflow: hidden; 
+    
+    display: flex;
+    flex-direction: column;
 }
 
 .cart-panel.active{
@@ -2649,6 +2650,8 @@ padding-top: 20px;
 .cart-item{
     display:flex;
     gap:10px;
+    flex: 1;
+    overflow-y: auto;
     padding:10px;
     border-bottom:1px solid #eee;
 }
@@ -2668,32 +2671,52 @@ padding-top: 20px;
     font-size:18px;
 }
 
-.gift-option{
-    display:block;
-    margin-bottom:15px;
-    font-size:14px;
+
+
+
+#cart-footer {
+    padding: 15px 20px;
+    border-top: 1px solid #eee;
+    background: #fff;
+        margin-top: auto; 
+        height: 200px;
+
 }
 
-.checkout-btn{
-    width:100%;
-    border:none;
-    background:#ffd814;
-    padding:12px;
-    border-radius:25px;
-    cursor:pointer;
-    font-size:15px;
-    font-weight:600;
+.cart-total h3 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
-.checkout-btn:hover{
-    background:#f7ca00;
+#checkout-btn {
+    width: 100%;
+    height: 70px;
+    padding: 12px;
+    background:var(--primary-dark);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#checkout-btn:hover {
+    background: var(--primary);
+    transform: translateY(-1px);
 }
 
 
+.cart-items::-webkit-scrollbar {
+    width: 5px;
+}
 
 
-
-
+.cart-items::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
 
 
 

@@ -166,7 +166,7 @@ select:focus{
     margin-top: var(--sm);
     margin-bottom: var(--sm);
 
-    background: linear-gradient(135deg,#22C55E,#16A34A);
+    background:var(--primary);
 
     color: var(--white);
 
@@ -244,7 +244,6 @@ select:focus{
 
 .footer {
   background: var(--light);
-   margin-top: 30px;
   box-shadow: var(--shadow);
   
 }
@@ -363,9 +362,7 @@ select:focus{
     .container {
     display: flex;
     gap: 100px;
-    padding: 0px var(--xl);
-    margin-top: var(--md);
-    margin-bottom: var(--lg);
+    padding: 70px 0px;
     align-items: center;       
 }
    .signup-image {
@@ -513,10 +510,37 @@ justify-content: space-between;
    .sign-up{
   text-align:center;
   color:var(--text);
-  margin-left: var(--sm);
+  margin-top: var(--md);
 }
-   
+ .sign-up a {
+  color: var(--primary); 
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
 
+/* hover effect */
+.sign-up a:hover {
+  color: #0f7a35;
+}
+
+/* nice underline animation */
+.sign-up a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: #16a34a;
+  transition: 0.3s ease;
+}
+
+.sign-up a:hover::after {
+  width: 100%;
+}
 .main{
     display:flex;
     
