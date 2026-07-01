@@ -1729,6 +1729,7 @@
 
         <div class="cart-total">
             <h3>Total: ₹<span id="total-price">0</span></h3>
+            
         </div>
 
         <button id="checkout-btn">Proceed to Checkout</button>
@@ -2002,6 +2003,7 @@ document.querySelectorAll(".product-card .cart-btn").forEach(button => {
         const title = card.querySelector("h3").textContent.trim();
         const newPrice = card.querySelector(".new-price").textContent;
         const quantity = Number(card.querySelector(".quantity-input").value);
+        const priceNumber = parseInt(newPrice.replace(/[^0-9]/g, ""));
 
         cartIcon.style.display = "flex";
 
@@ -2028,12 +2030,24 @@ document.querySelectorAll(".product-card .cart-btn").forEach(button => {
                 }
 
                 qtyElement.textContent = totalQty;
+                const product = cartData.find(item => item.title === title);
+
+                if(product){
+                    product.quantity = totalQty;
+                }
+
+                updateTotal();
 
         }
 
         else{
 
             count++;
+            cartData.push({
+            title,
+            price: priceNumber,
+            quantity
+        });
 
             document.getElementById("cartCount").textContent = count;
 
@@ -2076,6 +2090,7 @@ document.querySelectorAll(".product-card .cart-btn").forEach(button => {
 
             </div>
             `;
+            updateTotal();
         }
 
     });
@@ -2106,6 +2121,11 @@ document.addEventListener("click", function(e){
 
         if(current < 10){
           qty.textContent = current + 1;
+          const title = plusBtn.closest(".cart-item").querySelector("h4").textContent;
+
+            cartData.find(item=>item.title===title).quantity++;
+
+            updateTotal();
 }
         else{
           alert("Maximum quantity allowed is 10");
@@ -2120,12 +2140,22 @@ document.addEventListener("click", function(e){
 
         if(current > 1){
             qty.textContent = current - 1;
+            const title = minusBtn.closest(".cart-item").querySelector("h4").textContent;
+
+            cartData.find(item=>item.title===title).quantity--;
+
+            updateTotal();
         }
     }
 
     if(deleteBtn){
 
         deleteBtn.closest(".cart-item").remove();
+        const title = deleteBtn.closest(".cart-item").querySelector("h4").textContent;
+
+        cartData = cartData.filter(item => item.title !== title);
+
+        updateTotal();
 
         count--;
 
@@ -2142,33 +2172,20 @@ document.addEventListener("click", function(e){
     }
 
 });
-const image = card.querySelector("img").src;
-const title = card.querySelector("h3").textContent.trim();
-const newPrice = card.querySelector(".new-price").textContent;
-const quantity = Number(card.querySelector(".quantity-input").value);
-const priceNumber = parseInt(newPrice.replace(/[^0-9]/g, ""));
 
-cartData.push({
-    title,
-    price: priceNumber,
-    quantity
-});
-function updateTotal() {
+function updateTotal(){
 
     let total = 0;
 
-    cartData.forEach(item => {
+    cartData.forEach(item=>{
+
         total += item.price * item.quantity;
+
     });
 
     document.getElementById("total-price").innerText = total;
 }
-cartData = cartData.filter(item => {
-    return item.title !== deleteBtn.closest(".cart-item")
-        .querySelector("h4").textContent;
-});
 
-updateTotal();
 </script>
 
 
