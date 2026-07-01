@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="style2.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body style="margin-top: 70px;">
@@ -86,61 +86,102 @@
                 <div class="input-box">
                     <label>First Name</label>
                     <input type="text" placeholder="Enter first name">
+                      <small class="error"></small>
                 </div>
 
                 <div class="input-box">
                     <label>Last Name</label>
                     <input type="text" placeholder="Enter last name">
+                  <small class="error"></small>
                 </div>
 
 
                 <div class="input-box">
                     <label>Mobile Number</label>
                     <input type="tel" placeholder="+91 9876543210">
+                  <small class="error"></small>
                 </div>
 
                 <div class="input-box">
                     <label>Email Address</label>
                     <input type="email" placeholder="example@email.com">
+                 <small class="error"></small>
                 </div>
 
 
                 <div class="input-box full">
                     <label>House No. / Street Name</label>
                     <input type="text" placeholder="House No., Street Name">
+                <small class="error"></small>
                 </div>
 
 
                 <div class="input-box full">
                     <label>Apartment / Floor / Landmark (Optional)</label>
                     <input type="text" placeholder="Apartment, Floor, Landmark">
+                <small class="error"></small>
                 </div>
 
 
                 <div class="input-box full">
                     <label>Country</label>
 
-                    <select>
-                        <option selected disabled>Select Country</option>
-                        <option>India</option>
-                       
+                    <select id="country">
+                        <option value="India" selected>India</option>
+                      
                     </select>
                 </div>
 
 
-                <div class="input-box">
+                <div class="input-box small">
+
                     <label>State</label>
-                    <input type="text" placeholder="Enter State">
+
+                     <select id="state">
+                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                            <option value="Assam">Assam</option>
+                            <option value="Bihar">Bihar</option>
+                            <option value="Chhattisgarh">Chhattisgarh</option>
+                            <option value="Goa">Goa</option>
+                            <option value="Gujarat">Gujarat</option>
+                            <option value="Haryana" selected>Haryana</option>
+                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                            <option value="Jharkhand">Jharkhand</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Kerala">Kerala</option>
+                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                            <option value="Maharashtra">Maharashtra</option>
+                            <option value="Manipur">Manipur</option>
+                            <option value="Meghalaya">Meghalaya</option>
+                            <option value="Mizoram">Mizoram</option>
+                            <option value="Nagaland">Nagaland</option>
+                            <option value="Odisha">Odisha</option>
+                            <option value="Punjab">Punjab</option>
+                            <option value="Rajasthan">Rajasthan</option>
+                            <option value="Sikkim">Sikkim</option>
+                            <option value="Tamil Nadu">Tamil Nadu</option>
+                            <option value="Telangana">Telangana</option>
+                            <option value="Tripura">Tripura</option>
+                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                            <option value="Uttarakhand">Uttarakhand</option>
+                            <option value="West Bengal">West Bengal</option>                      
+                                                
+                        </select>
+
+
                 </div>
 
-                <div class="input-box">
+                <div class="input-box small">
                     <label>City</label>
                     <input type="text" placeholder="Enter City">
+                  <small class="error"></small>
                 </div>
 
-                <div class="input-box">
+                <div class="input-box small">
                     <label>PIN Code</label>
                     <input type="number" placeholder="110001">
+               <small class="error"></small>
                 </div>
 
             </div>
@@ -162,7 +203,7 @@
 
                 <label class="payment-option">
 
-                <input type="radio" name="payment" checked>
+                <input type="radio" name="payment">
 
                 <div class="payment-content">
 
@@ -413,7 +454,347 @@
     
   </div>
 </footer>
+<script>
 
+        let firstname = document.querySelector("input[placeholder='Enter first name']");
+        let lastname = document.querySelector("input[placeholder='Enter last name']");
+        let mobilenumber = document.querySelector("input[placeholder='+91 9876543210']");
+        let email = document.querySelector("input[placeholder='example@email.com']");
+        let house = document.querySelector("input[placeholder='House No., Street Name']");
+        let city = document.querySelector("input[placeholder='Enter City']");
+        let pin = document.querySelector("input[placeholder='110001']");
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let placeOrderBtn = document.getElementById("placeOrderBtn");
+
+
+        // ==========================
+        // BLUR EVENTS (LIKE SIGNUP)
+        // ==========================
+        firstname.addEventListener("blur", validationfirstname);
+        lastname.addEventListener("blur", validationlastname);
+        mobilenumber.addEventListener("blur", validationmobilenumber);
+        email.addEventListener("blur", validationemail);            
+        house.addEventListener("blur", validationhouse);
+        city.addEventListener("blur", validationcity);
+        pin.addEventListener("blur", validationpin);
+
+
+
+function validationfirstname() {
+
+    let fname = firstname.value;
+    let fnameerror = firstname.parentElement.querySelector("small");
+
+    if (fname == "") {
+        fnameerror.innerHTML = "First name is required";
+    }
+    else if (!/^[A-Za-z]+$/.test(fname)) {
+        fnameerror.innerHTML = "Only letters allowed";
+    }
+    else if (fname.length < 3) {
+        fnameerror.innerHTML = "Minimum 3 characters required";
+    }
+    else {
+        fnameerror.innerHTML = "";
+    }
+}
+
+
+
+function validationlastname() {
+
+    let lname = lastname.value;
+    let lnameerror = lastname.parentElement.querySelector("small");
+
+    if (lname == "") {
+        lnameerror.innerHTML = "Last name is required";
+    }
+    else if (!/^[A-Za-z]+$/.test(lname)) {
+        lnameerror.innerHTML = "Only letters allowed";
+    }
+    else if (lname.length < 3) {
+        lnameerror.innerHTML = "Minimum 3 characters required";
+    }
+    else {
+        lnameerror.innerHTML = "";
+    }
+}
+
+
+
+function validationmobilenumber() {
+
+    let mobile = mobilenumber.value;
+    let mobileerror = mobilenumber.parentElement.querySelector("small");
+
+    if (mobile == "") {
+        mobileerror.innerHTML = "Mobile Number is required";
+    }
+    else if (!/^[0-9]+$/.test(mobile)) {
+        mobileerror.innerHTML = "Only numbers allowed";
+    }
+    else if (mobile.length != 10) {
+        mobileerror.innerHTML = "Must be 10 digits";
+    }
+    else if (!/^[6789]/.test(mobile)) {
+        mobileerror.innerHTML = "Must start with 6-9";
+    }
+    else {
+        mobileerror.innerHTML = "";
+    }
+}
+
+
+
+function validationemail() {
+
+    let emailVal = email.value;
+    let emailerror = email.parentElement.querySelector("small");
+
+    let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (emailVal == "") {
+        emailerror.innerHTML = "Email required";
+    }
+    else if (!regex.test(emailVal)) {
+        emailerror.innerHTML = "Invalid email";
+    }
+    else {
+        emailerror.innerHTML = "";
+    }
+}
+
+
+function validationhouse() {
+    let err = house.parentElement.querySelector("small");
+
+    if (house.value == "") {
+        err.innerHTML = "House No. required";
+    } else {
+        err.innerHTML = "";
+    }
+}
+
+
+
+
+
+
+function validationcity() {
+
+    let cityerror = city.parentElement.querySelector("small");
+
+    if (city.value == "") {
+        cityerror.innerHTML = "City required";
+    }
+    else if (!/^[A-Za-z\s]+$/.test(city.value)) {
+        cityerror.innerHTML = "Only letters allowed";
+    }
+    else {
+        cityerror.innerHTML = "";
+    }
+}
+
+
+
+
+
+function validationpin() {
+
+    let pinerror = pin.parentElement.querySelector("small");
+
+    if (pin.value == "") {
+        pinerror.innerHTML = "PIN required";
+    }
+    else if (!/^[0-9]{6}$/.test(pin.value)) {
+        pinerror.innerHTML = "6 digit PIN only";
+    }
+    else {
+        pinerror.innerHTML = "";
+    }
+}
+
+
+
+placeOrderBtn.addEventListener("click", function () {
+
+    validationfirstname();
+    validationlastname();
+    validationmobilenumber();
+    validationemail();
+    validationhouse();
+    validationcity();
+    validationpin();
+
+    let errors = document.querySelectorAll("small");
+    let hasError = false;
+
+    errors.forEach(err => {
+        if (err.innerHTML !== "") {
+            hasError = true;
+        }
+    });
+
+    if (hasError) {
+        alert("Fix errors first ❌");
+        return;
+    }
+
+    if (cart.length === 0) {
+        alert("Cart empty!");
+        return;
+    }
+
+    // ⭐ PAYMENT CHECK ADDED HERE
+    let paymentMethod = getSelectedPayment();
+
+    if (!paymentMethod) {
+        alert("Please select a payment method ⚠️");
+        return;
+    }
+
+    // CASE 1: COD
+    if (paymentMethod === "Cash On Delivery") {
+        localStorage.removeItem("cart");
+        window.location.href = "complete.html";
+    }
+
+    // CASE 2: UPI / CARD
+    else {
+        showPayNowScreen(paymentMethod);
+    }
+});
+
+
+
+
+
+
+
+
+
+//order summary
+
+function renderOrderSummary() {
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let cartContainer = document.getElementById("checkout-products");
+
+    let subtotalEl = document.getElementById("subtotal");
+    let taxEl = document.getElementById("tax");
+    let discountEl = document.getElementById("discount");
+    let totalEl = document.getElementById("grand-total");
+
+    cartContainer.innerHTML = "";
+
+    let subtotal = 0;
+
+    if (cart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty 🛒</p>";
+    }
+
+    cart.forEach(item => {
+
+        let itemTotal = item.price * item.quantity;
+        subtotal += itemTotal;
+
+        let div = document.createElement("div");
+        div.classList.add("checkout-item");
+
+       div.innerHTML = `
+            <div class="item-left">
+
+            <img src="${item.image}" class="item-img">
+
+            <div class="item-right">
+
+                <div class="item-name">
+                    ${item.title}
+                </div>
+
+                <div class="item-bottom">
+                    <span class="item-qty">Qty: ${item.quantity}</span>
+                    <span class="item-price">₹${itemTotal}</span>
+                </div>
+
+            </div>
+
+        </div>
+        `;
+
+        cartContainer.appendChild(div);
+    });
+
+    // ==========================
+    // CALCULATIONS
+    // ==========================
+
+    let tax = Math.round(subtotal * 0.02);
+    let discount = subtotal > 2000 ? Math.round(subtotal * 0.10) : 0;
+
+    let total = subtotal + tax - discount;
+
+    // ==========================
+    // UI UPDATE
+    // ==========================
+
+    subtotalEl.innerText = `₹${subtotal}`;
+    taxEl.innerText = `₹${tax}`;
+    discountEl.innerText = `-₹${discount}`;
+    totalEl.innerText = `₹${total}`;
+}
+
+renderOrderSummary();
+
+
+
+
+function getSelectedPayment() {
+    let payment = document.querySelector('input[name="payment"]:checked');
+    return payment ? payment.parentElement.querySelector("h4").innerText : "";
+}
+
+
+
+function showPayNowScreen(method) {
+
+    let payBox = document.createElement("div");
+
+    payBox.innerHTML = `
+    <div class="pay-overlay">
+
+        <div class="pay-box">
+
+            <h2>Pay Now</h2>
+            <p>Payment Method: <b>${method}</b></p>
+
+            <button id="payNowBtn" class="pay-btn">
+                Pay Now
+            </button>
+
+        </div>
+
+    </div>
+`;
+
+    document.body.appendChild(payBox);
+
+    document.getElementById("payNowBtn").addEventListener("click", function () {
+
+        localStorage.removeItem("cart");
+        window.location.href = "complete.html";
+    });
+}
+
+
+
+
+
+
+
+</script>
 
 
 </body>

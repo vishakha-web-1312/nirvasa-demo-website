@@ -1732,8 +1732,9 @@
             
         </div>
 
+        <a href="checkout.html">
         <button id="checkout-btn">Proceed to Checkout</button>
-
+        </a>
     </div>
 
 </div>
@@ -2043,11 +2044,13 @@ document.querySelectorAll(".product-card .cart-btn").forEach(button => {
         else{
 
             count++;
-            cartData.push({
-            title,
-            price: priceNumber,
-            quantity
-        });
+           cartData.push({
+    title,
+    price: priceNumber,
+    quantity,
+    image 
+});
+        localStorage.setItem("cart", JSON.stringify(cartData));
 
             document.getElementById("cartCount").textContent = count;
 

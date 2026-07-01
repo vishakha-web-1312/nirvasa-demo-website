@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Shop</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="style.css">
+<style>
+    body{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: #f5f5f5;
+  margin:0;
+}
+</style>
+</head>
+
+<body>
+   <header>
+  <a href="home-page.html">
+  <img src="images/nirvasalogo.png" alt="nirvasa" class="logo" /> </a>
+
+ <section class="progress-wrapper">
+
+        <div class="progress-step completed">
+
+            <div class="circle">
+                <i class="fa fa-check"></i>
+            </div>
+
+            <span>Cart</span>
+
+        </div>
+
+        <div class="line active"></div>
+
+        <div class="progress-step completed">
+
+            <div class="circle">
+                2
+            </div>
+
+            <span>Checkout</span>
+
+        </div>
+
+        <div class="line active"></div>
+
+        <div class="progress-step active">
+
+            <div class="circle">
+                3
+            </div>
+
+            <span>Complete</span>
+
+        </div>
+
+    </section>
+
+
+
+</header>
+
+
+  <div class="card">
+
+    <div class="icon">
+      <i class="fa fa-check"></i>
+    </div>
+
+    <h2>Thank you for your order!</h2>
+
+   <p>
+  Your order has been placed successfully.<br>
+  Thank you for shopping with us!
+  We are currently processing your order.
+  You will receive a confirmation email shortly.
+  You can track your order in the “My Orders” section.
+</p>
+
+    <a href="shop.html">
+
+    
+    <button class="btn" onclick="goHome()">Continue Shopping</button>
+</a>
+  </div>
+
+<script>
+
+// ORDER ID GENERATE
+document.getElementById("orderId").innerText =
+"NIRVASA" + Math.floor(100000 + Math.random() * 900000);
+
+function home(){
+    window.location.href = "home-page.html";
+}
+
+
+
+</script>
+
+</body>
+</html>
