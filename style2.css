@@ -2736,3 +2736,1189 @@ padding-top: 20px;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ==========================================================
+   PART 1 — LAPTOP (1200px–1440px)
+   ========================================================== */
+
+@media (max-width:1440px){
+
+    /* Global */
+    :root{
+        --extralarge:50px;
+    }
+
+    h1{
+        font-size:42px;
+    }
+
+    h2{
+        font-size:32px;
+    }
+
+    p{
+        font-size:15px;
+    }
+
+    /* Header */
+
+    header{
+        padding:15px 50px;
+    }
+
+    nav{
+        gap:30px;
+    }
+
+    .logo{
+        width:135px;
+    }
+
+    /* Hero */
+
+    .hero{
+        height:560px;
+        margin-top:70px;
+    }
+
+    .textonimage2{
+        max-width:500px;
+        left:6%;
+        padding:30px;
+    }
+
+    .banner-content{
+        right:6%;
+        width:360px;
+    }
+
+    /* Trust */
+
+    .trust-section{
+        padding:70px 40px;
+    }
+
+    .trust-line{
+        gap:50px;
+    }
+
+    .trust-item img{
+        width:100px;
+        height:100px;
+    }
+
+    /* About Badge */
+
+    .badge-container{
+        gap:40px;
+    }
+
+    .badge-item{
+        width:260px;
+    }
+
+    /* FAQ */
+
+    .faq-section{
+        padding:70px 50px;
+    }
+
+    .faq-wrapper{
+        gap:50px;
+    }
+
+    .faq-question{
+        font-size:20px;
+    }
+
+    /* About */
+
+    .about{
+        padding:70px 50px;
+    }
+
+    .about-container{
+        gap:50px;
+    }
+
+    .image-shape{
+        width:420px;
+        height:560px;
+    }
+
+    .floating-card{
+        width:180px;
+        height:165px;
+        right:-10px;
+    }
+
+    .features{
+        gap:20px;
+    }
+
+    /* Why Choose */
+
+    .why-choose{
+        padding:70px 50px;
+    }
+
+    .features-grid{
+        gap:25px;
+    }
+
+    /* Approach */
+
+    .approach{
+        padding:70px 60px 0;
+    }
+
+    .approach-box{
+        gap:35px;
+    }
+
+    /* Contact Info */
+
+    .contact-info{
+        padding:70px 50px;
+        gap:45px;
+    }
+
+    /* Team */
+
+    .team-section{
+        padding:70px 60px;
+    }
+
+    .team-grid{
+        padding:0 20px;
+        gap:20px;
+    }
+
+    .Column1 img,
+    .Column2 img,
+    .Column3 img,
+    .Column4 img{
+        width:190px;
+        height:190px;
+    }
+
+    /* Contact */
+
+    .contact-section{
+        padding:70px 50px 0;
+    }
+
+    .contact-form::before{
+        width:600px;
+    }
+
+    /* Location */
+
+    .location-section{
+        padding:70px 50px;
+    }
+
+    /* Categories */
+
+    .category-section,
+    .categories{
+        padding:70px 50px;
+    }
+
+    .category-container{
+        gap:40px;
+    }
+
+    .category-item{
+        width:220px;
+        height:220px;
+    }
+
+    .category-grid{
+        gap:35px 20px;
+    }
+
+    /* Product Sections */
+
+    .sexual-wellness,
+    .fitness,
+    .hair-care,
+    .skin-care,
+    .bestseller{
+        padding-left:50px;
+        padding-right:50px;
+    }
+
+    .product-card{
+        min-width:310px;
+    }
+
+    .product-card img,
+    .img-box{
+        height:220px;
+    }
+
+    .product-overlay{
+        top:85px;
+    }
+
+    .prev,
+    .next{
+        width:55px;
+        height:55px;
+    }
+
+    /* Products */
+
+    .products{
+        padding:70px 50px;
+        gap:35px;
+    }
+
+    /* Modal */
+
+    .modal-content{
+        max-width:760px;
+    }
+
+    /* Footer */
+
+    .footer{
+        padding:60px 50px;
+    }
+
+}
+
+
+/* ==========================================================
+   PART 1 — LARGE TABLET (992px–1199px)
+   ========================================================== */
+
+@media (max-width:1199px){
+
+    /* Global */
+
+    :root{
+        --extralarge:40px;
+    }
+
+    h1{
+        font-size:38px;
+    }
+
+    h2{
+        font-size:30px;
+    }
+
+    /* Header */
+
+    header{
+        padding:15px 35px;
+    }
+
+    nav{
+        gap:22px;
+    }
+
+    nav a{
+        font-size:15px;
+    }
+
+    .logo{
+        width:120px;
+    }
+
+    /* Hero */
+
+    .hero{
+        height:500px;
+        margin-top:75px;
+    }
+
+    .textonimage2{
+        width:430px;
+        padding:25px;
+    }
+
+    .banner-content{
+        width:320px;
+        padding:22px;
+    }
+
+    /* Trust */
+
+    .trust-line{
+        flex-wrap:wrap;
+        gap:35px;
+    }
+
+    /* About Cards */
+
+    .badge-container{
+        justify-content:center;
+        gap:30px;
+    }
+
+    .badge-item{
+        width:280px;
+    }
+
+    /* FAQ */
+
+    .faq-wrapper{
+        grid-template-columns:1fr;
+        gap:50px;
+    }
+
+    .faq-image img{
+        width:60%;
+    }
+
+    /* About */
+
+    .about-container{
+        flex-direction:column;
+    }
+
+    .about-content{
+        order:2;
+    }
+
+    .about-image{
+        order:1;
+        width:100%;
+        justify-content:center;
+    }
+
+    .floating-card{
+        right:80px;
+    }
+
+    /* Why Choose */
+
+    .why-container{
+        flex-direction:column;
+        gap:40px;
+    }
+
+    .right-content{
+        width:100%;
+    }
+
+    /* Approach */
+
+    .approach{
+        padding:60px 40px 0;
+    }
+
+    .approach-box{
+        grid-template-columns:repeat(2,1fr);
+        gap:30px;
+    }
+
+    /* Team */
+
+    .team-grid{
+        grid-template-columns:repeat(2,1fr);
+        padding:0;
+    }
+
+    .Column1,
+    .Column2,
+    .Column3,
+    .Column4{
+        margin:0;
+    }
+
+    /* Contact */
+
+    .contact-form form{
+        max-width:100%;
+    }
+
+    .contact-form::before{
+        display:none;
+    }
+
+    /* Location */
+
+    .location-section{
+        grid-template-columns:1fr;
+    }
+
+    /* Category */
+
+    .category-container{
+        gap:30px;
+    }
+
+    .category-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    /* Products */
+
+    .product-card{
+        min-width:290px;
+    }
+
+    .products{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    /* Footer */
+
+    .footer{
+        padding:60px 35px;
+    }
+
+    .footer-container{
+        grid-template-columns:repeat(2,1fr);
+        gap:40px;
+    }
+
+}
+
+
+/* ==========================================================
+   PART 2 — TABLET (768px–991px)
+   ========================================================== */
+
+@media (max-width:991px){
+
+    /* ================= Global ================= */
+
+    :root{
+        --extralarge:30px;
+    }
+
+    h1{
+        font-size:34px;
+    }
+
+    h2{
+        font-size:28px;
+    }
+
+    h3{
+        font-size:18px;
+    }
+
+    p{
+        font-size:15px;
+    }
+
+    /* ================= Header ================= */
+
+    header{
+        padding:15px 25px;
+    }
+
+    .logo{
+        width:120px;
+    }
+
+    nav{
+        gap:18px;
+    }
+
+    nav a{
+        font-size:14px;
+    }
+
+    /* ================= Hero ================= */
+
+    .hero{
+        height:470px;
+        margin-top:75px;
+    }
+
+    .textonimage2{
+        left:5%;
+        width:420px;
+        padding:22px;
+    }
+
+    .textonimage2 p{
+        margin:10px 0 18px;
+    }
+
+    .banner-content{
+        width:300px;
+        right:5%;
+        padding:18px;
+    }
+
+    /* ================= Trust ================= */
+
+    .trust-section{
+        padding:60px 25px;
+    }
+
+    .trust-line{
+        flex-wrap:wrap;
+        gap:25px;
+    }
+
+    .trust-item img{
+        width:90px;
+        height:90px;
+    }
+
+    /* ================= About Cards ================= */
+
+    .about-section{
+        padding:60px 25px;
+    }
+
+    .badge-container{
+        gap:25px;
+    }
+
+    .badge-item{
+        width:300px;
+    }
+
+    /* ================= FAQ ================= */
+
+    .faq-section{
+        padding:60px 25px;
+    }
+
+    .faq-wrapper{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .faq-image img{
+        width:70%;
+    }
+
+    .faq-question{
+        font-size:18px;
+        padding:20px 55px 20px 20px;
+    }
+
+    /* ================= About ================= */
+
+    .about{
+        padding:60px 25px;
+    }
+
+    .about-container{
+        flex-direction:column;
+        gap:40px;
+    }
+
+    .about-content{
+        order:2;
+    }
+
+    .about-image{
+        order:1;
+        width:100%;
+        justify-content:center;
+    }
+
+    .image-shape{
+        width:400px;
+        height:520px;
+    }
+
+    .floating-card{
+        right:100px;
+        top:220px;
+    }
+
+    .features{
+        grid-template-columns:repeat(2,1fr);
+        gap:30px;
+    }
+
+    .feature:not(:last-child)::after{
+        display:none;
+    }
+
+    /* ================= Why Choose ================= */
+
+    .why-choose{
+        padding:60px 25px;
+    }
+
+    .why-container{
+        flex-direction:column;
+        gap:35px;
+    }
+
+    .right-content{
+        grid-template-columns:1fr 1fr;
+        width:100%;
+    }
+
+    .features-grid{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    /* ================= Approach ================= */
+
+    .approach{
+        padding:60px 25px 0;
+    }
+
+    .approach-box{
+        grid-template-columns:repeat(2,1fr);
+        gap:25px;
+    }
+
+    .item{
+        min-height:230px;
+    }
+
+    /* ================= Contact Info ================= */
+
+    .contact-info{
+        padding:60px 25px;
+        gap:25px;
+    }
+
+    .info-box{
+        width:220px;
+    }
+
+    /* ================= Team ================= */
+
+    .team-section{
+        padding:60px 25px;
+    }
+
+    .team-grid{
+        grid-template-columns:repeat(2,1fr);
+        padding:0;
+        gap:25px;
+    }
+
+    .Column1,
+    .Column2,
+    .Column3,
+    .Column4{
+        margin:0;
+    }
+
+    .Column1 img,
+    .Column2 img,
+    .Column3 img,
+    .Column4 img{
+        width:180px;
+        height:180px;
+        margin:auto;
+        margin-top:15px;
+    }
+
+    /* ================= Contact ================= */
+
+    .contact-section{
+        padding:60px 25px 0;
+    }
+
+    .contact-form form{
+        padding:30px;
+    }
+
+    .contact-form::before{
+        display:none;
+    }
+
+    .form-row{
+        gap:20px;
+    }
+
+    /* ================= Location ================= */
+
+    .location-section{
+        padding:60px 25px;
+        grid-template-columns:1fr;
+    }
+
+    .info-card{
+        padding:30px;
+    }
+
+    /* ================= Categories ================= */
+
+    .category-section,
+    .categories{
+        padding:60px 25px;
+    }
+
+    .category-container{
+        gap:25px;
+    }
+
+    .category-item{
+        width:210px;
+        height:210px;
+    }
+
+    .category-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:25px;
+    }
+
+    /* ================= Product Sections ================= */
+
+    .sexual-wellness,
+    .fitness,
+    .hair-care,
+    .skin-care,
+    .bestseller{
+        padding-left:25px;
+        padding-right:25px;
+    }
+
+    .view-all{
+        position:static;
+        display:inline-block;
+        margin-top:15px;
+        transform:none;
+    }
+
+    .slider-container{
+        gap:15px;
+    }
+
+    .product-card{
+        min-width:280px;
+    }
+
+    .product-card img,
+    .img-box{
+        height:210px;
+    }
+
+    .product-overlay{
+        top:80px;
+    }
+
+    .prev,
+    .next{
+        width:50px;
+        height:50px;
+    }
+
+    /* ================= Products ================= */
+
+    .products{
+        padding:60px 25px;
+        grid-template-columns:repeat(2,1fr);
+        gap:25px;
+    }
+
+    /* ================= Modal ================= */
+
+    .modal-content{
+        max-width:700px;
+        padding:25px;
+    }
+
+    .modal-body{
+        gap:25px;
+    }
+
+    .modal-left img{
+        max-width:250px;
+        height:250px;
+    }
+
+    /* ================= Cart ================= */
+
+    .cart-panel{
+        width:330px;
+    }
+
+    /* ================= Footer ================= */
+
+    .footer{
+        padding:60px 25px;
+    }
+
+    .footer-container{
+        grid-template-columns:repeat(2,1fr);
+        gap:30px;
+    }
+
+    .footer-col{
+        width:100%;
+    }
+
+}
+
+
+
+
+/* ==========================================================
+   PART 3 — MOBILE (576px–767px)
+   ========================================================== */
+
+@media (max-width:767px){
+
+/* ================= Global ================= */
+
+:root{
+    --extralarge:20px;
+}
+
+h1{
+    font-size:30px;
+}
+
+h2{
+    font-size:24px;
+}
+
+h3{
+    font-size:18px;
+}
+
+p{
+    font-size:15px;
+}
+
+/* ================= Header ================= */
+
+header{
+    padding:14px 18px;
+}
+
+.logo{
+    width:110px;
+}
+
+nav{
+    display:none;
+}
+
+.cart-icon{
+    display:block;
+    right:20px;
+}
+
+/* ================= Hero ================= */
+
+.hero{
+    height:auto;
+    margin-top:70px;
+}
+
+.slide img{
+    position:relative;
+    height:420px;
+}
+
+.textonimage2{
+    position:absolute;
+    left:50%;
+    bottom:20px;
+    top:auto;
+    transform:translateX(-50%);
+    width:90%;
+    max-width:none;
+    padding:20px;
+}
+
+.banner-content{
+    position:relative;
+    width:100%;
+    right:auto;
+    top:auto;
+    margin:20px auto;
+}
+
+/* ================= Trust ================= */
+
+.trust-section,
+.about-section,
+.faq-section,
+.about,
+.why-choose,
+.approach,
+.team-section,
+.contact-section,
+.location-section,
+.category-section,
+.categories,
+.sexual-wellness,
+.fitness,
+.hair-care,
+.skin-care,
+.bestseller,
+.products,
+.contact-info,
+.footer{
+    padding:50px 20px;
+}
+
+/* ================= Trust ================= */
+
+.trust-line{
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.trust-item img{
+    width:80px;
+    height:80px;
+}
+
+/* ================= Badge ================= */
+
+.badge-container{
+    gap:20px;
+}
+
+.badge-item{
+    width:100%;
+}
+
+/* ================= FAQ ================= */
+
+.faq-wrapper{
+    grid-template-columns:1fr;
+}
+
+.faq-image img{
+    width:90%;
+}
+
+.faq-question{
+    font-size:17px;
+    padding:18px 50px 18px 18px;
+}
+
+/* ================= About ================= */
+
+.about-container{
+    flex-direction:column;
+}
+
+.about-image{
+    justify-content:center;
+}
+
+.image-shape{
+    width:320px;
+    height:430px;
+}
+
+.floating-card{
+    display:none;
+}
+
+.features{
+    grid-template-columns:1fr;
+}
+
+.feature::after{
+    display:none;
+}
+
+/* ================= Why Choose ================= */
+
+.why-container{
+    flex-direction:column;
+}
+
+.right-content{
+    grid-template-columns:1fr;
+}
+
+.features-grid{
+    flex-direction:column;
+}
+
+/* ================= Approach ================= */
+
+.approach{
+    padding-top:50px;
+}
+
+.approach-box{
+    grid-template-columns:1fr;
+}
+
+.item{
+    min-height:220px;
+}
+
+/* ================= Contact Info ================= */
+
+.contact-info{
+    gap:20px;
+}
+
+.info-box{
+    width:100%;
+}
+
+/* ================= Team ================= */
+
+.team-grid{
+    grid-template-columns:1fr;
+}
+
+.Column1,
+.Column2,
+.Column3,
+.Column4{
+    border-radius:35px;
+}
+
+.Column1 img,
+.Column2 img,
+.Column3 img,
+.Column4 img{
+    width:180px;
+    height:180px;
+    margin:auto;
+    margin-top:20px;
+}
+
+/* ================= Contact ================= */
+
+.form-row{
+    grid-template-columns:1fr;
+}
+
+.contact-form form{
+    padding:25px;
+}
+
+/* ================= Location ================= */
+
+.location-section{
+    grid-template-columns:1fr;
+}
+
+.map-area iframe{
+    min-height:300px;
+}
+
+/* ================= Categories ================= */
+
+.category-container{
+    gap:20px;
+}
+
+.category-item{
+    width:100%;
+    max-width:320px;
+    height:260px;
+}
+
+.category-grid{
+    grid-template-columns:1fr;
+}
+
+/* ================= Product Sections ================= */
+
+.section-header{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.view-all{
+    position:static;
+    transform:none;
+}
+
+.slider-container{
+    gap:10px;
+}
+
+.prev,
+.next{
+    display:none;
+}
+
+.product-card{
+    min-width:260px;
+}
+
+.product-card img,
+.img-box{
+    height:200px;
+}
+
+.product-overlay{
+    display:none;
+}
+
+/* ================= Products ================= */
+
+.products{
+    grid-template-columns:1fr;
+}
+
+/* ================= Modal ================= */
+
+.modal-content{
+    width:95%;
+    padding:20px;
+}
+
+.modal-body{
+    flex-direction:column;
+}
+
+.modal-left img{
+    max-width:220px;
+    height:220px;
+}
+
+/* ================= Cart ================= */
+
+.cart-panel{
+    width:100%;
+}
+
+/* ================= Footer ================= */
+
+.footer-container{
+    grid-template-columns:1fr;
+    gap:30px;
+}
+
+.footer-col{
+    text-align:center;
+}
+
+.footer-col a,
+.footer-col p{
+    max-width:100%;
+}
+
+.footer-icons{
+    justify-content:center;
+}
+
+.border-line{
+    width:100%;
+}
+
+}
