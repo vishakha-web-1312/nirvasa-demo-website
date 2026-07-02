@@ -2793,7 +2793,7 @@ padding-top: 20px;
 
     .hero{
         height:560px;
-        margin-top:70px;
+        margin-top:50px;
     }
 
     .textonimage2{
@@ -3047,7 +3047,7 @@ padding-top: 20px;
 
     .hero{
         height:500px;
-        margin-top:75px;
+        margin-top:55px;
     }
 
     .textonimage2{
@@ -3245,7 +3245,7 @@ padding-top: 20px;
 
     .hero{
         height:470px;
-        margin-top:75px;
+        margin-top:55px;
     }
 
     .textonimage2{
@@ -3601,28 +3601,34 @@ p{
 
 /* ================= Header ================= */
 
-header{
-    padding:14px 18px;
-}
+  header{
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:12px 15px;
+    gap:12px;
+  }
 
-.logo{
+  .logo{
     width:110px;
-}
+  }
 
-nav{
-    display:none;
-}
+  nav{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+  }
 
-.cart-icon{
-    display:block;
-    right:20px;
-}
+  nav a{
+    font-size:14px;
+  }
 
 /* ================= Hero ================= */
 
 .hero{
     height:auto;
-    margin-top:70px;
+    margin-top:50px;
 }
 
 .slide img{
