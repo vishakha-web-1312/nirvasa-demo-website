@@ -548,12 +548,12 @@ justify-content: space-between;
   cursor: pointer;
 }
 
-/* hover effect */
+
 .sign-up a:hover {
   color: #0f7a35;
 }
 
-/* nice underline animation */
+
 .sign-up a::after {
   content: "";
   position: absolute;
@@ -716,16 +716,11 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 
 
 
-/* ==========================================================
-   TABLET RESPONSIVE (MAX WIDTH: 992px)
-   PART 1A
-========================================================== */
+/* TABLET RESPONSIVE (MAX WIDTH: 992px) ======== */
 
 @media (max-width: 992px) {
 
-  /* =========================
-     GLOBAL
-  ========================= */
+
 
   h1{
     font-size:40px;
@@ -749,9 +744,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     overflow-x:hidden;
   }
 
-  /* =========================
-     HEADER
-  ========================= */
+
 
   header{
     padding:12px 35px;
@@ -771,9 +764,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     font-size:15px;
   }
 
-  /* =========================
-     BUTTONS
-  ========================= */
+
 
   .btn{
     width:70%;
@@ -781,9 +772,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     font-size:17px;
   }
 
-  /* =========================
-     FORM ELEMENTS
-  ========================= */
 
   input,
   select{
@@ -800,9 +788,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     line-height:22px;
   }
 
-  /* =========================
-     LOGIN / SIGNUP CONTAINER
-  ========================= */
+
 
   .container{
 
@@ -848,9 +834,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     margin-right:0;
   }
 
-  /* =========================
-     FORM ROWS
-  ========================= */
 
   .name-row,
   .contact-row,
@@ -866,9 +849,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     flex:1;
   }
 
-  /* =========================
-     SOCIAL LOGIN
-  ========================= */
 
   .social-login{
 
@@ -892,19 +872,14 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     height:17px;
   }
 
-  /* =========================
-     SIGN UP LINK
-  ========================= */
+  
 
   .sign-up{
 
     margin-top:14px;
   }
 
-  /* =========================
-     FOOTER
-  ========================= */
-
+ 
   .footer-container{
 
     grid-template-columns:repeat(2,1fr);
@@ -940,9 +915,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     width:90%;
   }
 
-  /* =========================
-     SIDEBAR / ACCOUNT
-  ========================= */
+  
 
   .main{
 
@@ -987,9 +960,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     margin:20px 0;
   }
 
-  /* =========================
-     PASSWORD ICON
-  ========================= */
+
 
   .toggle-password{
 
@@ -1001,9 +972,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 }
 
 
-/* ==========================================================
-   MOBILE (768px)
-========================================================== */
+/* MOBILE (768px)*/
 
 @media (max-width:768px){
 
@@ -1027,7 +996,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     font-size:14px;
   }
 
-  /* Header */
+
 
   header{
     flex-direction:column;
@@ -1050,7 +1019,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     font-size:15px;
   }
 
-  /* Main Container */
 
   .container{
     flex-direction:column;
@@ -1076,7 +1044,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     padding:24px;
   }
 
-  /* Form Layout */
 
   .name-row,
   .contact-row,
@@ -1102,7 +1069,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     font-size:16px;
   }
 
-  /* Social Buttons */
 
   .social-login{
     flex-direction:column;
@@ -1119,7 +1085,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     height:18px;
   }
 
-  /* Footer */
+
 
   .footer-container{
     grid-template-columns:1fr;
@@ -1150,7 +1116,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     font-size:14px;
   }
 
-  /* Sidebar */
+
 
   .main{
     flex-direction:column;
@@ -1183,15 +1149,11 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 
 
 
-/* ==========================================================
-   SMALL MOBILE (480px)
-========================================================== */
+/* SMALL MOBILE (480px) */
 
 @media (max-width:480px){
 
-  /* =========================
-     Global
-  ========================= */
+
 
   body{
     overflow-x:hidden;
@@ -1215,9 +1177,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     line-height:1.6;
   }
 
-  /* =========================
-     Header
-  ========================= */
+  
 
   header{
     flex-direction:column;
@@ -1242,9 +1202,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     font-size:14px;
   }
 
-  /* =========================
-     Main Container
-  ========================= */
+  
 
   .container{
     flex-direction:column;
@@ -1252,9 +1210,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     padding:30px 15px;
   }
 
-  /* =========================
-     Image
-  ========================= */
+  
 
   .signup-image{
     width:100%;
@@ -1267,9 +1223,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     width:100%;
   }
 
-  /* =========================
-     Login / Signup Card
-  ========================= */
 
   .login-card{
     width:100%;
@@ -1279,9 +1232,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     border-radius:18px;
   }
 
-  /* =========================
-     Form Rows
-  ========================= */
 
   .name-row,
   .contact-row,
@@ -1302,9 +1252,8 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     font-size:14px;
   }
 
-  /* =========================
-     Button
-  ========================= */
+
+
 
   .btn{
     width:100%;
@@ -1313,9 +1262,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     border-radius:10px;
   }
 
-  /* =========================
-     Password Rules
-  ========================= */
+  
 
   .password-rules{
     font-size:12px;
@@ -1327,9 +1274,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     right:12px;
   }
 
-  /* =========================
-     Social Login
-  ========================= */
 
   .social-login{
     flex-direction:column;
@@ -1349,9 +1293,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     height:16px;
   }
 
-  /* =========================
-     Footer
-  ========================= */
+ 
 
   .footer-container{
     grid-template-columns:1fr;
@@ -1397,9 +1339,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     padding-bottom:20px;
   }
 
-  /* =========================
-     Sidebar
-  ========================= */
+  
 
   .main{
     flex-direction:column;

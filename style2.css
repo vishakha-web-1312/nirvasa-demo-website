@@ -2752,9 +2752,7 @@ padding-top: 20px;
 
 
 
-/* ==========================================================
-   PART 1 — LAPTOP (1200px–1440px)
-   ========================================================== */
+/*LAPTOP (1200px–1440px)*/
 
 @media (max-width:1440px){
 
@@ -2789,7 +2787,7 @@ padding-top: 20px;
         width:135px;
     }
 
-    /* Hero */
+     
 
     .hero{
         height:560px;
@@ -2807,7 +2805,7 @@ padding-top: 20px;
         width:360px;
     }
 
-    /* Trust */
+      Trust */
 
     .trust-section{
         padding:70px 40px;
@@ -3005,9 +3003,7 @@ padding-top: 20px;
 }
 
 
-/* ==========================================================
-   PART 1 — LARGE TABLET (992px–1199px)
-   ========================================================== */
+/* LARGE TABLET (992px–1199px) */
 
 @media (max-width:1199px){
 
@@ -3195,13 +3191,11 @@ padding-top: 20px;
 }
 
 
-/* ==========================================================
-   PART 2 — TABLET (768px–991px)
-   ========================================================== */
+/*  TABLET (768px–991px) */
 
 @media (max-width:991px){
 
-    /* ================= Global ================= */
+    /* Global */
 
     :root{
         --extralarge:30px;
@@ -3223,7 +3217,7 @@ padding-top: 20px;
         font-size:15px;
     }
 
-    /* ================= Header ================= */
+    /* Header */
 
     header{
         padding:15px 25px;
@@ -3241,7 +3235,7 @@ padding-top: 20px;
         font-size:14px;
     }
 
-    /* ================= Hero ================= */
+    /* Hero */
 
     .hero{
         height:470px;
@@ -3264,7 +3258,7 @@ padding-top: 20px;
         padding:18px;
     }
 
-    /* ================= Trust ================= */
+    /* Trust */
 
     .trust-section{
         padding:60px 25px;
@@ -3280,7 +3274,7 @@ padding-top: 20px;
         height:90px;
     }
 
-    /* ================= About Cards ================= */
+    /* About Cards */
 
     .about-section{
         padding:60px 25px;
@@ -3294,7 +3288,7 @@ padding-top: 20px;
         width:300px;
     }
 
-    /* ================= FAQ ================= */
+    /* FAQ */
 
     .faq-section{
         padding:60px 25px;
@@ -3314,7 +3308,7 @@ padding-top: 20px;
         padding:20px 55px 20px 20px;
     }
 
-    /* ================= About ================= */
+    /* About */
 
     .about{
         padding:60px 25px;
@@ -3338,6 +3332,7 @@ padding-top: 20px;
     .image-shape{
         width:400px;
         height:520px;
+        border-radius: 0px;
     }
 
     .floating-card{
@@ -3354,7 +3349,7 @@ padding-top: 20px;
         display:none;
     }
 
-    /* ================= Why Choose ================= */
+    /* Why Choose */
 
     .why-choose{
         padding:60px 25px;
@@ -3375,7 +3370,7 @@ padding-top: 20px;
         gap:20px;
     }
 
-    /* ================= Approach ================= */
+    /* Approach */
 
     .approach{
         padding:60px 25px 0;
@@ -3390,7 +3385,7 @@ padding-top: 20px;
         min-height:230px;
     }
 
-    /* ================= Contact Info ================= */
+    /* Contact Info */
 
     .contact-info{
         padding:60px 25px;
@@ -3401,7 +3396,7 @@ padding-top: 20px;
         width:220px;
     }
 
-    /* ================= Team ================= */
+    /* Team */
 
     .team-section{
         padding:60px 25px;
@@ -3430,7 +3425,7 @@ padding-top: 20px;
         margin-top:15px;
     }
 
-    /* ================= Contact ================= */
+    /* Contact */
 
     .contact-section{
         padding:60px 25px 0;
@@ -3448,7 +3443,7 @@ padding-top: 20px;
         gap:20px;
     }
 
-    /* ================= Location ================= */
+    /* Location */
 
     .location-section{
         padding:60px 25px;
@@ -3459,7 +3454,7 @@ padding-top: 20px;
         padding:30px;
     }
 
-    /* ================= Categories ================= */
+    /* Categories */
 
     .category-section,
     .categories{
@@ -3480,7 +3475,7 @@ padding-top: 20px;
         gap:25px;
     }
 
-    /* ================= Product Sections ================= */
+    /* Product Sections */
 
     .sexual-wellness,
     .fitness,
@@ -3521,7 +3516,7 @@ padding-top: 20px;
         height:50px;
     }
 
-    /* ================= Products ================= */
+    /* Products */
 
     .products{
         padding:60px 25px;
@@ -3529,7 +3524,7 @@ padding-top: 20px;
         gap:25px;
     }
 
-    /* ================= Modal ================= */
+    /* Modal */
 
     .modal-content{
         max-width:700px;
@@ -3545,13 +3540,13 @@ padding-top: 20px;
         height:250px;
     }
 
-    /* ================= Cart ================= */
+    /* Cart */
 
     .cart-panel{
         width:330px;
     }
 
-    /* ================= Footer ================= */
+    /* Footer */
 
     .footer{
         padding:60px 25px;
@@ -3571,13 +3566,11 @@ padding-top: 20px;
 
 
 
-/* ==========================================================
-   PART 3 — MOBILE (576px–767px)
-   ========================================================== */
+/*   PART 3 — MOBILE (576px–767px) */
 
 @media (max-width:767px){
 
-/* ================= Global ================= */
+/* Global */
 
 :root{
     --extralarge:20px;
@@ -3599,7 +3592,7 @@ p{
     font-size:15px;
 }
 
-/* ================= Header ================= */
+/* Header */
 
   header{
     flex-direction:column;
@@ -3624,7 +3617,7 @@ p{
     font-size:14px;
   }
 
-/* ================= Hero ================= */
+/* Hero */
 
 .hero{
     height:auto;
@@ -3655,7 +3648,7 @@ p{
     margin:20px auto;
 }
 
-/* ================= Trust ================= */
+/* Trust */
 
 .trust-section,
 .about-section,
@@ -3679,7 +3672,7 @@ p{
     padding:50px 20px;
 }
 
-/* ================= Trust ================= */
+/* Trust */
 
 .trust-line{
     flex-wrap:wrap;
@@ -3691,7 +3684,7 @@ p{
     height:80px;
 }
 
-/* ================= Badge ================= */
+/* Badge */
 
 .badge-container{
     gap:20px;
@@ -3701,7 +3694,7 @@ p{
     width:100%;
 }
 
-/* ================= FAQ ================= */
+/* FAQ */
 
 .faq-wrapper{
     grid-template-columns:1fr;
@@ -3716,7 +3709,7 @@ p{
     padding:18px 50px 18px 18px;
 }
 
-/* ================= About ================= */
+/* About */
 
 .about-container{
     flex-direction:column;
@@ -3729,6 +3722,7 @@ p{
 .image-shape{
     width:320px;
     height:430px;
+    border-radius: 0px;
 }
 
 .floating-card{
@@ -3743,7 +3737,7 @@ p{
     display:none;
 }
 
-/* ================= Why Choose ================= */
+/* Why Choose   */
 
 .why-container{
     flex-direction:column;
@@ -3757,7 +3751,7 @@ p{
     flex-direction:column;
 }
 
-/* ================= Approach ================= */
+/*   Approach   */
 
 .approach{
     padding-top:50px;
@@ -3771,7 +3765,7 @@ p{
     min-height:220px;
 }
 
-/* ================= Contact Info ================= */
+/*   Contact Info */
 
 .contact-info{
     gap:20px;
@@ -3781,7 +3775,7 @@ p{
     width:100%;
 }
 
-/* ================= Team ================= */
+/* Team */
 
 .team-grid{
     grid-template-columns:1fr;
@@ -3804,7 +3798,7 @@ p{
     margin-top:20px;
 }
 
-/* ================= Contact ================= */
+/* Contact */
 
 .form-row{
     grid-template-columns:1fr;
@@ -3814,7 +3808,7 @@ p{
     padding:25px;
 }
 
-/* ================= Location ================= */
+/* Location */
 
 .location-section{
     grid-template-columns:1fr;
@@ -3824,7 +3818,7 @@ p{
     min-height:300px;
 }
 
-/* ================= Categories ================= */
+/* Categories */
 
 .category-container{
     gap:20px;
@@ -3840,7 +3834,7 @@ p{
     grid-template-columns:1fr;
 }
 
-/* ================= Product Sections ================= */
+/* Product Sections */
 
 .section-header{
     display:flex;
@@ -3875,13 +3869,13 @@ p{
     display:none;
 }
 
-/* ================= Products ================= */
+/* Products */
 
 .products{
     grid-template-columns:1fr;
 }
 
-/* ================= Modal ================= */
+/* Modal */
 
 .modal-content{
     width:95%;
@@ -3897,13 +3891,13 @@ p{
     height:220px;
 }
 
-/* ================= Cart ================= */
+/* Cart */
 
 .cart-panel{
     width:100%;
 }
 
-/* ================= Footer ================= */
+/* Footer */
 
 .footer-container{
     grid-template-columns:1fr;

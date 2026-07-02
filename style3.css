@@ -835,7 +835,6 @@ input:focus, select:focus {
 }
 
 
-/* Products */
 
 #checkout-products{
     display:flex;
@@ -1137,7 +1136,6 @@ width: 100%;
     display:none;
 }
 
-/* Payment Box */
 
 .pay-box{
 
@@ -1167,7 +1165,6 @@ width: 100%;
     cursor:pointer;
 }
 
-/* Success Box */
 
 .success-box{
 
@@ -1470,337 +1467,8 @@ width: 100%;
 
 
 
-/* ===========================
-   SMALL MOBILE (320px - 480px)
-=========================== */
 
-@media (max-width:480px){
-
-:root{
-    --extralarge:20px;
-    --xl:28px;
-    --lg:20px;
-    --md:14px;
-}
-
-/* Typography */
-
-h1{
-    font-size:30px;
-}
-
-h2{
-    font-size:24px;
-}
-
-h3{
-    font-size:18px;
-}
-
-p{
-    font-size:14px;
-    line-height:1.6;
-}
-
-/* Header */
-
-header{
-    padding:12px 18px;
-}
-
-.logo{
-    width:120px;
-}
-
-/* Progress */
-
-.progress-wrapper{
-    flex-wrap:wrap;
-    gap:10px;
-}
-
-.line{
-    width:35px;
-}
-
-.progress-step span{
-    font-size:12px;
-}
-
-.circle{
-    width:28px;
-    height:28px;
-    font-size:13px;
-}
-
-/* Checkout */
-
-.checkout-container{
-    grid-template-columns:1fr;
-    gap:30px;
-    padding:20px;
-}
-
-.checkout-left{
-    gap:30px;
-}
-
-.checkout-right{
-    position:static;
-}
-
-.checkout-card,
-.summary-card{
-    padding:20px;
-}
-
-/* Input Grid */
-
-.input-grid{
-    grid-template-columns:1fr;
-    gap:18px;
-}
-
-.input-box,
-.input-box.small,
-.input-box.full{
-    grid-column:1/-1;
-}
-
-.input-box label{
-    font-size:14px;
-}
-
-.input-box input,
-.input-box select{
-    height:46px;
-    font-size:14px;
-}
-
-.input-box.small i,
-.input-box.full i{
-    right:16px;
-}
-
-/* Delivery */
-
-.delivery-option{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:10px;
-    padding:15px;
-}
-
-.delivery-price{
-    align-self:flex-end;
-}
-
-.delivery-info h3{
-    font-size:15px;
-}
-
-.delivery-info p{
-    font-size:13px;
-}
-
-/* Payment */
-
-.payment-content{
-    padding:14px;
-    gap:12px;
-}
-
-.payment-icon{
-    width:42px;
-    height:42px;
-}
-
-.payment-icon i{
-    font-size:18px;
-}
-
-.payment-text h4{
-    font-size:15px;
-}
-
-/* Product */
-
-.checkout-product{
-    align-items:flex-start;
-}
-
-.checkout-product img{
-    width:70px;
-    height:70px;
-}
-
-.product-details h4{
-    font-size:15px;
-}
-
-.product-details p{
-    font-size:13px;
-}
-
-.product-price{
-    font-size:16px;
-}
-
-/* Checkout Item */
-
-.checkout-item{
-    flex-direction:column;
-}
-
-.item-left{
-    align-items:flex-start;
-}
-
-.item-img{
-    width:80px;
-    height:80px;
-}
-
-.item-bottom{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:6px;
-}
-
-/* Coupon */
-
-.coupon-box{
-    flex-direction:column;
-}
-
-.coupon-box button{
-    width:100%;
-    height:46px;
-}
-
-/* Price */
-
-.price-row.total{
-    font-size:18px;
-}
-
-/* Delivery Info */
-
-.delivery-info-box{
-    flex-direction:column;
-    text-align:center;
-}
-
-/* Secure */
-
-.secure-payment{
-    flex-direction:column;
-    text-align:center;
-    gap:8px;
-}
-
-/* Button */
-
-.place-order-btn{
-    height:50px;
-    font-size:16px;
-}
-
-/* Card */
-
-.card{
-    width:100%;
-    padding:30px 20px;
-}
-
-.card-icon{
-    width:70px;
-    height:70px;
-}
-
-.card-icon i{
-    font-size:30px;
-}
-
-.continue-btn{
-    width:100%;
-    font-size:16px;
-}
-
-/* Popup */
-
-.popup-box,
-.payment-box,
-.loader-box,
-.success-box,
-.pay-box{
-    width:92%;
-    padding:20px;
-}
-
-.two-input{
-    flex-direction:column;
-    gap:0;
-}
-
-.popup-btn,
-.pay-btn,
-.view-order-btn{
-    font-size:16px;
-}
-
-.success-icon{
-    width:70px;
-    height:70px;
-    font-size:40px;
-}
-
-/* Footer */
-
-.footer{
-    padding:35px 20px;
-}
-
-.footer-container{
-    grid-template-columns:1fr;
-    gap:30px;
-}
-
-.footer-col{
-    text-align:center;
-    align-items:center;
-}
-
-.footer-col a,
-.footer-col p{
-    max-width:100%;
-}
-
-.footer-icons{
-    justify-content:center;
-}
-
-.iframe{
-    height:200px;
-}
-
-.footer-bottom{
-    font-size:14px;
-}
-
-/* Misc */
-
-.border-line{
-    width:100%;
-}
-
-}
-
-
-
-/* =========================
-   Laptop (1024px - 1200px)
-========================= */
+/*    Laptop (1024px - 1200px) */
 @media (max-width:1200px){
 
 header{
@@ -1829,9 +1497,7 @@ header{
 }
 
 
-/* =========================
-   Tablet (768px - 1023px)
-========================= */
+/*   Tablet (768px - 1023px) */
 @media (max-width:1023px){
 
 header{
@@ -1887,9 +1553,7 @@ header{
 }
 
 
-/* =========================
-   Mobile (481px - 767px)
-========================= */
+/*  Mobile (481px - 767px) */
 @media (max-width:767px){
 
 :root{
@@ -1964,7 +1628,8 @@ h2{
 }
 
 .coupon-box{
-    flex-direction:column;
+    display: flex;
+    gap: 10px;
 }
 
 .coupon-box button{
@@ -2022,9 +1687,6 @@ h2{
 }
 
 
-/* =========================
-   Small Mobile (320px - 480px)
-========================= */
 @media (max-width:480px){
 
 header{
@@ -2110,6 +1772,311 @@ h2{
 .pay-box{
     width:95%;
     padding:18px;
+}
+
+
+
+:root{
+    --extralarge:20px;
+    --xl:28px;
+    --lg:20px;
+    --md:14px;
+}
+
+
+h1{
+    font-size:30px;
+}
+
+h2{
+    font-size:24px;
+}
+
+h3{
+    font-size:18px;
+}
+
+p{
+    font-size:14px;
+    line-height:1.6;
+}
+
+
+header{
+    padding:12px 18px;
+}
+
+.logo{
+    width:120px;
+}
+
+
+.progress-wrapper{
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.line{
+    width:35px;
+}
+
+.progress-step span{
+    font-size:12px;
+}
+
+.circle{
+    width:28px;
+    height:28px;
+    font-size:13px;
+}
+
+
+.checkout-container{
+    grid-template-columns:1fr;
+    gap:30px;
+    padding:20px;
+}
+
+.checkout-left{
+    gap:30px;
+}
+
+.checkout-right{
+    position:static;
+}
+
+.checkout-card,
+.summary-card{
+    padding:20px;
+}
+
+
+.input-grid{
+    grid-template-columns:1fr;
+    gap:18px;
+}
+
+.input-box,
+.input-box.small,
+.input-box.full{
+    grid-column:1/-1;
+}
+
+.input-box label{
+    font-size:14px;
+}
+
+.input-box input,
+.input-box select{
+    height:46px;
+    font-size:14px;
+}
+
+.input-box.small i,
+.input-box.full i{
+    right:16px;
+}
+
+
+.delivery-option{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+    padding:15px;
+}
+
+.delivery-price{
+    align-self:flex-end;
+}
+
+.delivery-info h3{
+    font-size:15px;
+}
+
+.delivery-info p{
+    font-size:13px;
+}
+
+
+.payment-content{
+    padding:14px;
+    gap:12px;
+}
+
+.payment-icon{
+    width:42px;
+    height:42px;
+}
+
+.payment-icon i{
+    font-size:18px;
+}
+
+.payment-text h4{
+    font-size:15px;
+}
+
+
+.checkout-product{
+    align-items:flex-start;
+}
+
+.checkout-product img{
+    width:70px;
+    height:70px;
+}
+
+.product-details h4{
+    font-size:15px;
+}
+
+.product-details p{
+    font-size:13px;
+}
+
+.product-price{
+    font-size:16px;
+}
+
+
+.checkout-item{
+    flex-direction:column;
+}
+
+.item-left{
+    align-items:flex-start;
+}
+
+.item-img{
+    width:80px;
+    height:80px;
+}
+
+.item-bottom{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+}
+
+
+.coupon-box{
+    display: flex;
+    gap: 10px;
+}
+
+.coupon-box button{
+    width: 35%;
+        height:52px;
+}
+
+
+.price-row.total{
+    font-size:18px;
+}
+
+
+.delivery-info-box{
+    flex-direction:column;
+    text-align:center;
+}
+
+
+.secure-payment{
+    flex-direction:column;
+    text-align:center;
+    gap:8px;
+}
+
+
+.place-order-btn{
+    height:50px;
+    font-size:16px;
+}
+
+
+.card{
+    width:100%;
+    padding:30px 20px;
+            margin: 20px;
+}
+
+.card-icon{
+    width:70px;
+    height:70px;
+}
+
+.card-icon i{
+    font-size:30px;
+}
+
+.continue-btn{
+    width:100%;
+    font-size:16px;
+}
+
+
+.popup-box,
+.payment-box,
+.loader-box,
+.success-box,
+.pay-box{
+    width:92%;
+    padding:20px;
+    margin: 30px;
+}
+
+.two-input{
+    flex-direction:column;
+    gap:0;
+}
+
+.popup-btn,
+.pay-btn,
+.view-order-btn{
+    font-size:16px;
+}
+
+.success-icon{
+    width:70px;
+    height:70px;
+    font-size:40px;
+}
+
+
+.footer{
+    padding:35px 20px;
+}
+
+.footer-container{
+    grid-template-columns:1fr;
+    gap:30px;
+}
+
+.footer-col{
+    text-align:center;
+    align-items:center;
+}
+
+.footer-col a,
+.footer-col p{
+    max-width:100%;
+}
+
+.footer-icons{
+    justify-content:center;
+}
+
+.iframe{
+    height:200px;
+}
+
+.footer-bottom{
+    font-size:14px;
+}
+
+
+.border-line{
+    width:100%;
 }
 
 }
