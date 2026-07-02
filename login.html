@@ -37,7 +37,6 @@
      
       <div class="login-card">
         <h2>LOGIN</h2>
-        <br>
         <form>
            <div class="input-group">
           <input type="text" placeholder="Mobile Number" class="mobilenumber-input" id="mobilenumber">
@@ -60,9 +59,9 @@
         <div class="social-login">
           <button type="button" class=" google-btn"> 
              <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" 
-         class="icon"> Login with Google </button>
+         class="social-login-icon"> Login with Google </button>
             <button type="button" class="microsoft-btn"> <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
-         class="icon"> Login with Microsoft </button>
+         class="social-login-icon"> Login with Microsoft </button>
           
           </div></form>
 
@@ -321,11 +320,15 @@ if (!validUser) {
 }
 
 // If matching user found
+// If matching user found
 else {
 
   alert("Login Successfully");
 
   form.reset();
+
+  // Redirect to Home Page
+  window.location.href = "home-page.html";
 
 }
 

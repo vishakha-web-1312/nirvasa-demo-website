@@ -562,295 +562,32 @@
   </div>
 </footer>
 <div id="cartPanel" class="cart-panel">
+
     <div class="cart-header">
         <h2>My Cart</h2>
         <span id="closeCart">&times;</span>
     </div>
 
     <div id="cartItems" class="cart-items">
-        <p>No items added yet</p>
+        <p class="empty-cart">No items added yet</p>
     </div>
+
+    <div id="cart-footer">
+
+
+        <div class="cart-total">
+            <h3>Total: ₹<span id="total-price">0</span></h3>
+            
+        </div>
+
+        <a href="checkout.html">
+        <button id="checkout-btn">Proceed to Checkout</button>
+        </a>
+    </div>
+
 </div>
-<script>
+<script src="script.js"></script>
 
-  
-
-
-// QUANTITY VALIDATION
-
-
-document.querySelectorAll(".quantity-box").forEach(box => {
-
-    const input = box.querySelector(".quantity-input");
-    const plus = box.querySelector(".plus");
-    const minus = box.querySelector(".minus");
-
-    // Block unwanted keys
-    input.addEventListener("keydown", function (e) {
-
-        if (["e", "E", "+", "-", "."].includes(e.key)) {
-            e.preventDefault();
-        }
-
-    });
-
-    // Validate while typing
-    input.addEventListener("input", function () {
-
-        // Remove non-numeric characters
-        this.value = this.value.replace(/\D/g, "");
-
-        // Allow empty while typing
-        if (this.value === "") return;
-
-        let value = parseInt(this.value, 10);
-
-        // Maximum 10
-        if (value > 10) {
-            this.value = 10;
-        }
-
-    });
-
-    // Validate when user leaves input
-    input.addEventListener("blur", function () {
-
-        let value = parseInt(this.value, 10);
-
-        // Minimum 1
-        if (isNaN(value) || value < 1) {
-            this.value = 1;
-        }
-
-        // Maximum 10
-        else if (value > 10) {
-            this.value = 10;
-        }
-
-    });
-
-    // PLUS BUTTON
-    plus.addEventListener("click", function () {
-
-        let value = parseInt(input.value) || 1;
-
-        if (value < 10) {
-            input.value = value + 1;
-        }
-
-    });
-
-    // MINUS BUTTON
-    minus.addEventListener("click", function () {
-
-        let value = parseInt(input.value) || 1;
-
-        if (value > 1) {
-            input.value = value - 1;
-        }
-
-    });
-
-});
-
-
-
-    //    ------WISHLIST TOGGLE----   
-
-    // Listen for any click on page
-    document.addEventListener("click", function (e) {
-
-        // Check if clicked element is wishlist button
-        const wishBtn = e.target.closest(".wish-btn");
-
-        // If not wishlist button → stop
-        if (!wishBtn) return;
-
-        // Toggle active class (heart fill/empty)
-        wishBtn.classList.toggle("active");
-
-    });
-
-
-
-    //    KEYBOARD NAVIGATION   
-
-    // Listen for keyboard press
-    document.addEventListener("keydown", (e) => {
-
-        // Right arrow → next slide
-        if (e.key === "ArrowRight") {
-            document.querySelector(".next")?.click();
-        }
-
-        // Left arrow → previous slide
-        if (e.key === "ArrowLeft") {
-            document.querySelector(".prev")?.click();
-        }
-
-    });
-
-
-//ADD to cart
-
-   let count = 0;
-
-const cartIcon = document.querySelector(".cart-icon");
-const cartItems = document.getElementById("cartItems");
-
-document.querySelectorAll(".product-card .cart-btn").forEach(button => {
-
-    button.addEventListener("click", function() {
-
-        const card = this.closest(".product-card");
-
-        const image = card.querySelector("img").src;
-        const title = card.querySelector("h3").textContent.trim();
-        const newPrice = card.querySelector(".new-price").textContent;
-        const quantity = Number(card.querySelector(".quantity-input").value);
-
-        cartIcon.style.display = "flex";
-
-        if(cartItems.innerHTML.includes("No items added yet")){
-            cartItems.innerHTML = "";
-        }
-
-        // check same product already exists
-        const existingItem = [...document.querySelectorAll(".cart-item")]
-        .find(item =>
-            item.querySelector("h4").textContent === title
-        );
-
-        if(existingItem){
-
-            const qtyElement = existingItem.querySelector(".qty-value");
-
-            let currentQty = Number(qtyElement.textContent);
-
-            let totalQty = currentQty + quantity;
-
-                if(totalQty > 10){
-                    totalQty = 10;
-                }
-
-                qtyElement.textContent = totalQty;
-
-        }
-
-        else{
-
-            count++;
-
-            document.getElementById("cartCount").textContent = count;
-
-            cartItems.innerHTML += `
-            <div class="cart-item">
-
-                <img src="${image}" alt="${title}">
-
-                <div class="cart-details">
-
-                    <h4>${title}</h4>
-
-                    <div class="price">
-                        <span class="new-price">${newPrice}</span>
-                    </div>
-
-                    <div class="cart-footer">
-
-                        <div class="cart-controls">
-
-                            <button class="cart-qty-btn qty-minus">
-                                <i class="fa fa-minus"></i>
-                            </button>
-
-                            <span class="qty-value">${quantity}</span>
-
-                            <button class="cart-qty-btn qty-plus">
-                                <i class="fa fa-plus"></i>
-                            </button>
-
-                        </div>
-
-                        <button class="delete-btn">
-                            <i class="fa fa-trash"></i>
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-            `;
-        }
-
-    });
-
-});
-
-
-cartIcon.addEventListener("click", () => {
-    document.getElementById("cartPanel").classList.add("active");
-});
-
-document.getElementById("closeCart").addEventListener("click", () => {
-    document.getElementById("cartPanel").classList.remove("active");
-});
-
-
-document.addEventListener("click", function(e){
-
-    const plusBtn = e.target.closest(".qty-plus");
-    const minusBtn = e.target.closest(".qty-minus");
-    const deleteBtn = e.target.closest(".delete-btn");
-
-    if(plusBtn){
-
-        let qty = plusBtn.parentElement.querySelector(".qty-value");
-
-        let current = Number(qty.textContent);
-
-        if(current < 10){
-          qty.textContent = current + 1;
-}
-        else{
-          alert("Maximum quantity allowed is 10");
-}   
-    }
-
-    if(minusBtn){
-
-        let qty = minusBtn.parentElement.querySelector(".qty-value");
-
-        let current = Number(qty.textContent);
-
-        if(current > 1){
-            qty.textContent = current - 1;
-        }
-    }
-
-    if(deleteBtn){
-
-        deleteBtn.closest(".cart-item").remove();
-
-        count--;
-
-        if(count < 0){
-            count = 0;
-        }
-
-        document.getElementById("cartCount").textContent = count;
-
-        if(document.querySelectorAll(".cart-item").length === 0){
-
-            cartItems.innerHTML = "<p>No items added yet</p>";
-        }
-    }
-
-});
-
-
-</script>
 
 
 </body>

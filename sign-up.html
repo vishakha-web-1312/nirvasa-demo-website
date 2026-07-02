@@ -32,7 +32,8 @@
    
 <div class="login-card">
 <h2>CREATE ACCOUNT</h2>
-<br><form>
+
+<form>
 <div class="name-row">
 <div class="input-group">
 <input type="text" placeholder="First Name" class="firstname-input" id="firstname"/>
@@ -545,60 +546,41 @@ form.addEventListener("submit", function (e) {
     hasLength && hasCapital && hasSmall && hasNumber && hasSpecial
   ) {
 
-    // Create object to store user data
     let userdata = {
 
-      // Store first name
       firstname: firstname.value,
 
-      // Store last name
       lastname: lastname.value,
 
-      // Store mobile number
       mobile: mobilenumber.value,
 
-      // Store email value
       email: document.getElementById("email").value,
 
-      // Store country
       country: country.value,
 
-      // Store state
       state: state.value,
 
-      // Store city
       city: city.value,
     };
 
-// Get old users data from localStorage
-// If no users exist, create an empty array
 let oldUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-// Add new user data into users array
 oldUsers.push({
 
-  // Store firstname input value
   firstname: firstname.value,
 
-  // Store lastname input value
   lastname: lastname.value,
 
-  // Store mobile number input value
   mobile: mobilenumber.value,
 
-  // Store email input value
   email: document.getElementById("email").value,
 
-  // Store selected country
   country: country.value,
 
-  // Store selected state
   state: state.value,
 
-  // Store selected city
   city: city.value,
 
-  // Store password input value
   password: password.value
 
 });
@@ -612,6 +594,9 @@ form.reset();
 setTimeout(() => {
   alert("Sign up Successfully");
 }, 0);
+
+  window.location.href = "login.html";
+
   }
 });
 </script>

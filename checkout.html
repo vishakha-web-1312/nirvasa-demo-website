@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style3.css">
 </head>
 
 <body style="margin-top: 70px;">
@@ -130,6 +130,8 @@
                         <option value="India" selected>India</option>
                       
                     </select>
+                        <i class="fa fa-chevron-down"></i>
+
                 </div>
 
 
@@ -166,8 +168,9 @@
                             <option value="Uttar Pradesh">Uttar Pradesh</option>
                             <option value="Uttarakhand">Uttarakhand</option>
                             <option value="West Bengal">West Bengal</option>                      
-                                                
-                        </select>
+                            </select>                    
+                        
+                        <i class="fa fa-chevron-down"></i>
 
 
                 </div>
@@ -454,6 +457,167 @@
     
   </div>
 </footer>
+
+<div id="payOverlay" class="popup-overlay">
+
+    <div class="popup-box">
+
+        <span class="close-popup">&times;</span>
+
+        <h2>Pay Now</h2>
+
+        <p class="method-name">
+            Payment Method :
+            <b id="paymentMethodName"></b>
+        </p>
+
+        <h1 id="paymentAmount">₹0</h1>
+
+        <button id="continuePayment" class="popup-btn">
+            Continue
+        </button>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+<div id="cardPopup" class="popup-overlay">
+
+    <div class="payment-box">
+
+        <span class="close-popup">&times;</span>
+
+        <h2>Card Payment</h2>
+
+        <div class="input-group">
+
+            <label>Card Number</label>
+
+            <input
+                type="text"
+                id="cardNumber"
+                maxlength="19"
+                placeholder="1234 5678 9012 3456">
+
+        </div>
+
+        <div class="input-group">
+
+            <label>Card Holder Name</label>
+
+            <input
+                type="text"
+                id="cardName"
+                placeholder="Enter Card Holder Name">
+
+        </div>
+
+        <div class="two-input">
+
+            <div class="input-group">
+
+                <label>Expiry</label>
+
+                <input
+                    type="text"
+                    id="expiry"
+                    placeholder="MM/YY">
+
+            </div>
+
+            <div class="input-group">
+
+                <label>CVV</label>
+
+                <input
+                    type="password"
+                    id="cvv"
+                    maxlength="3"
+                    placeholder="123">
+
+            </div>
+
+        </div>
+
+        <button id="payCardBtn" class="popup-btn">
+
+            Pay ₹<span id="cardAmount">0</span>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+<div id="upiPopup" class="popup-overlay">
+
+    <div class="payment-box">
+
+        <span class="close-popup">&times;</span>
+
+        <h2>UPI Payment</h2>
+
+        <div class="input-group">
+
+            <label>UPI ID</label>
+
+            <input
+                type="text"
+                id="upiId"
+                placeholder="example@paytm">
+
+        </div>
+
+        <button id="payUpiBtn" class="popup-btn">
+
+            Pay ₹<span id="upiAmount">0</span>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<div id="loaderPopup" class="popup-overlay">
+
+    <div class="loader-box">
+
+        <div class="loader"></div>
+
+        <h2>Processing Payment...</h2>
+
+        <p>Please wait</p>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
 <script>
 
         let firstname = document.querySelector("input[placeholder='Enter first name']");
@@ -646,7 +810,6 @@ placeOrderBtn.addEventListener("click", function () {
         return;
     }
 
-    // ⭐ PAYMENT CHECK ADDED HERE
     let paymentMethod = getSelectedPayment();
 
     if (!paymentMethod) {
@@ -654,13 +817,11 @@ placeOrderBtn.addEventListener("click", function () {
         return;
     }
 
-    // CASE 1: COD
     if (paymentMethod === "Cash On Delivery") {
         localStorage.removeItem("cart");
         window.location.href = "complete.html";
     }
 
-    // CASE 2: UPI / CARD
     else {
         showPayNowScreen(paymentMethod);
     }
@@ -674,7 +835,6 @@ placeOrderBtn.addEventListener("click", function () {
 
 
 
-//order summary
 
 function renderOrderSummary() {
 
@@ -727,18 +887,13 @@ function renderOrderSummary() {
         cartContainer.appendChild(div);
     });
 
-    // ==========================
-    // CALCULATIONS
-    // ==========================
-
+ 
     let tax = Math.round(subtotal * 0.02);
     let discount = subtotal > 2000 ? Math.round(subtotal * 0.10) : 0;
 
     let total = subtotal + tax - discount;
 
-    // ==========================
-    // UI UPDATE
-    // ==========================
+    
 
     subtotalEl.innerText = `₹${subtotal}`;
     taxEl.innerText = `₹${tax}`;
@@ -760,35 +915,154 @@ function getSelectedPayment() {
 
 function showPayNowScreen(method) {
 
-    let payBox = document.createElement("div");
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    payBox.innerHTML = `
-    <div class="pay-overlay">
+    let subtotal = 0;
 
-        <div class="pay-box">
+    cart.forEach(item => {
+        subtotal += item.price * item.quantity;
+    });
 
-            <h2>Pay Now</h2>
-            <p>Payment Method: <b>${method}</b></p>
+    let tax = Math.round(subtotal * 0.02);
+    let discount = subtotal > 2000 ? Math.round(subtotal * 0.10) : 0;
+    let total = subtotal + tax - discount;
 
-            <button id="payNowBtn" class="pay-btn">
-                Pay Now
-            </button>
 
-        </div>
+    let payOverlay = document.getElementById("payOverlay");
+    let cardPopup = document.getElementById("cardPopup");
+    let upiPopup = document.getElementById("upiPopup");
+    let loaderPopup = document.getElementById("loaderPopup");
+    let successPopup = document.getElementById("successPopup");
 
-    </div>
-`;
 
-    document.body.appendChild(payBox);
+    document.getElementById("paymentMethodName").innerText = method;
 
-    document.getElementById("payNowBtn").addEventListener("click", function () {
+    document.getElementById("paymentAmount").innerText = "₹" + total;
+
+    document.getElementById("cardAmount").innerText = total;
+
+    document.getElementById("upiAmount").innerText = total;
+
+
+    payOverlay.style.display = "flex";
+
+
+    document.getElementById("continuePayment").onclick = function () {
+
+        payOverlay.style.display = "none";
+
+        if (method == "Credit / Debit Card") {
+
+            cardPopup.style.display = "flex";
+
+        } else {
+
+            upiPopup.style.display = "flex";
+
+        }
+
+    };
+
+
+    document.getElementById("payCardBtn").onclick = function () {
+
+        let cardNo = document.getElementById("cardNumber").value.trim();
+
+        let cardName = document.getElementById("cardName").value.trim();
+
+        let expiry = document.getElementById("expiry").value.trim();
+
+        let cvv = document.getElementById("cvv").value.trim();
+
+        if (cardNo == "" || cardName == "" || expiry == "" || cvv == "") {
+
+            alert("Please fill all card details.");
+
+            return;
+
+        }
+
+        if (cardNo.replace(/\s/g, "").length != 16) {
+
+            alert("Enter valid 16 digit card number.");
+
+            return;
+
+        }
+
+        if (cvv.length != 3) {
+
+            alert("Invalid CVV.");
+
+            return;
+
+        }
+
+        cardPopup.style.display = "none";
+
+        showLoader();
+
+    };
+
+
+    document.getElementById("payUpiBtn").onclick = function () {
+
+        let upi = document.getElementById("upiId").value.trim();
+
+        if (upi == "") {
+
+            alert("Enter UPI ID");
+
+            return;
+
+        }
+
+        if (!upi.includes("@")) {
+
+            alert("Invalid UPI ID");
+
+            return;
+
+        }
+
+        upiPopup.style.display = "none";
+
+        showLoader();
+
+    };
+
+function showLoader() {
+
+    loaderPopup.style.display = "flex";
+
+    setTimeout(function () {
 
         localStorage.removeItem("cart");
+
         window.location.href = "complete.html";
-    });
+
+    }, 2000);
+
 }
 
+ 
 
+
+    document.querySelectorAll(".close-popup").forEach(function(btn){
+
+        btn.onclick = function(){
+
+            payOverlay.style.display = "none";
+
+            cardPopup.style.display = "none";
+
+            upiPopup.style.display = "none";
+
+        };
+
+    });
+
+}
 
 
 
