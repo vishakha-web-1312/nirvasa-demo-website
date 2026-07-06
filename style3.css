@@ -477,7 +477,6 @@ input{
     border:1px solid #ddd;
     border-radius:6px;
     outline:none;
-    font-family:Poppins;
     transition:0.2s;
     box-sizing:border-box;
 }
@@ -1687,6 +1686,7 @@ h2{
 }
 
 }
+
 
 
 @media (max-width:480px){
