@@ -722,7 +722,7 @@
 
     </div>
 
-    
+
 </div>
 
 
@@ -1292,7 +1292,7 @@ document.getElementById("payUpiBtn").onclick = function () {
 
             validateUpi();
 
-            let err = upiId.parentElement.querySelector("small");
+            let err = upiId.closest(".upi-popup").querySelector("small");
 
             if (err.innerHTML !== "") return;
 
