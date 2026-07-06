@@ -460,27 +460,55 @@
 
 <div id="payOverlay" class="popup-overlay">
 
-    <div class="popup-box">
+    <div class="pay-popup">
 
-        <span class="close-popup">&times;</span>
+        <span class="close-popup">
+            <i class="fa fa-times"></i>
+        </span>
+
+        <div class="pay-icon">
+
+            <div class="icon-circle">
+
+                <i class="fa fa-shield"></i>
+
+                <div class="check-circle">
+                    <i class="fa fa-check"></i>
+                </div>
+
+            </div>
+
+        </div>
 
         <h2>Pay Now</h2>
 
         <p class="method-name">
             Payment Method :
-            <b id="paymentMethodName"></b>
+            <span id="paymentMethodName"></span>
         </p>
+
+        <hr>
 
         <h1 id="paymentAmount">₹0</h1>
 
-        <button id="continuePayment" class="popup-btn">
+        <button id="continuePayment" class="pay-btn">
+
             Continue
+            <i class="fa fa-arrow-right"></i>
+
         </button>
+
+        <div class="secure-text">
+
+            <i class="fa fa-lock"></i>
+
+            Secure & Safe Payments
+
+        </div>
 
     </div>
 
 </div>
-
 
 
 
@@ -488,57 +516,125 @@
 
 <div id="cardPopup" class="popup-overlay">
 
-    <div class="payment-box">
+    <div class="modern-card-popup">
 
         <span class="close-popup">&times;</span>
 
+        <!-- Icon -->
+        <div class="popup-icon">
+            <i class="fa fa-credit-card"></i>
+        </div>
+
         <h2>Card Payment</h2>
 
+        <!-- Card Number -->
         <div class="input-group">
+
             <label>Card Number</label>
-            <input
-                type="text"
-                id="cardNumber"
-                maxlength="19"
-                placeholder="1234 5678 9012 3456">
-                <small class="error"></small>
+
+            <div class="input-wrapper">
+
+                <i class="fa fa-credit-card"></i>
+
+                <input
+                    type="text"
+                    id="cardNumber"
+                    maxlength="19"
+                    placeholder="1234 5678 9012 3456">
+
+            </div>
+
+            <small class="error"></small>
+
         </div>
+
+
+        <!-- Holder -->
+
         <div class="input-group">
+
             <label>Card Holder Name</label>
-            <input
-                type="text"
-                id="cardName"
-                placeholder="Enter Card Holder Name">
-                <small class="error"></small>
+
+            <div class="input-wrapper">
+
+                <i class="fa fa-user-o"></i>
+
+                <input
+                    type="text"
+                    id="cardName"
+                    placeholder="Enter Card Holder Name">
+
+            </div>
+
+            <small class="error"></small>
+
         </div>
+
+
+        <!-- Expiry + CVV -->
 
         <div class="two-input">
 
             <div class="input-group">
+
                 <label>Expiry</label>
-                <input
-                    type="text"
-                    id="expiry"
-                    placeholder="MM/YY">
-                    <small class="error"></small>
+
+                <div class="input-wrapper">
+
+                    <i class="fa fa-calendar"></i>
+
+                    <input
+                        type="text"
+                        id="expiry"
+                        placeholder="MM/YY">
+
+                </div>
+
+                <small class="error"></small>
+
             </div>
+
 
             <div class="input-group">
 
                 <label>CVV</label>
-                <input
-                    type="password"
-                    id="cvv"
-                    maxlength="3"
-                    placeholder="123"> 
-                    <small class="error"></small>
+
+                <div class="input-wrapper">
+
+                    <i class="fa fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="cvv"
+                        maxlength="3"
+                        placeholder="123">
+
+
+                </div>
+
+                <small class="error"></small>
+
             </div>
 
         </div>
 
-        <button id="payCardBtn" class="popup-btn">
+
+        <button id="payCardBtn" class="modern-pay-btn">
+
+            <i class="fa fa-lock"></i>
+
             Pay ₹<span id="cardAmount">0</span>
+
         </button>
+
+
+        <p class="payment-note">
+
+            <i class="fa fa-shield"></i>
+
+            Your payment details are secure and encrypted
+
+        </p>
 
     </div>
 
@@ -547,28 +643,86 @@
 
 
 
-
-
 <div id="upiPopup" class="popup-overlay">
 
-    <div class="payment-box">
-        <span class="close-popup">&times;</span>
+    <div class="upi-popup">
+
+        <span class="close-popup">
+            <i class="fa fa-times"></i>
+        </span>
+
+        <div class="upi-logo">
+
+            <div class="upi-circle">
+
+                <img src="images/upi-logo.png" alt="UPI">
+
+            </div>
+
+        </div>
+
         <h2>UPI Payment</h2>
-        <div class="input-group">
-            <label>UPI ID</label>
+
+        <div class="divider">
+
+            <div class="line"></div>
+
+            <i class="fa fa-shield"></i>
+
+            <div class="line"></div>
+
+        </div>
+
+        <label class="upi-label">
+
+            UPI ID
+
+        </label>
+
+        <div class="upi-input-box">
+
+            <span class="upi-user">
+
+                <i class="fa fa-user"></i>
+
+            </span>
+
             <input
                 type="text"
                 id="upiId"
                 placeholder="example@paytm">
-                <small class="error"></small>
+
         </div>
 
-        <button id="payUpiBtn" class="popup-btn">
+        <small class="error"></small>
+
+        <p class="upi-info">
+
+            <i class="fa fa-info-circle"></i>
+
+            Enter your UPI ID to make the payment
+
+        </p>
+
+        <button id="payUpiBtn" class="upi-pay-btn">
+
+            <i class="fa fa-lock"></i>
+
             Pay ₹<span id="upiAmount">0</span>
+
         </button>
+
+        <p class="upi-secure">
+
+            <i class="fa fa-shield"></i>
+
+            100% Secure Payments
+
+        </p>
 
     </div>
 
+    
 </div>
 
 
@@ -772,9 +926,8 @@ function validationpin() {
 function validateCardNumber() {
 
     let val = cardNumber.value;
-    let err = cardNumber.parentElement.querySelector("small");
-
-    if (val === "") {
+let err = cardNumber.closest(".input-group").querySelector("small"); 
+   if (val === "") {
         err.innerHTML = "Card number required";
     }
     else if (!/^[0-9\s]+$/.test(val)) {
@@ -793,7 +946,7 @@ function validateCardNumber() {
 function validateCardName() {
 
     let val = cardName.value;
-    let err = cardName.parentElement.querySelector("small");
+    let err = cardName.closest(".input-group").querySelector("small");
 
     if (val === "") {
         err.innerHTML = "Name required";
@@ -812,7 +965,7 @@ function validateCardName() {
 function validateExpiry() {
 
     let val = expiry.value;
-    let err = expiry.parentElement.querySelector("small");
+    let err = expiry.closest(".input-group").querySelector("small");
 
     if (val === "") {
         err.innerHTML = "Expiry required";
@@ -831,7 +984,7 @@ function validateExpiry() {
 function validateCVV() {
 
     let val = cvv.value;
-    let err = cvv.parentElement.querySelector("small");
+    let err = cvv.closest(".input-group").querySelector("small");
 
     if (val === "") {
         err.innerHTML = "CVV required";
@@ -847,7 +1000,7 @@ function validateCVV() {
 function validateUpi() {
 
     let val = upiId.value;
-    let err = upiId.parentElement.querySelector("small");
+    let err = upiId.closest(".upi-popup").querySelector("small");
 
     if (val === "") {
         err.innerHTML = "UPI ID required";
@@ -1111,7 +1264,7 @@ function showPayNowScreen(method) {
         showLoader();
 
     };
-        payCardBtn.onclick = function () {
+        document.getElementById("payCardBtn").onclick = function () {
 
             validateCardNumber();
             validateCardName();
@@ -1134,7 +1287,8 @@ function showPayNowScreen(method) {
 
 
 
-        payUpiBtn.onclick = function () {
+        
+document.getElementById("payUpiBtn").onclick = function () {
 
             validateUpi();
 
