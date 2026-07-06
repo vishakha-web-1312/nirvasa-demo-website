@@ -586,6 +586,14 @@ select{
     margin-top: 5px;
     display: block;
 }
+  
+.input-group small {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
+
 
 .input-box input,
 .input-box select {

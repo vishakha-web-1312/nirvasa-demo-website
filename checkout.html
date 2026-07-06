@@ -501,6 +501,7 @@
                 id="cardNumber"
                 maxlength="19"
                 placeholder="1234 5678 9012 3456">
+                <small class="error"></small>
         </div>
         <div class="input-group">
             <label>Card Holder Name</label>
@@ -508,6 +509,7 @@
                 type="text"
                 id="cardName"
                 placeholder="Enter Card Holder Name">
+                <small class="error"></small>
         </div>
 
         <div class="two-input">
@@ -518,6 +520,7 @@
                     type="text"
                     id="expiry"
                     placeholder="MM/YY">
+                    <small class="error"></small>
             </div>
 
             <div class="input-group">
@@ -528,6 +531,7 @@
                     id="cvv"
                     maxlength="3"
                     placeholder="123"> 
+                    <small class="error"></small>
             </div>
 
         </div>
@@ -556,6 +560,7 @@
                 type="text"
                 id="upiId"
                 placeholder="example@paytm">
+                <small class="error"></small>
         </div>
 
         <button id="payUpiBtn" class="popup-btn">
@@ -601,7 +606,12 @@
         let house = document.querySelector("input[placeholder='House No., Street Name']");
         let city = document.querySelector("input[placeholder='Enter City']");
         let pin = document.querySelector("input[placeholder='110001']");
-
+        let cardNumber = document.getElementById("cardNumber");
+        let cardName = document.getElementById("cardName");
+        let expiry = document.getElementById("expiry");
+        let cvv = document.getElementById("cvv");  
+        let upiId = document.getElementById("upiId");
+     
         let cart = JSON.parse(localStorage.getItem("cart")) || [];
         let placeOrderBtn = document.getElementById("placeOrderBtn");
 
@@ -616,7 +626,11 @@
         house.addEventListener("blur", validationhouse);
         city.addEventListener("blur", validationcity);
         pin.addEventListener("blur", validationpin);
-
+        cardNumber.addEventListener("blur", validateCardNumber);
+        cardName.addEventListener("blur", validateCardName);
+        expiry.addEventListener("blur", validateExpiry);
+        cvv.addEventListener("blur", validateCVV);
+upiId.addEventListener("blur", validateUpi);
 
 
 function validationfirstname() {
@@ -750,6 +764,99 @@ function validationpin() {
     }
     else {
         pinerror.innerHTML = "";
+    }
+}
+
+
+
+function validateCardNumber() {
+
+    let val = cardNumber.value;
+    let err = cardNumber.parentElement.querySelector("small");
+
+    if (val === "") {
+        err.innerHTML = "Card number required";
+    }
+    else if (!/^[0-9\s]+$/.test(val)) {
+        err.innerHTML = "Only numbers allowed";
+    }
+    else if (val.replace(/\s/g, "").length !== 16) {
+        err.innerHTML = "Must be 16 digits";
+    }
+    else {
+        err.innerHTML = "";
+    }
+}
+
+
+
+function validateCardName() {
+
+    let val = cardName.value;
+    let err = cardName.parentElement.querySelector("small");
+
+    if (val === "") {
+        err.innerHTML = "Name required";
+    }
+    else if (!/^[A-Za-z\s]+$/.test(val)) {
+        err.innerHTML = "Only letters allowed";
+    }
+    else {
+        err.innerHTML = "";
+    }
+}
+
+
+
+
+function validateExpiry() {
+
+    let val = expiry.value;
+    let err = expiry.parentElement.querySelector("small");
+
+    if (val === "") {
+        err.innerHTML = "Expiry required";
+    }
+    else if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(val)) {
+        err.innerHTML = "Format MM/YY";
+    }
+    else {
+        err.innerHTML = "";
+    }
+}
+
+
+
+
+function validateCVV() {
+
+    let val = cvv.value;
+    let err = cvv.parentElement.querySelector("small");
+
+    if (val === "") {
+        err.innerHTML = "CVV required";
+    }
+    else if (!/^[0-9]{3}$/.test(val)) {
+        err.innerHTML = "3 digit CVV only";
+    }
+    else {
+        err.innerHTML = "";
+    }
+}
+
+function validateUpi() {
+
+    let val = upiId.value;
+    let err = upiId.parentElement.querySelector("small");
+
+    if (val === "") {
+        err.innerHTML = "UPI ID required";
+    }
+    else if (!val.includes("@")) {
+        err.innerHTML = "Invalid UPI ID";
+    }
+    else {
+        err.innerHTML = "";
     }
 }
 
@@ -1004,7 +1111,40 @@ function showPayNowScreen(method) {
         showLoader();
 
     };
+        payCardBtn.onclick = function () {
 
+            validateCardNumber();
+            validateCardName();
+            validateExpiry();
+            validateCVV();
+
+            let errors = cardPopup.querySelectorAll("small");
+            let hasError = false;
+
+            errors.forEach(e => {
+                if (e.innerHTML !== "") hasError = true;
+            });
+
+            if (hasError) return;
+
+            cardPopup.style.display = "none";
+            showLoader();
+        };
+
+
+
+
+        payUpiBtn.onclick = function () {
+
+            validateUpi();
+
+            let err = upiId.parentElement.querySelector("small");
+
+            if (err.innerHTML !== "") return;
+
+            upiPopup.style.display = "none";
+            showLoader();
+        };
 function showLoader() {
 
     loaderPopup.style.display = "flex";
