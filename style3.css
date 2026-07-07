@@ -572,7 +572,7 @@ select{
 
 .input-grid small {
     color: var(--danger);
-    font-size: 12px;
+    font-size: 13px;
     margin-top: 5px;
     display: block;
 }
@@ -1770,7 +1770,7 @@ background:var(--primary-dark);
 }
 .error {
     color: var(--danger);
-    font-size: 12px;
+    font-size: 13px;
     margin-top: 5px;
     display: block;
 }

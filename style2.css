@@ -1578,9 +1578,10 @@ padding-top: 20px;
 }
 
 .form-group span{
+        color: var(--danger);
+    font-size: 13px;
     margin-top: 5px;
-    font-size: 16px;
-    color: var(--danger);
+    display: block;
 }
 
 .location-section{
