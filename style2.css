@@ -1548,7 +1548,8 @@ padding-top: 20px;
 .contact-form input,
 .contact-form textarea{
     width: 100%;
-    padding: 14px 16px;
+    height: 50px;
+    padding: 0px 15px;
     border: 1px solid var(--light-gray);
     border-radius: 10px;
     font-size: 16px;
@@ -1558,6 +1559,7 @@ padding-top: 20px;
 .contact-form textarea{
     min-height: 100px;
     resize: vertical;
+    padding: 10px 15px;
 }
 
 .contact-form button{
@@ -2102,6 +2104,8 @@ padding-top: 20px;
 }
 .product-tooltip h4{
     font-size: 16px;
+        font-weight: 500;
+
 }
 
 
@@ -2583,6 +2587,8 @@ padding-top: 20px;
 .cart-details h4{
     margin:0 0 8px;
     font-size:14px;
+        font-weight: 500;
+
 }
 .cart-items p{
     margin:18px;

@@ -789,7 +789,7 @@ input:focus, select:focus {
 
 .payment-text h4 {
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     color: #222;
     margin-bottom: 4px;
 }
@@ -942,6 +942,8 @@ width: 100%;
 
 .product-details h4{
     font-size:16px;
+        font-weight: 500;
+
     color:var(--text);
     margin-bottom:6px;
 
@@ -987,6 +989,8 @@ width: 100%;
 .delivery-info-box h4{
     margin-bottom:4px;
     color:var(--text);
+        font-weight: 500;
+
 
 }
 
