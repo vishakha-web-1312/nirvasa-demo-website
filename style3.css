@@ -1101,6 +1101,7 @@ width: 100%;
       background:var(--primary);
       color:white;
       border-radius:8px;
+      font-weight: 600;
       cursor:pointer;
       font-size:20px;
     }
