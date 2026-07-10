@@ -773,6 +773,73 @@
         let placeOrderBtn = document.getElementById("placeOrderBtn");
 
 
+
+
+
+
+
+
+        function saveOrder(paymentMethod){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let subtotal = 0;
+
+    cart.forEach(item=>{
+        subtotal += item.price * item.quantity;
+    });
+
+    let tax = Math.round(subtotal * 0.02);
+    let discount = subtotal > 2000 ? Math.round(subtotal * 0.10) : 0;
+    let total = subtotal + tax - discount;
+
+    let order = {
+
+        orderId : "NVS" + Date.now(),
+
+        orderDate : new Date().toLocaleDateString("en-IN"),
+
+        status : "Active",
+
+        paymentMethod : paymentMethod,
+
+        shipping : {
+
+            firstName : firstname.value,
+
+            lastName : lastname.value,
+
+            mobile : mobilenumber.value,
+
+            email : email.value,
+
+            house : house.value,
+
+            country : document.getElementById("country").value,
+
+            state : document.getElementById("state").value,
+
+            city : city.value,
+
+            pin : pin.value
+
+        },
+
+        products : cart,
+
+        subtotal : subtotal,
+
+        tax : tax,
+
+        discount : discount,
+
+        total : total
+
+    };
+
+    localStorage.setItem("activeOrder",JSON.stringify(order));
+
+}
         // ==========================
         // BLUR EVENTS (LIKE SIGNUP)
         // ==========================
@@ -1055,9 +1122,14 @@ placeOrderBtn.addEventListener("click", function () {
     }
 
     if (paymentMethod === "Cash On Delivery") {
-        localStorage.removeItem("cart");
-        window.location.href = "complete.html";
-    }
+
+    saveOrder(paymentMethod);
+
+    localStorage.removeItem("cart");
+
+    window.location.href = "complete.html";
+
+}
 
     else {
         showPayNowScreen(paymentMethod);
@@ -1302,17 +1374,20 @@ document.getElementById("payUpiBtn").onclick = function () {
             upiPopup.style.display = "none";
             showLoader();
         };
-function showLoader() {
 
-    loaderPopup.style.display = "flex";
+function showLoader(){
 
-    setTimeout(function () {
+    loaderPopup.style.display="flex";
+
+    saveOrder(getSelectedPayment());
+
+    setTimeout(function(){
 
         localStorage.removeItem("cart");
 
-        window.location.href = "complete.html";
+        window.location.href="complete.html";
 
-    }, 2000);
+    },2000);
 
 }
 

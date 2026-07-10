@@ -1358,7 +1358,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
                 top:90px;
                 flex: 2;
                 align-self:start;
-                height: calc(100vh - 90px);
+                height: calc(100vh - 190px);
                 border-radius: 30px;
                 left: 0;
                 padding: 0px 20px ;
@@ -2101,7 +2101,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 
 main{
     flex: 8;
-    background:#f6faf7;
 }
 
 

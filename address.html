@@ -2,7 +2,7 @@
 <html>
 <head> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Active </title>
+<title> Address </title>
 <link rel="icon" type="image/png" href="images/nlogo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,7 +70,7 @@
     <ul class="dropdown-menu">
 
         <li>
-            <a href="active.html" class="active">
+            <a href="active.html">
                 <i class="fa fa-clock-o"></i>
                Active
             </a>
@@ -104,11 +104,11 @@
                     Wishlist
                 </a>
                 </li>
-            <li class="sidebar-item"><a href="address.html">
+            <li class="sidebar-item"><a href="address.html" class="active">
                 <i class=" fa fa-map-marker "></i>
                  Addresses </a>
                 </li>
-            <li class="sidebar-item"><a href="track-order">
+            <li class="sidebar-item"><a href="track-order.html">
                 <i class=" fa fa-truck"></i>
                  Track Order</a>
                 </li>
@@ -117,208 +117,14 @@
 
 
  
-   
+   <main>
+    
+   </main>
 
 
 
 
 
-
-<main>
-
-    <!-- ===========================
-         Page Header
-    ============================ -->
-
-    <section class="order-top">
-
-        <div class="order-heading">
-
-            <h2>
-                <i class="fa fa-shopping-bag"></i>
-                Order Details
-            </h2>
-
-            <p>
-                Order ID :
-                <span>#NVS258963</span>
-            </p>
-
-        </div>
-
-        <div class="order-status-badge">
-            <i class="fa fa-check-circle"></i>
-            Active Order
-        </div>
-
-    </section>
-
-
-
-    <!-- ===========================
-         Top Cards
-    ============================ -->
-
-    <section class="order-summary-grid">
-
-        <!-- Progress -->
-
-        <div class="progress-card">
-
-            <h3>Order Progress</h3>
-
-            <div class="progress-steps">
-
-                <div class="step active">
-
-                    <div class="circle">
-                        <i class="fa fa-check"></i>
-                    </div>
-
-                    <span>Placed</span>
-
-                </div>
-
-                <div class="line active"></div>
-
-                <div class="step active">
-
-                    <div class="circle">
-                        <i class="fa fa-check"></i>
-                    </div>
-
-                    <span>Confirmed</span>
-
-                </div>
-
-                <div class="line active"></div>
-
-                <div class="step current">
-
-                    <div class="circle">
-                        <i class="fa fa-truck"></i>
-                    </div>
-
-                    <span>Shipped</span>
-
-                </div>
-
-                <div class="line"></div>
-
-                <div class="step">
-
-                    <div class="circle">
-                        <i class="fa fa-home"></i>
-                    </div>
-
-                    <span>Delivered</span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-</section>
-
-
-<section class="info-grid">
-
-    <div class="info-card">
-
-        <h3>Order Summary</h3>
-
-        <div id="orderProducts"></div>
-
-        <hr>
-
-        <p><strong>Subtotal :</strong> <span id="subtotal"></span></p>
-
-        <p><strong>Tax :</strong> <span id="tax"></span></p>
-
-        <p><strong>Discount :</strong> <span id="discount"></span></p>
-
-        <p><strong>Total :</strong> <span id="total"></span></p>
-
-    </div>
-
-
-
-    <div class="info-card">
-
-        <h3>
-
-            <i class="fa fa-map-marker"></i>
-
-            Shipping Address
-
-        </h3>
-
-        <p id="customerName"></p>
-
-        <p id="customerMobile"></p>
-
-        <p id="customerEmail"></p>
-
-        <p id="customerAddress"></p>
-
-    </div>
-
-
-
-
-    <div class="info-card">
-
-        <h3>
-
-            <i class="fa fa-credit-card"></i>
-
-            Payment Details
-
-        </h3>
-
-        <p><strong>Payment :</strong> <span id="paymentMethod"></span></p>
-
-        <p><strong>Order ID :</strong> <span id="orderId"></span></p>
-
-        <p><strong>Order Date :</strong> <span id="orderDate"></span></p>
-
-        <p><strong>Status :</strong> <span id="orderStatus"></span></p>
-
-    </div>
-
-</section>
-
-
-
-    <!-- ===========================
-         Bottom Buttons
-    ============================ -->
-
-    <section class="order-actions">
-
-        <button class="track-btn">
-
-            <i class="fa fa-truck"></i>
-
-            Track Order
-
-        </button>
-
-       
-
-        <button class="cancel-btn">
-
-            <i class="fa fa-times-circle"></i>
-
-            Cancel Order
-
-        </button>
-
-    </section>
-
-</main>
 
 </section>
      <footer class="footer">
@@ -390,6 +196,8 @@
 </div>
 
 
+
+
 <script>
 const dropdownBtn = document.querySelector(".dropdown-btn");
 const orderDropdown = document.querySelector(".order-dropdown");
@@ -437,53 +245,24 @@ function closeWishlist(){
 
 document.querySelector(".close-wishlist").onclick = closeWishlist;
 
-
-// Track Order Button
-const trackBtn = document.querySelector(".track-btn");
-
-if(trackBtn){
-
-    trackBtn.addEventListener("click",function(){
-
-        alert("Redirecting to Track Order Page...");
-
-        // Example:
-        // window.location.href = "track-order.html";
-
-    });
-
-}
-
-
-
-
-
-
-// Cancel Order
-const cancelBtn=document.querySelector(".cancel-btn");
-
-if(cancelBtn){
-
-cancelBtn.addEventListener("click",function(){
-
-let confirmCancel=confirm("Are you sure you want to cancel this order?");
-
-if(confirmCancel){
-
-alert("Your order has been cancelled successfully.");
-
-}
-
-});
-
-}
-
-
-
-
-
-
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
