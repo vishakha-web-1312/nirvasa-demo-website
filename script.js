@@ -414,3 +414,69 @@ function updateTotal(){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.querySelectorAll(".wish-btn")
+.forEach(button=>{
+
+
+button.addEventListener("click",function(){
+
+
+let card = this.closest(".product-card");
+
+
+let product = {
+
+image:
+card.querySelector("img").src,
+
+
+name:
+card.querySelector("h3").innerText,
+
+
+price:
+card.querySelector(".new-price").innerText
+
+};
+
+
+
+let wishlist =
+JSON.parse(localStorage.getItem("wishlist")) || [];
+
+
+
+wishlist.push(product);
+
+
+
+localStorage.setItem(
+"wishlist",
+JSON.stringify(wishlist)
+);
+
+
+
+alert("Added to Wishlist ❤️");
+
+
+});
+
+
+});

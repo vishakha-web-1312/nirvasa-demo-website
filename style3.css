@@ -35,7 +35,13 @@
     --radius-sm:6px;
     --radius-md:10px;
     --radius-lg:16px;
-}
+ --primary-light: #fff0f1;
+            --text-dark: #2d3748;
+            --text-muted: #718096;
+            --bg-body: #f4f6f9;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
 
 body {
   
@@ -2512,3 +2518,14 @@ header{
 }
 
 }
+
+
+
+
+
+
+
+
+
+
+

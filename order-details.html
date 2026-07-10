@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> order-details </title>
+<link rel="icon" type="image/png" href="images/nlogo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+  
+<body>
+    
+<header>
+
+    <div class="left-nav">
+
+
+
+         <div class="brand-logo">
+            <a href="home-page.html">
+            <img src="images/nirvasalogo.png"  alt="logo"></a>
+        </div>
+
+
+
+    </div>
+
+    
+
+    <div class="right-nav">
+
+        
+
+        <div class="profile">
+            <img src="images/user.png" alt="user-profile-picture" class="profile-avatar">
+
+
+            <div>
+                <h4>Username<i class="fa fa-bell"></i></h4>
+                <span>Member Since Login</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+<section class="order-container">
+    <aside >
+       
+        
+       
+        <ul class="sidebar-menu">
+            <li class="sidebar-item">
+                <a href="order-details.html" class="active"><i class="fa fa-dashboard"></i>
+                     Dashboard</a>
+                    </li>
+            <li class="sidebar-item order-dropdown">
+    <a href="#" class="dropdown-btn">
+        <i class="fa fa-shopping-bag"></i>
+        My Orders
+        <i class="fa fa-chevron-down arrow"></i>
+    </a>
+
+    <ul class="dropdown-menu">
+
+        <li>
+            <a href="active.html">
+                <i class="fa fa-clock-o"></i>
+               Active
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa fa-check-circle"></i>
+                Completed
+            </a>
+        </li>
+
+
+        <li>
+            <a href="#">
+                <i class="fa fa-times-circle"></i>
+                Cancelled
+            </a>
+        </li>
+
+        <li>
+            <a href="#">
+                <i class="fa fa-undo"></i>
+                Returned
+            </a>
+        </li>
+    </ul>
+</li>
+            <li class="sidebar-item">
+                <a href="#" onclick="openWishlist()">
+                    <i class="fa fa-heart"></i>
+                    Wishlist
+                </a>
+                </li>
+            <li class="sidebar-item"><a href="#">
+                <i class=" fa fa-map-marker "></i>
+                 Addresses </a>
+                </li>
+            <li class="sidebar-item"><a href="#">
+                <i class=" fa fa-truck"></i>
+                 Track Order</a>
+                </li>
+        </ul>
+    </aside>
+
+ 
+    <main>
+
+    <!-- =========================
+        Welcome Banner
+    ===========================-->
+
+    <section class="welcome-banner">
+
+        <div class="welcome-left">
+
+            <span class="welcome-tag">
+                👋 Welcome Back
+            </span>
+
+            <h1>
+                Hello,
+                <span>Username</span>
+            </h1>
+
+            <p>
+                Manage your orders, addresses, wishlist and account
+                information from one place.
+            </p>
+
+            <div class="welcome-buttons">
+
+                <button class="primary-btn">
+                    <i class="fa fa-shopping-bag"></i>
+                    My Orders
+                </button>
+
+                <button class="secondary-btn">
+                    <i class="fa fa-heart"></i>
+                    Wishlist
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+
+    <!-- =========================
+            Statistics
+    ===========================-->
+
+    <section class="stats-grid">
+
+        <div class="stat-card">
+
+            <div class="stat-icon green">
+                <i class="fa fa-shopping-bag"></i>
+            </div>
+
+            <div>
+
+                <h2>24</h2>
+
+                <span>Total Orders</span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon pink">
+                <i class="fa fa-heart"></i>
+            </div>
+
+            <div>
+
+                <h2>18</h2>
+
+                <span>Wishlist</span>
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon orange">
+                <i class="fa fa-map-marker"></i>
+            </div>
+
+            <div>
+
+                <h2>3</h2>
+
+                <span>Addresses</span>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <div class="stat-card">
+
+            <div class="stat-icon blue">
+                <i class="fa fa-truck"></i>
+            </div>
+
+            <div>
+
+                <h2>5</h2>
+
+                <span>In Transit</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+ 
+
+</main>
+</section>
+     <footer class="footer">
+    
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h3>About Us</h3>    
+      <p> Nirvasa healthcare is a leading digital healthcare platform in India, offering a comprehensive range of services to over 8 million patients.
+        </p><div class="footer-icons">
+    <a href="#"><i class="fa fa-facebook"></i></a>
+    <a href="#"><i class="fa fa-instagram"></i></a>
+    <a href="#"><i class="fa fa-twitter"></i></a>
+  </div>
+         
+         </div>
+    
+
+    <div class="footer-col">
+      <h3>Quick Links</h3>
+      <a href="home-page.html">Home</a>
+      <a href="about-page.html" class="active">About</a>
+      <a href="contact-us.html">Contact</a> 
+      <a href="login.html" >Login</a>
+    
+      
+    </div>
+
+   <div class="footer-col">
+      <h3>Shop </h3>
+      <a href="wellness.html">Wellness</a>
+      <a href="fitness.html">Fitness </a>
+      <a href="hair.html">Hair Care </a>
+      <a href="skin.html">Skin Care</a>
+    </div>
+    
+
+ 
+   
+    <div class="footer-col">
+    <h3>Contact Us</h3>
+     <iframe 
+     class="iframe"
+     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3506.029665658376!2d77.08921097553812!3d28.50875517573249!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d191e76ed11eb%3A0x7edb5edf6b72cfaf!2sNirvasa%20Healthcare%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1778834798858!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+   
+  </div>
+
+
+  <div class="footer-bottom">
+    <div class="border-line"></div>
+    <p>@ 2026 <b>Nirvasa</b>.All Rights Reserved.</p>
+    
+  </div>
+</footer>
+<div class="wishlist-panel" id="wishlistPanel">
+
+    <div class="wishlist-header">
+        <h2>My Wishlist</h2>
+
+        <span onclick="closeWishlist()">
+            <i class="fa fa-times"></i>
+        </span>
+    </div>
+
+
+    <div id="wishlistItems"></div>
+
+</div>
+
+
+<script>
+const dropdownBtn = document.querySelector(".dropdown-btn");
+const orderDropdown = document.querySelector(".order-dropdown");
+
+// Dropdown Open/Close
+dropdownBtn.addEventListener("click", function (e) {
+    e.preventDefault();
+    orderDropdown.classList.toggle("open");
+});
+
+// Saare sidebar links
+const sidebarLinks = document.querySelectorAll(".sidebar-item > a");
+
+// Jab kisi aur item par click ho to dropdown close ho
+sidebarLinks.forEach(link => {
+
+    link.addEventListener("click", function () {
+
+        // Agar My Orders button nahi hai
+        if (!this.classList.contains("dropdown-btn")) {
+
+            orderDropdown.classList.remove("open");
+
+        }
+
+    });
+
+});
+
+const wishlistPanel = document.getElementById("wishlistPanel");
+
+function openWishlist(){
+
+    wishlistPanel.classList.add("active");
+
+    loadWishlist();
+
+}
+
+function closeWishlist(){
+
+    wishlistPanel.classList.remove("active");
+
+}
+
+document.querySelector(".close-wishlist").onclick = closeWishlist;
+
+</script>
+</body>
+</html>
