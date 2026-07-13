@@ -1840,22 +1840,18 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 
 
 
+/* Wishlist Side Panel */
 
-
-
-
-
-        .wishlist-panel{
-    position:fixed;
+.wishlist-panel{
+    position: fixed;
     top:0;
     right:-400px;
-    width:300px;
+    width:380px;
     height:100vh;
     background:white;
     box-shadow:-5px 0 20px rgba(0,0,0,0.15);
-    transition:0.4s ease;
     z-index:9999;
-    padding:20px;
+    transition:0.4s ease;
     overflow-y:auto;
 }
 
@@ -1869,8 +1865,8 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     display:flex;
     justify-content:space-between;
     align-items:center;
+    padding:20px;
     border-bottom:1px solid #ddd;
-    padding-bottom:15px;
 }
 
 
@@ -1880,40 +1876,86 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 }
 
 
-.wishlist-item{
+.wishlist-card{
     display:flex;
+    align-items:center;
     gap:15px;
-    padding:15px 0;
-    border-bottom:1px solid #eee;
+    padding:15px;
+    margin:15px;
+    border-radius:12px;
+    box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
-.wishlist-header h2 {
-    margin-bottom: 0px;
-}
-.wishlist-item img{
-    width:80px;
-    height:80px;
+
+.wishlist-img{
+    width:70px;
+    height:70px;
     object-fit:cover;
     border-radius:10px;
 }
 
 
-.wishlist-item h4{
-    margin:5px 0;
+.wishlist-info{
+    flex:1;
+}
+
+.wishlist-info h4{
+    font-weight: 500px;
 }
 
 
-.remove-wish{
-    color:red;
-    cursor:pointer;
-    font-size:14px;
+.remove-btn{
+    border:none;
+    width: 32px;
+    border-radius: 10px;
+    background: none;
+    cursor: pointer;
+    color: red;
+    margin-left: 11px;
+    font-size: 20px;
+}
+
+
+.buy-btn{
+       width: 75%;
+    margin-top: 2px;
+    padding: 10px 1px;
+    border: none;
+    border-radius: 25px;
+    background: var(--primary);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.buy-btn:hover{
+    background: #dff5e8;
+    transform: translateY(-2px);
+    color: black;
+}
+
+
+
+.empty-wishlist {
+    width: 100%;
+    padding: 50px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 
 
 
-
-
+.empty-wishlist i {
+    font-size: 25px;
+    color: #ddd;
+    margin-bottom: 20px;
+}
 
 
 
@@ -2856,21 +2898,8 @@ main{
     background:var(--primary);
 }
 
-/*==========================================
-        SUMMARY CARD
-==========================================*/
 
-.summary-row{
-    display:flex;
-    justify-content:space-between;
-    margin-bottom:18px;
-    font-size:15px;
-    color:#555;
-}
 
-.summary-row strong{
-    color:#222;
-}
 
 .summary-row.total{
     border-top:1px solid #eee;
@@ -2963,12 +2992,12 @@ main{
     margin-bottom:35px;
 }
 
-.info-card{
-    background:#fff;
-    border-radius:22px;
-    padding:28px;
-    box-shadow:0 10px 35px rgba(0,0,0,.05);
-    border:2px solid transparent;
+
+
+.info-card-grid{
+
+   display: grid;
+   grid-template-columns: 2;
 }
 
 
@@ -3023,6 +3052,184 @@ main{
     line-height:1.8;
     font-size:15px;
 }
+
+/* Product Card */
+
+.checkout-item{
+
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:18px;
+    margin:18px 0;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 8px 25px rgba(0,0,0,.06);
+
+    transition:.3s;
+
+}
+.order-layout{
+
+display:grid;
+
+grid-template-columns:2fr 1fr;
+
+gap:30px;
+
+margin-top:30px;
+
+}
+
+.left-column{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.right-column{
+
+display:flex;
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.product-card{
+
+padding:25px;
+
+}
+
+.summary-row{
+
+display:flex;
+justify-content:space-between;
+padding-top:20px ;
+font-size:15px;
+
+}
+
+.summary-row.total{
+
+font-size:18px;
+
+font-weight:600;
+
+border:none;
+
+padding-top:20px;
+
+}
+
+.info-card{
+
+background:white;
+
+border-radius:16px;
+
+padding:40px;
+
+box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+}
+
+.info-card h3{
+
+margin-bottom:12px;
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+}
+
+
+
+
+.item-img{
+
+    width:110px;
+
+    height:110px;
+
+    object-fit:contain;
+
+
+
+
+
+}
+
+
+
+/* Right Section */
+
+.item-right{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:10px;
+
+}
+
+
+
+/* Product Name */
+
+.item-right h4{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    color:#222;
+
+    line-height:1.4;
+
+}
+
+
+
+/* Qty */
+
+.item-right p:nth-child(2){
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+
+
+/* Price */
+
+.item-right p:nth-child(3){
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#0F9D58;
+
+}
+
+
+
+
+
+
 
 /*==========================================
             TIMELINE
@@ -3108,6 +3315,7 @@ main{
     display:flex;
     justify-content:flex-end;
     gap:18px;
+    margin-top: 20px;
 }
 
 .order-actions button{

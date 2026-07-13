@@ -1458,7 +1458,22 @@ function showLoader(){
 
 
 
+let product = JSON.parse(
+    localStorage.getItem("checkoutProduct")
+);
 
+
+if(product){
+
+document.querySelector(".product-name").innerHTML = product.name;
+
+document.querySelector(".product-price").innerHTML =
+"₹"+product.price;
+
+document.querySelector(".product-img").src =
+product.image;
+
+}
 
 
 

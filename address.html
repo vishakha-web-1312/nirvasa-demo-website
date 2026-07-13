@@ -276,7 +276,99 @@ function closeWishlist(){
 
 }
 
+function loadWishlist(){
 
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    let wishlistItems = document.getElementById("wishlistItems");
+
+    wishlistItems.innerHTML = "";
+
+    if(wishlist.length === 0){
+
+        wishlistItems.innerHTML = `
+        <div class="empty-wishlist">
+
+            <i class="fa fa-heart-o"></i>
+
+            <h3>Your Wishlist is Empty</h3>
+
+            <p>Add products to your wishlist.</p>
+
+        </div>
+        `;
+
+        return;
+    }
+
+    wishlist.forEach(function(product,index){
+
+        wishlistItems.innerHTML += `
+
+        <div class="wishlist-card">
+
+            <img src="${product.image}" class="wishlist-img">
+
+            <div class="wishlist-info">
+
+                <h4>${product.name}</h4>
+
+                <p>${product.price}</p>
+
+           
+
+<button class="buy-btn" onclick="buyNow(
+        'Nirvasa SPF50+ Sunscreen Gel 50 ml',
+        '356',
+        'images/sunscreen.png'
+        )">
+            Buy Now
+        </button>
+            <button class="remove-btn"
+            onclick="removeWishlist(${index})">
+
+            <i class="fa fa-trash"></i>
+
+            </button>
+ </div>
+        </div>
+
+        `;
+
+    });
+
+}
+
+function removeWishlist(index){
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    wishlist.splice(index,1);
+
+    localStorage.setItem("wishlist",JSON.stringify(wishlist));
+
+    loadWishlist();
+
+}
+function buyNow(name, price, image){
+
+    let product = {
+        name:name,
+        price:price,
+        image:image,
+        quantity:1
+    };
+
+
+    localStorage.setItem(
+        "checkoutProduct",
+        JSON.stringify(product)
+    );
+
+
+    window.location.href="checkout.html";
+
+}
 
 
 

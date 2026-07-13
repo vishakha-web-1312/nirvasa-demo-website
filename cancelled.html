@@ -119,7 +119,9 @@
  
    <main>
 
-    
+    <div class="cancelled-container">
+
+</div>
    </main>
 
 
@@ -203,6 +205,7 @@
 
 
 <script>
+
 const dropdownBtn = document.querySelector(".dropdown-btn");
 const orderDropdown = document.querySelector(".order-dropdown");
 
@@ -211,7 +214,40 @@ dropdownBtn.addEventListener("click", function (e) {
     e.preventDefault();
     orderDropdown.classList.toggle("open");
 });
+// Auto open My Orders dropdown on active page
 
+const currentPage = window.location.pathname.split("/").pop();
+
+const orderPages = [
+    "active.html",
+    "completed.html",
+    "cancelled.html",
+    "returned.html"
+];
+
+
+if(orderPages.includes(currentPage)){
+
+    orderDropdown.classList.add("open");
+
+}
+
+
+// Active link automatically add
+
+const orderLinks = document.querySelectorAll(".dropdown-menu a");
+
+orderLinks.forEach(link => {
+
+    let page = link.getAttribute("href");
+
+    if(page === currentPage){
+
+        link.classList.add("active");
+
+    }
+
+});
 // Saare sidebar links
 const sidebarLinks = document.querySelectorAll(".sidebar-item > a");
 
@@ -247,8 +283,206 @@ function closeWishlist(){
 
 }
 
-document.querySelector(".close-wishlist").onclick = closeWishlist;
+function loadWishlist(){
 
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    let wishlistItems = document.getElementById("wishlistItems");
+
+    wishlistItems.innerHTML = "";
+
+    if(wishlist.length === 0){
+
+        wishlistItems.innerHTML = `
+        <div class="empty-wishlist">
+
+            <i class="fa fa-heart-o"></i>
+
+            <h3>Your Wishlist is Empty</h3>
+
+            <p>Add products to your wishlist.</p>
+
+        </div>
+        `;
+
+        return;
+    }
+
+    wishlist.forEach(function(product,index){
+
+        wishlistItems.innerHTML += `
+
+        <div class="wishlist-card">
+
+            <img src="${product.image}" class="wishlist-img">
+
+            <div class="wishlist-info">
+
+                <h4>${product.name}</h4>
+
+                <p>${product.price}</p>
+
+           
+
+<button class="buy-btn" onclick="buyNow(
+        'Nirvasa SPF50+ Sunscreen Gel 50 ml',
+        '356',
+        'images/sunscreen.png'
+        )">
+            Buy Now
+        </button>
+            <button class="remove-btn"
+            onclick="removeWishlist(${index})">
+
+            <i class="fa fa-trash"></i>
+
+            </button>
+ </div>
+        </div>
+
+        `;
+
+    });
+
+}
+
+function removeWishlist(index){
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    wishlist.splice(index,1);
+
+    localStorage.setItem("wishlist",JSON.stringify(wishlist));
+
+    loadWishlist();
+
+}
+function buyNow(name, price, image){
+
+    let product = {
+        name:name,
+        price:price,
+        image:image,
+        quantity:1
+    };
+
+
+    localStorage.setItem(
+        "checkoutProduct",
+        JSON.stringify(product)
+    );
+
+
+    window.location.href="checkout.html";
+
+}
+
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    let cancelledOrders = JSON.parse(
+        localStorage.getItem("cancelledOrder")
+    ) || [];
+
+
+    let container = document.querySelector(".cancelled-container");
+
+
+    if(cancelledOrders.length === 0){
+
+        container.innerHTML = `
+        <div class="empty-order">
+            <h3>No Cancelled Orders</h3>
+            <p>You have no cancelled orders.</p>
+        </div>
+        `;
+
+        return;
+    }
+
+
+    container.innerHTML = "";
+
+
+   document.addEventListener("DOMContentLoaded", function(){
+
+    let cancelledOrder = JSON.parse(
+        localStorage.getItem("cancelledOrder")
+    );
+
+
+    let container = document.querySelector(".cancelled-container");
+
+
+    if(!cancelledOrder){
+
+        container.innerHTML = `
+        <div class="empty-order">
+            <h3>No Cancelled Orders</h3>
+            <p>You have no cancelled orders.</p>
+        </div>
+        `;
+
+        return;
+    }
+
+
+
+    container.innerHTML = `
+
+    <div class="order-card">
+
+        <div class="order-details">
+
+            <h3>
+            Order ID: ${cancelledOrder.orderId}
+            </h3>
+
+
+            <p>
+            Date: ${cancelledOrder.orderDate}
+            </p>
+
+
+            <p>
+            Status:
+            <span class="cancelled">
+            ${cancelledOrder.status}
+            </span>
+            </p>
+
+
+            <h4>Products</h4>
+
+
+            ${cancelledOrder.products.map(product => `
+
+                <div class="product-item">
+
+                    <p>
+                    ${product.title}
+                    </p>
+
+                </div>
+
+            `).join("")}
+
+
+
+            <p>
+            Total Amount: ₹${cancelledOrder.total}
+            </p>
+
+
+        </div>
+
+    </div>
+
+    `;
+
+
+});
+});
 </script>
 
 

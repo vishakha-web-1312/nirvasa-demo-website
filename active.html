@@ -223,70 +223,89 @@
 </section>
 
 
-<section class="info-grid">
+<section class="order-layout">
 
-    <div class="info-card">
+    <div class="left-column">
 
-        <h3>Order Summary</h3>
+<div class="info-card product-card">
 
-        <div id="orderProducts"></div>
+<h3>
+<i class="fa fa-shopping-cart"></i>
+Product Details
+</h3>
 
-        <hr>
+<div id="orderProducts"></div>
 
-        <p><strong>Subtotal :</strong> <span id="subtotal"></span></p>
+<hr>
 
-        <p><strong>Tax :</strong> <span id="tax"></span></p>
+<div class="summary-row">
+<span>Subtotal</span>
+<span id="subtotal"></span>
+</div>
 
-        <p><strong>Discount :</strong> <span id="discount"></span></p>
+<div class="summary-row">
+<span>Tax</span>
+<span id="tax"></span>
+</div>
 
-        <p><strong>Total :</strong> <span id="total"></span></p>
+<div class="summary-row">
+<span>Discount</span>
+<span id="discount"></span>
+</div>
 
-    </div>
+<div class="summary-row total">
+<span>Total</span>
+<span id="total"></span>
+</div>
 
+</div>
 
-
-    <div class="info-card">
-
-        <h3>
-
-            <i class="fa fa-map-marker"></i>
-
-            Shipping Address
-
-        </h3>
-
-        <p id="customerName"></p>
-
-        <p id="customerMobile"></p>
-
-        <p id="customerEmail"></p>
-
-        <p id="customerAddress"></p>
-
-    </div>
+</div>
 
 
 
+    <div class="right-column">
 
-    <div class="info-card">
+<div class="info-card">
 
-        <h3>
+<h3>
+<i class="fa fa-map-marker"></i>
+Shipping Address
+</h3>
 
-            <i class="fa fa-credit-card"></i>
+<p id="customerName"></p>
 
-            Payment Details
+<p id="customerMobile"></p>
 
-        </h3>
+<p id="customerEmail"></p>
 
-        <p><strong>Payment :</strong> <span id="paymentMethod"></span></p>
+<p id="customerAddress"></p>
 
-        <p><strong>Order ID :</strong> <span id="orderId"></span></p>
+</div>
 
-        <p><strong>Order Date :</strong> <span id="orderDate"></span></p>
 
-        <p><strong>Status :</strong> <span id="orderStatus"></span></p>
+<div class="info-card">
 
-    </div>
+<h3>
+
+<i class="fa fa-credit-card"></i>
+
+Payment Details
+
+</h3>
+
+<p><strong>Payment :</strong> <span id="paymentMethod"></span></p>
+
+<p><strong>Order ID :</strong> <span id="orderId"></span></p>
+
+<p><strong>Order Date :</strong> <span id="orderDate"></span></p>
+
+<p><strong>Status :</strong> <span id="orderStatus"></span></p>
+
+</div>
+
+</div>
+
 
 </section>
 
@@ -400,15 +419,43 @@ dropdownBtn.addEventListener("click", function (e) {
     orderDropdown.classList.toggle("open");
 });
 
-// Saare sidebar links
+const currentPage = window.location.pathname.split("/").pop();
+
+const orderPages = [
+    "active.html",
+    "completed.html",
+    "cancelled.html",
+    "returned.html"
+];
+
+
+if(orderPages.includes(currentPage)){
+
+    orderDropdown.classList.add("open");
+
+}
+
+
+
+const orderLinks = document.querySelectorAll(".dropdown-menu a");
+
+orderLinks.forEach(link => {
+
+    let page = link.getAttribute("href");
+
+    if(page === currentPage){
+
+        link.classList.add("active");
+
+    }
+
+});
 const sidebarLinks = document.querySelectorAll(".sidebar-item > a");
 
-// Jab kisi aur item par click ho to dropdown close ho
 sidebarLinks.forEach(link => {
 
     link.addEventListener("click", function () {
 
-        // Agar My Orders button nahi hai
         if (!this.classList.contains("dropdown-btn")) {
 
             orderDropdown.classList.remove("open");
@@ -435,10 +482,100 @@ function closeWishlist(){
 
 }
 
-document.querySelector(".close-wishlist").onclick = closeWishlist;
+function loadWishlist(){
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    let wishlistItems = document.getElementById("wishlistItems");
+
+    wishlistItems.innerHTML = "";
+
+    if(wishlist.length === 0){
+
+        wishlistItems.innerHTML = `
+        <div class="empty-wishlist">
+
+            <i class="fa fa-heart-o"></i>
+
+            <h3>Your Wishlist is Empty</h3>
+
+            <p>Add products to your wishlist.</p>
+
+        </div>
+        `;
+
+        return;
+    }
+
+    wishlist.forEach(function(product,index){
+
+        wishlistItems.innerHTML += `
+
+        <div class="wishlist-card">
+
+            <img src="${product.image}" class="wishlist-img">
+
+            <div class="wishlist-info">
+
+                <h4>${product.name}</h4>
+
+                <p>${product.price}</p>
+
+           
+
+<button class="buy-btn" onclick="buyNow(
+        'Nirvasa SPF50+ Sunscreen Gel 50 ml',
+        '356',
+        'images/sunscreen.png'
+        )">
+            Buy Now
+        </button>
+            <button class="remove-btn"
+            onclick="removeWishlist(${index})">
+
+            <i class="fa fa-trash"></i>
+
+            </button>
+ </div>
+        </div>
+
+        `;
+
+    });
+
+}
+
+function removeWishlist(index){
+
+    let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+    wishlist.splice(index,1);
+
+    localStorage.setItem("wishlist",JSON.stringify(wishlist));
+
+    loadWishlist();
+
+}
+function buyNow(name, price, image){
+
+    let product = {
+        name:name,
+        price:price,
+        image:image,
+        quantity:1
+    };
 
 
-// Track Order Button
+    localStorage.setItem(
+        "checkoutProduct",
+        JSON.stringify(product)
+    );
+
+
+    window.location.href="checkout.html";
+
+}
+
 const trackBtn = document.querySelector(".track-btn");
 
 if(trackBtn){
@@ -447,8 +584,6 @@ if(trackBtn){
 
         alert("Redirecting to Track Order Page...");
 
-        // Example:
-        // window.location.href = "track-order.html";
 
     });
 
@@ -459,23 +594,29 @@ if(trackBtn){
 
 
 
-// Cancel Order
 const cancelBtn=document.querySelector(".cancel-btn");
 
 if(cancelBtn){
 
 cancelBtn.addEventListener("click",function(){
 
-let confirmCancel=confirm("Are you sure you want to cancel this order?");
+    if(confirm("Are you sure you want to cancel this order?")){
 
-if(confirmCancel){
+        let order = JSON.parse(localStorage.getItem("activeOrder"));
 
-alert("Your order has been cancelled successfully.");
+        order.status = "Cancelled";
 
-}
+        localStorage.setItem("cancelledOrder", JSON.stringify(order));
+
+        localStorage.removeItem("activeOrder");
+
+        alert("Order Cancelled Successfully");
+
+        window.location.href="cancelled.html";
+
+    }
 
 });
-
 }
 
 
@@ -483,6 +624,72 @@ alert("Your order has been cancelled successfully.");
 
 
 
+let order = JSON.parse(localStorage.getItem("activeOrder"));
+
+if(order){
+
+    document.getElementById("paymentMethod").innerText = order.paymentMethod;
+    document.getElementById("orderId").innerText = order.orderId;
+    document.getElementById("orderDate").innerText = order.orderDate;
+    document.getElementById("orderStatus").innerText = order.status;
+
+    document.querySelector(".order-heading span").innerText = order.orderId;
+
+    document.getElementById("customerName").innerText =
+        order.shipping.firstName + " " + order.shipping.lastName;
+
+    document.getElementById("customerMobile").innerText =
+        order.shipping.mobile;
+
+    document.getElementById("customerEmail").innerText =
+        order.shipping.email;
+
+    document.getElementById("customerAddress").innerText =
+        order.shipping.house + ", " +
+        order.shipping.city + ", " +
+        order.shipping.state + ", " +
+        order.shipping.country + " - " +
+        order.shipping.pin;
+
+    document.getElementById("subtotal").innerText = "₹" + order.subtotal;
+    document.getElementById("tax").innerText = "₹" + order.tax;
+    document.getElementById("discount").innerText = "-₹" + order.discount;
+    document.getElementById("total").innerText = "₹" + order.total;
+
+    let productContainer = document.getElementById("orderProducts");
+
+    productContainer.innerHTML = "";
+
+    order.products.forEach(product=>{
+
+        productContainer.innerHTML += `
+
+        <div class="checkout-item">
+
+            <img src="${product.image}" class="item-img">
+
+            <div class="item-right">
+
+                <h4>${product.title}</h4>
+
+                <p>Qty : ${product.quantity}</p>
+
+                <p>₹${product.price}</p>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+else{
+
+    alert("No Active Order Found");
+
+}
 </script>
 
 </body>
