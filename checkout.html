@@ -15,48 +15,49 @@
 <body style="margin-top: 70px;">
 
     <header>
-  <a href="home-page.html">
-  <img src="images/nirvasalogo.png" alt="nirvasa" class="logo" /> </a>
 
- <section class="progress-wrapper">
+    <a href="home-page.html">
+        <img src="images/nirvasalogo.png" class="logo">
+    </a>
 
-        <div class="progress-step completed">
+    <nav>
 
-            <div class="circle">
-                <i class="fa fa-check"></i>
-            </div>
+        <ul class="nav-links">
 
-            <span>Cart</span>
+            <li><a href="order-details.html">Dashboard</a></li>
 
-        </div>
+            <li class="dropdown">
 
-        <div class="line active"></div>
+                <a href="#">
+                    Orders
+                </a>
 
-        <div class="progress-step active">
+                <ul class="dropdown-menu">
 
-            <div class="circle">
-                2
-            </div>
+                    <li><a href="active.html">Active Orders</a></li>
 
-            <span>Checkout</span>
+                    <li><a href="completed.html">Completed Orders</a></li>
 
-        </div>
+                    <li><a href="cancelled.html">Cancelled Orders</a></li>
 
-        <div class="line"></div>
+                    <li><a href="returned.html">Returned Orders</a></li>
 
-        <div class="progress-step">
+                </ul>
 
-            <div class="circle">
-                3
-            </div>
+            </li>
 
-            <span>Complete</span>
+            
+            <li>
+                <a href="address.html">Addresses</a>
+            </li>
 
-        </div>
+            <li>
+                <a href="track-order.html">Track Order</a>
+            </li>
 
-    </section>
+        </ul>
 
-
+    </nav>
 
 </header>
 
@@ -839,9 +840,54 @@
 
     localStorage.setItem("activeOrder",JSON.stringify(order));
 
+    // Save latest address
+
+let addresses = JSON.parse(localStorage.getItem("addresses")) || [];
+
+let newAddress = {
+
+    firstName : firstname.value,
+    lastName  : lastname.value,
+    mobile    : mobilenumber.value,
+    email     : email.value,
+    house     : house.value,
+    country   : document.getElementById("country").value,
+    state     : document.getElementById("state").value,
+    city      : city.value,
+    pin       : pin.value
+
+};
+
+// Duplicate address check
+let exists = addresses.some(address =>
+
+    address.house === newAddress.house &&
+    address.city === newAddress.city &&
+    address.pin === newAddress.pin
+
+);
+
+if(!exists){
+
+    addresses.unshift(newAddress);
+
+    if(addresses.length > 3){
+
+        addresses.pop();
+
+    }
+
+    localStorage.setItem(
+        "addresses",
+        JSON.stringify(addresses)
+    );
+
+}
+
 }
         // ==========================
         // BLUR EVENTS (LIKE SIGNUP)
+
         // ==========================
         firstname.addEventListener("blur", validationfirstname);
         lastname.addEventListener("blur", validationlastname);
@@ -1409,6 +1455,10 @@ function showLoader(){
     });
 
 }
+
+
+
+
 
 
 

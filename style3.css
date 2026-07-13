@@ -127,88 +127,69 @@ header{
 
 
 
+.nav-links{
 
-
-
-
-
-
-
-
-
-
-
-.progress-wrapper{
     display:flex;
-    justify-content:center;
     align-items:center;
-    gap:20px;
+    gap:var(--xl);
+
+    list-style:none;
 }
 
-.progress-step{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+.nav-links li{
+
     position:relative;
-    text-align:center;
 }
 
-.circle{
-    width:32px;
-    height:32px;
-    border-radius:50%;
-    border:1px solid var(--text-light);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:white;
-    font-weight:600;
-    transition:0.3s;
-    z-index:2;
+.nav-links a{
+
+      color: var(--black);
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  transition: 0.3s ease;
 }
 
-.progress-step span{
-    margin-top:6px;
-    font-size:14px;
-    color:var(--black)
-}
+.nav-links a:hover{
 
-.progress-step.active .circle{
-    background:var(--primary);
-    color:white;
-    border-color:var(--primary);
-    transform:scale(1.1);
-}
-
-.progress-step.active span{
     color:var(--primary);
-    font-weight:600;
-}
-
-.progress-step.completed .circle{
-    background:var(--primary);
-    color:white;
-    border-color:var(--primary);
-}
-
-.progress-step.completed span{
-    color:var(--primary);
-    font-weight:600;
-}
-
-.line{
-    width:60px;
-    height:3px;
-    background:var(--text-light);
-    border-radius:10px;
-    transition:0.3s;
-}
-
-.line.active{
-    background:var(--primary);
 }
 
 
+.dropdown-menu{
+
+    position:absolute;
+    left:0;
+    width:220px;
+    background:#fff;
+    border-radius:12px;
+    list-style:none;
+    padding:10px 0;
+    display:none;
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    z-index:1000;
+}
+
+.dropdown:hover .dropdown-menu{
+
+    display:block;
+}
+
+.dropdown-menu li{
+
+    width:100%;
+}
+
+.dropdown-menu a{
+
+    display:block;
+    padding:12px 18px;
+}
+
+.dropdown-menu a:hover{
+
+    background:var(--light-background);
+}
 
 
 
@@ -1098,12 +1079,18 @@ width: 100%;
       font-size:40px;
     }
 
-  
+  .btn{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--xl);
+  }
 
     .continue-btn{
       margin-top:25px;
       padding:10px 20px;
       border:none;
+      width: 240px;
       background:var(--primary);
       color:white;
       border-radius:8px;

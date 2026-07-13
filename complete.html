@@ -23,39 +23,53 @@
 </head>
 
 <body>
-   <header>
-  <a href="home-page.html">
-  <img src="images/nirvasalogo.png" alt="nirvasa" class="logo" /> </a>
+  <header>
 
- <section class="progress-wrapper">
-        <div class="progress-step completed">
-            <div class="circle">
-                <i class="fa fa-check"></i>
-            </div>
-            <span>Cart</span>
+    <a href="home-page.html">
+        <img src="images/nirvasalogo.png" class="logo">
+    </a>
 
-        </div>
+    <nav>
 
-        <div class="line active"></div>
-        <div class="progress-step completed">
-            <div class="circle">
-                2
-            </div>
-            <span>Checkout</span>
+        <ul class="nav-links">
 
-        </div>
+            <li><a href="order-details.html">Dashboard</a></li>
 
-        <div class="line active"></div>
-        <div class="progress-step active">
-            <div class="circle">
-                3
-            </div>
-            <span>Complete</span>
-        </div>
+            <li class="dropdown">
 
-    </section>
+                <a href="#">
+                    Orders
+                </a>
 
+                <ul class="dropdown-menu">
 
+                    <li><a href="active.html">Active Orders</a></li>
+
+                    <li><a href="completed.html">Completed Orders</a></li>
+
+                    <li><a href="cancelled.html">Cancelled Orders</a></li>
+
+                    <li><a href="returned.html">Returned Orders</a></li>
+
+                </ul>
+
+            </li>
+
+            <li>
+                <a href=#>Wishlist</a>
+            </li>
+
+            <li>
+                <a href="address.html">Addresses</a>
+            </li>
+
+            <li>
+                <a href="track-order.html">Track Order</a>
+            </li>
+
+        </ul>
+
+    </nav>
 
 </header>
 
@@ -76,11 +90,20 @@
   You can track your order in the “My Orders” section.
 </p>
 
-    <a href="active.html">
+
+<div class="btn">
+    <a href="shop.html">
 
     
     <button class="continue-btn" onclick="goHome()">Continue Shopping</button>
 </a>
+<a href="track-order.html">
+
+    
+    <button class="continue-btn" onclick="goHome()">Track Order</button>
+</a>
+</div>
+
   </div>
 
 <script>

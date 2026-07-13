@@ -119,6 +119,37 @@
  
    <main>
     
+
+
+<section class="saved-addresses">
+
+    <div class="heading">
+
+        <div>
+            <h2>Saved Addresses</h2>
+            <p>Manage your shipping addresses</p>
+        </div>
+
+        <button class="add-btn">
+            <i class="fa fa-plus"></i>
+            Add New Address
+        </button>
+
+    </div>
+
+
+    <div id="addressContainer"></div>
+
+        
+
+
+
+    
+
+</section>
+
+
+
    </main>
 
 
@@ -199,6 +230,8 @@
 
 
 <script>
+
+
 const dropdownBtn = document.querySelector(".dropdown-btn");
 const orderDropdown = document.querySelector(".order-dropdown");
 
@@ -243,8 +276,90 @@ function closeWishlist(){
 
 }
 
-document.querySelector(".close-wishlist").onclick = closeWishlist;
 
+
+
+
+
+
+
+let addresses = JSON.parse(localStorage.getItem("addresses")) || [];
+
+let container = document.getElementById("addressContainer");
+
+console.log(addresses);
+console.log(container);
+
+container.innerHTML = "";
+
+if(addresses.length === 0){
+
+    container.innerHTML = `
+        <h2>No Saved Addresses</h2>
+    `;
+
+}else{
+
+    addresses.forEach(function(address,index){
+console.log(address);
+        container.innerHTML += `
+
+        <div class="address-card">
+
+            <div class="address-left">
+
+                <div class="address-icon">
+                    <i class="fa fa-home"></i>
+                </div>
+
+                <div class="address-details">
+
+                    <div class="title-row">
+
+                        <h3>Address ${index+1}</h3>
+
+
+                    </div>
+
+                    <p>
+                        <i class="fa fa-user-o"></i>
+
+                        ${address.firstName}
+                        ${address.lastName}
+
+                    </p>
+
+                    <p>
+
+                        <i class="fa fa-phone"></i>
+
+                        ${address.mobile}
+
+                    </p>
+
+                    <p>
+
+                        <i class="fa fa-map-marker"></i>
+
+                        ${address.house},
+                        ${address.city},
+                        ${address.state},
+                        ${address.country}
+                        -
+                        ${address.pin}
+
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
 </script>
 
 
