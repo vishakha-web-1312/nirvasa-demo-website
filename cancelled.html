@@ -90,12 +90,7 @@
             </a>
         </li>
 
-        <li>
-            <a href="returned.html">
-                <i class="fa fa-undo"></i>
-                Returned
-            </a>
-        </li>
+       
     </ul>
 </li>
             <li class="sidebar-item">
@@ -222,7 +217,7 @@ const orderPages = [
     "active.html",
     "completed.html",
     "cancelled.html",
-    "returned.html"
+    
 ];
 
 
@@ -377,18 +372,13 @@ function buyNow(name, price, image){
 
 }
 
+document.addEventListener("DOMContentLoaded", function () {
 
-document.addEventListener("DOMContentLoaded", function(){
-
-    let cancelledOrders = JSON.parse(
-        localStorage.getItem("cancelledOrder")
-    ) || [];
-
+    let order = JSON.parse(localStorage.getItem("cancelledOrder"));
 
     let container = document.querySelector(".cancelled-container");
 
-
-    if(cancelledOrders.length === 0){
+    if (!order) {
 
         container.innerHTML = `
         <div class="empty-order">
@@ -399,90 +389,68 @@ document.addEventListener("DOMContentLoaded", function(){
 
         return;
     }
-
-
-    container.innerHTML = "";
-
-
-   document.addEventListener("DOMContentLoaded", function(){
-
-    let cancelledOrder = JSON.parse(
-        localStorage.getItem("cancelledOrder")
-    );
-
-
-    let container = document.querySelector(".cancelled-container");
-
-
-    if(!cancelledOrder){
-
-        container.innerHTML = `
-        <div class="empty-order">
-            <h3>No Cancelled Orders</h3>
-            <p>You have no cancelled orders.</p>
-        </div>
-        `;
-
-        return;
-    }
-
-
 
     container.innerHTML = `
 
-    <div class="order-card">
+        <div class="order-card">
 
-        <div class="order-details">
+            <div class="order-details">
 
-            <h3>
-            Order ID: ${cancelledOrder.orderId}
-            </h3>
+                <h3>Order ID : ${order.orderId}</h3>
 
+                <p>Date : ${order.orderDate}</p>
 
-            <p>
-            Date: ${cancelledOrder.orderDate}
-            </p>
+                <p>
+                    Status :
+                    <span class="cancelled">
+                        ${order.status}
+                    </span>
+                </p>
 
+                <h4>Products</h4>
 
-            <p>
-            Status:
-            <span class="cancelled">
-            ${cancelledOrder.status}
-            </span>
-            </p>
+                ${order.products.map(product => `
 
+                <div class="cancel-product">
 
-            <h4>Products</h4>
+                    <img src="${product.image}" class="cancel-product-img">
 
+                    <div class="cancel-product-info">
 
-            ${cancelledOrder.products.map(product => `
+                        <h4>${product.title}</h4>
 
-                <div class="product-item">
+                        <p>Qty : ${product.quantity}</p>
 
-                    <p>
-                    ${product.title}
-                    </p>
+                        <p>₹${product.price}</p>
+
+                    </div>
 
                 </div>
 
-            `).join("")}
+                `).join("")}
 
+                <p>Total : ₹${order.total}</p>
 
-
-            <p>
-            Total Amount: ₹${cancelledOrder.total}
-            </p>
-
+            </div>
 
         </div>
 
-    </div>
-
     `;
 
+});
 
-});
-});
+
+
+
+let cancelledOrders =
+JSON.parse(localStorage.getItem("cancelledOrders")) || [];
+
+cancelledOrders.push(order);
+
+localStorage.setItem(
+    "cancelledOrders",
+    JSON.stringify(cancelledOrders)
+);
 </script>
 
 

@@ -837,7 +837,23 @@
         total : total
 
     };
+let oldActiveOrder = JSON.parse(localStorage.getItem("activeOrder"));
 
+if (oldActiveOrder) {
+
+    oldActiveOrder.status = "Completed";
+
+    let completedOrders =
+        JSON.parse(localStorage.getItem("completedOrders")) || [];
+
+    completedOrders.push(oldActiveOrder);
+
+    localStorage.setItem(
+        "completedOrders",
+        JSON.stringify(completedOrders)
+    );
+
+}
     localStorage.setItem("activeOrder",JSON.stringify(order));
 
     // Save latest address

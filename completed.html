@@ -90,12 +90,7 @@
             </a>
         </li>
 
-        <li>
-            <a href="returned.html">
-                <i class="fa fa-undo"></i>
-                Returned
-            </a>
-        </li>
+        
     </ul>
 </li>
             <li class="sidebar-item">
@@ -118,6 +113,13 @@
 
 
     <main>
+
+
+
+
+
+    <div class="completed-container"></div>
+
 
     </main>
  
@@ -217,8 +219,8 @@ const currentPage = window.location.pathname.split("/").pop();
 const orderPages = [
     "active.html",
     "completed.html",
-    "cancelled.html",
-    "returned.html"
+    "cancelled.html"
+    
 ];
 
 
@@ -372,6 +374,78 @@ function buyNow(name, price, image){
 
 }
 
+
+
+
+
+
+
+
+
+
+let completedOrders =
+JSON.parse(localStorage.getItem("completedOrders")) || [];
+
+let container =
+document.querySelector(".completed-container");
+
+if(completedOrders.length === 0){
+
+    container.innerHTML = `
+        <div class="empty-order">
+            <h3>No Completed Orders</h3>
+            <p>You have no completed orders.</p>
+        </div>
+    `;
+
+}
+else{
+
+    container.innerHTML = "";
+
+    completedOrders.forEach(function(order){
+
+        container.innerHTML += `
+
+        <div class="order-card">
+
+            <div class="order-details">
+
+                <h3>Order ID : ${order.orderId}</h3>
+
+                <p>Date : ${order.orderDate}</p>
+
+                <p>Status :
+                    <span class="completed">
+                        ${order.status}
+                    </span>
+                </p>
+
+                ${order.products.map(product=>`
+
+                    <div class="product-item">
+
+                        <img src="${product.image}" width="80">
+
+                        <p>${product.title}</p>
+
+                        <p>Qty : ${product.quantity}</p>
+
+                    </div>
+
+                `).join("")}
+
+                <h4>Total : ₹${order.total}</h4>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
 
 </script>
 

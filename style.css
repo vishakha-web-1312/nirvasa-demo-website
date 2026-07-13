@@ -1418,7 +1418,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
             font-weight: 500;
             font-size: 16px;
 
-            border: 2px solid transparent;   /* Layout shift nahi hoga */
+            border: 2px solid transparent;   
             border-radius: 14px;
             transition: all 0.35s ease;
         }
@@ -1604,7 +1604,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
             margin-top: 4px;
         }
 
-        /* --- GENERIC ORDER CONTAINER --- */
         .order-card {
             background-color: #ffffff;
             border-radius: var(--border-radius);
@@ -1647,14 +1646,12 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
             font-weight: 700;
         }
 
-        /* Live Progress Radial Bar Styling Alternative */
         .progress-subtext {
             font-size: 12px;
             color: var(--text-muted);
             margin-top: 4px;
         }
 
-        /* --- TIMELINE COMPONENT --- */
         .timeline-section {
             padding: 40px 32px;
             border-bottom: 1px solid #edf2f7;
@@ -1733,7 +1730,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
             color: var(--text-dark);
         }
 
-        /* --- EXCLUSIVE SMART RECOMMENDATIONS --- */
         .recommendations-section {
             padding: 24px 32px;
             background-color: #fffafb;
@@ -1840,7 +1836,6 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 
 
 
-/* Wishlist Side Panel */
 
 .wishlist-panel{
     position: fixed;
@@ -1973,7 +1968,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     width:100%;
     height:75px;
 
-    background:#fff;
+    background:white;
 
     display:flex;
     justify-content:space-between;
@@ -2017,7 +2012,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
 
 .menu-btn:hover{
     background:#2563eb;
-    color:#fff;
+    color:white;
 }
 
 .menu-btn i{
@@ -2147,9 +2142,6 @@ main{
 }
 
 
-/*=============================
-      WELCOME BANNER
-=============================*/
 
 .welcome-banner{
 
@@ -2157,7 +2149,7 @@ main{
     justify-content:space-between;
     align-items:center;
 
-    background:#fff;
+    background:white;
 
     border-radius:30px;
 
@@ -2266,7 +2258,7 @@ main{
 
     background:var(--primary);
 
-    color:#fff;
+    color:white;
 
     border:none;
 
@@ -2290,7 +2282,7 @@ main{
 
     border:2px solid var(--primary);
 
-    background:#fff;
+    background:white;
     text-decoration: none;
     color:var(--primary);
 
@@ -2332,9 +2324,7 @@ main{
 
 
 
-/*=============================
-        STAT GRID
-=============================*/
+
 
 .stats-grid{
 
@@ -2351,7 +2341,7 @@ main{
 
 .stat-card{
 
-    background:#fff;
+    background:white;
 
     border-radius:22px;
 
@@ -2451,10 +2441,7 @@ main{
 
 
 
-/*=============================
-        DASHBOARD GRID
-=============================*/
-
+ 
 .dashboard-grid{
 
     display:grid;
@@ -2468,7 +2455,7 @@ main{
 
 .dashboard-card{
 
-    background:#fff;
+    background:white;
 
     border-radius:25px;
 
@@ -2515,9 +2502,6 @@ main{
 
 
 
-/*====================================
-        RECENT ORDERS
-=====================================*/
 
 .order-item{
     display:flex;
@@ -2558,10 +2542,7 @@ main{
     color:#777;
     font-size:14px;
 }
-
-/*====================================
-        STATUS
-=====================================*/
+ 
 
 .status{
     padding:8px 18px;
@@ -2590,9 +2571,7 @@ main{
     color:#ff3b30;
 }
 
-/*====================================
-      ACCOUNT OVERVIEW
-=====================================*/
+ 
 
 .overview-item{
 
@@ -2668,10 +2647,7 @@ main{
     color:#999;
 
 }
-
-/*====================================
-        OFFER CARD
-=====================================*/
+ 
 
 .offer-card{
 
@@ -2713,7 +2689,7 @@ main{
 
     background:var(--primary);
 
-    color:#fff;
+    color:white;
 
     border:none;
 
@@ -2763,10 +2739,7 @@ main{
 
 
 
-
-/*==========================================
-        PAGE HEADER
-==========================================*/
+ 
 
 .order-top{
     display:flex;
@@ -2813,10 +2786,7 @@ main{
     font-size:18px;
 }
 
-/*==========================================
-        SUMMARY GRID
-==========================================*/
-
+ 
 .order-summary-grid{
     margin-bottom:35px;
 }
@@ -2824,7 +2794,7 @@ main{
 .progress-card,
 .summary-card,
 .items-card{
-    background:#fff;
+    background:white;
     border-radius:22px;
     padding:28px;
     box-shadow:0 10px 35px rgba(0,0,0,.05);
@@ -2838,9 +2808,7 @@ main{
     margin-bottom:25px;
 }
 
-/*==========================================
-        PROGRESS TRACKER
-==========================================*/
+ 
 
 .progress-steps{
     display:flex;
@@ -2877,7 +2845,7 @@ main{
 
 .step.active .circle{
     background:var(--primary);
-    color:#fff;
+    color:white;
 }
 
 .step.current .circle{
@@ -2913,9 +2881,7 @@ main{
     color:var(--primary);
 }
 
-/*==========================================
-        ITEMS TABLE
-==========================================*/
+ 
 
 .items-card{
     margin-bottom:35px;
@@ -2983,9 +2949,7 @@ main{
 
 
 
-/*==========================================
-        INFORMATION GRID
-==========================================*/
+ 
 
 .info-grid{
   
@@ -3052,9 +3016,7 @@ main{
     line-height:1.8;
     font-size:15px;
 }
-
-/* Product Card */
-
+ 
 .checkout-item{
 
     display:flex;
@@ -3062,7 +3024,7 @@ main{
     gap:20px;
     padding:18px;
     margin:18px 0;
-    background:#fff;
+    background:white;
     border-radius:16px;
     box-shadow:0 8px 25px rgba(0,0,0,.06);
 
@@ -3169,7 +3131,6 @@ gap:10px;
 
 
 
-/* Right Section */
 
 .item-right{
 
@@ -3185,7 +3146,6 @@ gap:10px;
 
 
 
-/* Product Name */
 
 .item-right h4{
 
@@ -3201,7 +3161,6 @@ gap:10px;
 
 
 
-/* Qty */
 
 .item-right p:nth-child(2){
 
@@ -3213,7 +3172,6 @@ gap:10px;
 
 
 
-/* Price */
 
 .item-right p:nth-child(3){
 
@@ -3231,12 +3189,10 @@ gap:10px;
 
 
 
-/*==========================================
-            TIMELINE
-==========================================*/
+
 
 .timeline-card{
-    background:#fff;
+    background:white;
     border-radius:22px;
     padding:30px;
     box-shadow:0 10px 35px rgba(0,0,0,.05);
@@ -3282,7 +3238,7 @@ gap:10px;
     height:22px;
     border-radius:50%;
     background:#d1d5db;
-    border:5px solid #fff;
+    border:5px solid white;
     box-shadow:0 0 0 3px #d1d5db;
 }
 
@@ -3307,9 +3263,7 @@ gap:10px;
     font-size:14px;
 }
 
-/*==========================================
-            ACTION BUTTONS
-==========================================*/
+
 
 .order-actions{
     display:flex;
@@ -3333,7 +3287,7 @@ gap:10px;
 
 .track-btn{
     background:var(--primary);
-    color:#fff;
+    color:white;
 }
 
 .track-btn:hover{
@@ -3350,7 +3304,7 @@ gap:10px;
 
 .cancel-btn:hover{
     background:#e53935;
-    color:#fff;
+    color:white;
 }
 
 
@@ -3600,4 +3554,157 @@ gap:10px;
 .deliver-btn:hover{
 
     background:#116530;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.order-details{
+    background:white;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+}
+
+
+.order-details h3{
+    color:#2d6653;
+    margin-bottom:10px;
+}
+
+.order-details p{
+    margin:8px 0;
+    color:#555;
+}
+
+.cancelled{
+    color:red;
+    font-weight:600;
+}
+
+.cancel-product{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    background:var(--light-background);
+    border-radius:12px;
+    padding:15px;
+    margin:15px 0;
+}
+
+.cancel-product-img{
+    width:90px;
+    height:90px;
+    object-fit:contain;
+    background:white;
+    border-radius:10px;
+    padding:8px;
+}
+
+.cancel-product-info{
+    flex:1;
+}
+
+.cancel-product-info h4{
+    font-size:17px;
+    color:#333;
+    margin-bottom:8px;
+}
+
+.cancel-product-info p{
+    margin:5px 0;
+    color:#666;
+}
+
+.cancelled-container{
+    padding:25px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.completed-container{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+    padding:20px;
+}
+
+
+
+.product-item{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin:15px 0;
+    padding:10px;
+    background:var(--light-background);
+    border-radius:10px;
+}
+
+.product-item img{
+    width:80px;
+    height:80px;
+    object-fit:contain;
+    background:white;
+    border-radius:10px;
+}
+
+.order-details{
+    width:100%;
+}
+
+.order-details h3{
+    color:#2d6653;
+    margin-bottom:10px;
+}
+
+.order-details p{
+    margin:6px 0;
+    color:#555;
+}
+
+.completed{
+    color:#28a745;
+    font-weight:600;
+}
+
+.empty-order{
+    text-align:center;
+    padding:80px 20px;
+    background:white;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.empty-order h3{
+    color:#2d6653;
+    margin-bottom:10px;
 }
