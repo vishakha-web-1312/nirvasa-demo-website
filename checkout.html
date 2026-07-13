@@ -856,7 +856,6 @@ if (oldActiveOrder) {
 }
     localStorage.setItem("activeOrder",JSON.stringify(order));
 
-    // Save latest address
 
 let addresses = JSON.parse(localStorage.getItem("addresses")) || [];
 
@@ -874,7 +873,6 @@ let newAddress = {
 
 };
 
-// Duplicate address check
 let exists = addresses.some(address =>
 
     address.house === newAddress.house &&
@@ -901,10 +899,7 @@ if(!exists){
 }
 
 }
-        // ==========================
-        // BLUR EVENTS (LIKE SIGNUP)
-
-        // ==========================
+       
         firstname.addEventListener("blur", validationfirstname);
         lastname.addEventListener("blur", validationlastname);
         mobilenumber.addEventListener("blur", validationmobilenumber);
