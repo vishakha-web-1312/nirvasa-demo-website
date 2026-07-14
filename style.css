@@ -3781,12 +3781,6 @@ gap:10px;
 
 
 
-/* Hover effect */
-
-.timeline-item:hover .timeline-icon{
-    transform:translateY(-5px);
-}
-
 
 
 

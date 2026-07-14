@@ -287,7 +287,6 @@
 
                 <div id="checkout-products">
 
-                    <!-- JavaScript will insert cart products here -->
 
                 </div>
 
@@ -295,7 +294,6 @@
                 <hr>
 
 
-                <!-- Coupon -->
 
                 <div class="coupon-box">
 
@@ -315,7 +313,6 @@
                 <hr>
 
 
-                <!-- Price Details -->
 
                 <div class="price-row">
 
@@ -386,7 +383,6 @@
                
 
 
-                <!-- Place Order -->
 
                 <button
                     class="place-order-btn"
@@ -522,14 +518,12 @@
 
         <span class="close-popup">&times;</span>
 
-        <!-- Icon -->
         <div class="popup-icon">
             <i class="fa fa-credit-card"></i>
         </div>
 
         <h2>Card Payment</h2>
 
-        <!-- Card Number -->
         <div class="input-group">
 
             <label>Card Number</label>
@@ -551,7 +545,6 @@
         </div>
 
 
-        <!-- Holder -->
 
         <div class="input-group">
 
@@ -573,7 +566,6 @@
         </div>
 
 
-        <!-- Expiry + CVV -->
 
         <div class="two-input">
 
@@ -787,7 +779,7 @@
     let subtotal = 0;
 
     cart.forEach(item=>{
-        subtotal += item.price * item.quantity;
+        subtotal += Number(String(item.price).replace(/[^\d.]/g, "")) * item.quantity;
     });
 
     let tax = Math.round(subtotal * 0.02);
@@ -1204,7 +1196,15 @@ placeOrderBtn.addEventListener("click", function () {
 
 function renderOrderSummary() {
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let checkoutProduct = JSON.parse(localStorage.getItem("checkoutProduct"));
+
+    let cart = [];
+
+    if (checkoutProduct) {
+        cart = [checkoutProduct];
+    } else {
+        cart = JSON.parse(localStorage.getItem("cart")) || [];
+    }
 
     let cartContainer = document.getElementById("checkout-products");
 
@@ -1217,32 +1217,42 @@ function renderOrderSummary() {
 
     let subtotal = 0;
 
-    if (cart.length === 0) {
-        cartContainer.innerHTML = "<p>Your cart is empty 🛒</p>";
-    }
-
     cart.forEach(item => {
 
-        let itemTotal = item.price * item.quantity;
+        let itemName = item.title || item.name;
+        let itemPrice = Number(
+            String(item.price).replace(/[^\d.]/g, "")
+        );
+        let itemQty = item.quantity || 1;
+
+        let itemTotal = itemPrice * itemQty;
+
         subtotal += itemTotal;
 
-        let div = document.createElement("div");
-        div.classList.add("checkout-item");
+        cartContainer.innerHTML += `
+        <div class="checkout-item">
 
-       div.innerHTML = `
             <div class="item-left">
 
-            <img src="${item.image}" class="item-img">
+                <img src="${item.image}" class="item-img">
 
-            <div class="item-right">
+                <div class="item-right">
 
-                <div class="item-name">
-                    ${item.title}
-                </div>
+                    <div class="item-name">
+                        ${itemName}
+                    </div>
 
-                <div class="item-bottom">
-                    <span class="item-qty">Qty: ${item.quantity}</span>
-                    <span class="item-price">₹${itemTotal}</span>
+                    <div class="item-bottom">
+                        <span class="item-qty">
+                            Qty : ${itemQty}
+                        </span>
+
+                        <span class="item-price">
+                            ₹${itemTotal}
+                        </span>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -1250,32 +1260,47 @@ function renderOrderSummary() {
         </div>
         `;
 
-        cartContainer.appendChild(div);
     });
 
- 
     let tax = Math.round(subtotal * 0.02);
+
     let discount = subtotal > 2000 ? Math.round(subtotal * 0.10) : 0;
 
     let total = subtotal + tax - discount;
 
-    
+    subtotalEl.innerHTML = "₹" + subtotal;
 
-    subtotalEl.innerText = `₹${subtotal}`;
-    taxEl.innerText = `₹${tax}`;
-    discountEl.innerText = `-₹${discount}`;
-    totalEl.innerText = `₹${total}`;
+    taxEl.innerHTML = "₹" + tax;
+
+    discountEl.innerHTML = "-₹" + discount;
+
+    totalEl.innerHTML = "₹" + total;
 }
 
 renderOrderSummary();
-
-
-
-
 function getSelectedPayment() {
     let payment = document.querySelector('input[name="payment"]:checked');
     return payment ? payment.parentElement.querySelector("h4").innerText : "";
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1286,7 +1311,7 @@ function showPayNowScreen(method) {
     let subtotal = 0;
 
     cart.forEach(item => {
-        subtotal += item.price * item.quantity;
+       subtotal += Number(String(item.price).replace(/[^\d.]/g, "")) * item.quantity;
     });
 
     let tax = Math.round(subtotal * 0.02);
@@ -1469,22 +1494,6 @@ function showLoader(){
 
 
 
-let product = JSON.parse(
-    localStorage.getItem("checkoutProduct")
-);
-
-
-if(product){
-
-document.querySelector(".product-name").innerHTML = product.name;
-
-document.querySelector(".product-price").innerHTML =
-"₹"+product.price;
-
-document.querySelector(".product-img").src =
-product.image;
-
-}
 
 
 
