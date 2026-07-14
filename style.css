@@ -1341,7 +1341,7 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
             display: flex;
             margin-top: 90px;
             justify-content: space-between;
-            padding: 60px 50px ;
+            padding: 70px ;
             gap: 40px;
 
 
@@ -3003,7 +3003,7 @@ display:flex;
 
 flex-direction:column;
 
-gap:20px;
+gap:40px;
 
 }
 
@@ -3510,10 +3510,12 @@ gap:10px;
     background:white;
     border-radius:16px;
     padding:40px;
+    margin-bottom: 30px;
     box-shadow:0 8px 25px rgba(0,0,0,.08);
 }
-
-
+.order-details:last-child{
+    margin-bottom:0;
+}
 
 
 
@@ -3573,8 +3575,6 @@ gap:10px;
 .completed-container{
     display:flex;
     flex-direction:column;
-    gap:20px;
-    padding:20px;
 }
 
 
