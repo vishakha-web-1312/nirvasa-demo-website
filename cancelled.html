@@ -30,6 +30,7 @@
 
     </div>
 
+
     
 
     <div class="right-nav">
@@ -41,7 +42,7 @@
 
 
             <div>
-                <h4>Username<i class="fa fa-bell"></i></h4>
+                <h4>Username </h4>
                 <span>Member Since Login</span>
             </div>
 
@@ -368,11 +369,12 @@ function buyNow(name, price, image){
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    let order = JSON.parse(localStorage.getItem("cancelledOrder"));
+    let orders = JSON.parse(localStorage.getItem("cancelledOrders")) || [];
 
     let container = document.querySelector(".cancelled-container");
 
-    if (!order) {
+
+    if (orders.length === 0) {
 
         container.innerHTML = `
         <div class="empty-order">
@@ -382,9 +384,11 @@ document.addEventListener("DOMContentLoaded", function () {
         `;
 
         return;
+
     }
 
-    container.innerHTML = `
+
+    container.innerHTML = orders.map(order => `
 
         <div class="order-card">
 
@@ -401,13 +405,16 @@ document.addEventListener("DOMContentLoaded", function () {
                     </span>
                 </p>
 
+
                 <h4>Products</h4>
+
 
                 ${order.products.map(product => `
 
                 <div class="cancel-product">
 
                     <img src="${product.image}" class="cancel-product-img">
+
 
                     <div class="cancel-product-info">
 
@@ -421,30 +428,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 </div>
 
+
                 `).join("")}
 
+
                 <p>Total : ₹${order.total}</p>
+
 
             </div>
 
         </div>
 
-    `;
+
+    `).join("");
+
 
 });
 
-
-
-
-let cancelledOrders =
-JSON.parse(localStorage.getItem("cancelledOrders")) || [];
-
-cancelledOrders.push(order);
-
-localStorage.setItem(
-    "cancelledOrders",
-    JSON.stringify(cancelledOrders)
-);
 </script>
 
 

@@ -41,7 +41,7 @@
 
 
             <div>
-                <h4>Username<i class="fa fa-bell"></i></h4>
+                <h4>Username </h4>
                 <span>Member Since Login</span>
             </div>
 
@@ -103,7 +103,7 @@
                 <i class=" fa fa-map-marker "></i>
                  Addresses </a>
                 </li>
-            <li class="sidebar-item"><a href="track-order">
+            <li class="sidebar-item"><a href="track-order.html">
                 <i class=" fa fa-truck"></i>
                  Track Order</a>
                 </li>
@@ -575,7 +575,7 @@ if(trackBtn){
 
     trackBtn.addEventListener("click",function(){
 
-        alert("Redirecting to Track Order Page...");
+       window.location.href = "track-order.html";
 
 
     });
@@ -599,7 +599,23 @@ cancelBtn.addEventListener("click",function(){
 
         order.status = "Cancelled";
 
-        localStorage.setItem("cancelledOrder", JSON.stringify(order));
+      let cancelledOrders = 
+JSON.parse(localStorage.getItem("cancelledOrders")) || [];
+
+
+cancelledOrders.push(order);
+
+
+// sirf last 3 cancelled orders
+if(cancelledOrders.length > 3){
+    cancelledOrders.shift();
+}
+
+
+localStorage.setItem(
+    "cancelledOrders",
+    JSON.stringify(cancelledOrders)
+);
 
         localStorage.removeItem("activeOrder");
 

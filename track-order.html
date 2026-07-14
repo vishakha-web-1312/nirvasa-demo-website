@@ -41,7 +41,7 @@
 
 
             <div>
-                <h4>Username<i class="fa fa-bell"></i></h4>
+                <h4>Username </h4>
                 <span>Member Since Login</span>
             </div>
 
@@ -104,7 +104,7 @@
                 <i class=" fa fa-map-marker "></i>
                  Addresses </a>
                 </li>
-            <li class="sidebar-item"><a href="track-order" class="active">
+            <li class="sidebar-item"><a href="track-order.html" class="active">
                 <i class=" fa fa-truck"></i>
                  Track Order</a>
                 </li>
@@ -117,7 +117,266 @@
 
     <main>
 
-        
+
+
+    <section class="order-top">
+
+        <div class="order-heading">
+
+            <h2>
+                <i class="fa fa-truck"></i>
+                Track Your Order
+            </h2>
+
+            <p>
+                Order ID :
+                <span id="trackOrderId"></span>
+            </p>
+
+        </div>
+
+        <div class="delivery-badge">
+
+            <i class="fa fa-clock-o"></i>
+
+            Estimated Delivery
+
+            <strong id="estimatedDate"></strong>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- Tracking Timeline -->
+
+    <section class="tracking-card">
+
+   
+    <div class="tracking-timeline">
+
+        <div class="timeline-item active" id="confirmedStep">
+
+            <div class="timeline-icon">
+                <i class="fa fa-check-circle"></i>
+            </div>
+
+            <div class="timeline-content">
+
+                <div class="timeline-top">
+                    <h4>Order Confirmed</h4>
+                </div>
+
+
+            </div>
+
+           
+        </div>
+ <div class="track-line-1"></div>
+
+
+    <div class="timeline-item active" id="packedStep">
+
+            <div class="timeline-icon">
+                <i class="fa fa-dropbox"></i>
+            </div>
+
+            <div class="timeline-content">
+
+                <div class="timeline-top">
+                    <h4>Packed</h4>
+                </div>
+
+
+            </div>
+        </div>
+
+ <div class="track-line-1"></div>
+
+
+        <div class="timeline-item" id="shippedStep">
+
+            <div class="timeline-icon">
+                <i class="fa fa-truck"></i>
+            </div>
+
+            <div class="timeline-content">
+
+                <div class="timeline-top">
+                    <h4>Shipped</h4>
+                </div>
+
+
+            </div>
+        </div>
+
+ <div class="track-line"></div>
+
+
+        <div class="timeline-item" id="outStep">
+
+            <div class="timeline-icon">
+                <i class="fa fa-motorcycle"></i>
+            </div>
+
+            <div class="timeline-content">
+
+                <div class="timeline-top">
+                    <h4>Out For Delivery</h4>
+                </div>
+
+
+            </div>
+        </div>
+
+ <div class="track-line"></div>
+
+
+        <div class="timeline-item" id="deliveredStep">
+
+            <div class="timeline-icon">
+                <i class="fa fa-home"></i>
+            </div>
+
+            <div class="timeline-content">
+
+                <div class="timeline-top">
+                    <h4>Delivered</h4>
+                </div>
+
+
+            </div>
+        </div>
+ <div class="track-line"></div>
+
+    </div>
+
+</section>
+
+
+    <!-- Layout -->
+
+  <section class="track-layout">
+
+    <!-- Product -->
+
+    <div class="info-card">
+
+        <h3>
+
+            <i class="fa fa-shopping-cart"></i>
+
+            Product Details
+
+        </h3>
+
+        <div id="trackProducts"></div>
+
+    </div>
+
+
+
+    <!-- Shipment -->
+
+    <div class="info-card">
+
+        <h3>
+
+            <i class="fa fa-truck"></i>
+
+            Shipment Details
+
+        </h3>
+
+        <div class="track-info">
+
+            <div class="track-row">
+
+                <span>Courier Partner</span>
+
+                <strong>Blue Dart</strong>
+
+            </div>
+
+            <div class="track-row">
+
+                <span>Tracking ID</span>
+
+                <strong id="trackingId"></strong>
+
+            </div>
+
+            <div class="track-row">
+
+                <span>Current Location</span>
+
+                <strong>Warehouse</strong>
+
+            </div>
+
+              <div class="track-row">
+        <span>Expected Delivery</span>
+        <strong>18 July 2026</strong>
+    </div>
+
+        </div>
+
+        <button class="track-site-btn">
+
+            Track on Courier Website
+
+            <i class="fa fa-external-link"></i>
+
+        </button>
+
+    </div>
+
+
+
+    <!-- Shipping -->
+
+    <div class="info-card">
+
+        <h3>
+
+            <i class="fa fa-map-marker"></i>
+
+            Shipping Address
+
+        </h3>
+
+        <h4 id="customerName"></h4>
+
+        <p id="customerAddress"></p>
+
+        <p>
+
+            <i class="fa fa-phone"></i>
+
+            <span id="customerMobile"></span>
+
+        </p>
+
+        <p>
+
+            <i class="fa fa-envelope"></i>
+
+            <span id="customerEmail"></span>
+
+        </p>
+
+        <button class="address-btn">
+
+            Change Address
+
+            <i class="fa fa-pencil"></i>
+
+        </button>
+
+    </div>
+
+</section>
     </main>
 
  
@@ -340,6 +599,108 @@ function buyNow(name, price, image){
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================================
+   TRACK ORDER
+================================ */
+
+let order = JSON.parse(localStorage.getItem("activeOrder"));
+
+if(order){
+
+    // Order Details
+    document.getElementById("trackOrderId").innerText = order.orderId;
+
+    // Fake Tracking Details
+    document.getElementById("trackingId").innerText =
+        "BD" + Math.floor(Math.random()*900000000 + 100000000);
+
+    document.getElementById("estimatedDate").innerText =
+        "17 July 2026";
+
+    // Shipping Address
+    document.getElementById("customerName").innerText =
+        order.shipping.firstName + " " + order.shipping.lastName;
+
+    document.getElementById("customerMobile").innerText =
+        order.shipping.mobile;
+
+    document.getElementById("customerEmail").innerText =
+        order.shipping.email;
+
+    document.getElementById("customerAddress").innerText =
+
+        order.shipping.house + ", " +
+
+        order.shipping.city + ", " +
+
+        order.shipping.state + ", " +
+
+        order.shipping.country + " - " +
+
+        order.shipping.pin;
+
+    // Order Summary
+
+
+    // Products
+
+    let productContainer =
+        document.getElementById("trackProducts");
+
+    productContainer.innerHTML = "";
+
+    order.products.forEach(product=>{
+
+        productContainer.innerHTML += `
+
+        <div class="checkout-item">
+
+            <img src="${product.image}" class="item-img">
+
+            <div class="item-right">
+
+                <h4>${product.title}</h4>
+
+                <p>Qty : ${product.quantity}</p>
+
+                <p>₹${product.price}</p>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+
+  
+}
+else{
+
+    alert("No Active Order Found");
+
+    window.location.href="active.html";
+
+}
 
 </script>
 
