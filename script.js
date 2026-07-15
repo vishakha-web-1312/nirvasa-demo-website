@@ -451,7 +451,10 @@ card.querySelector("h3").innerText,
 
 
 price:
-card.querySelector(".new-price").innerText
+card.querySelector(".new-price").innerText,
+
+quantity:
+Number(card.querySelector(".quantity-input").value)
 
 };
 
