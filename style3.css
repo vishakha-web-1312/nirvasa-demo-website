@@ -606,7 +606,21 @@ input:focus, select:focus {
     object-fit: contain;
     flex-shrink: 0;
 }
+.remove-item{
+    border: none;
+    background: #ffecec;
+    color: #e53935;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .3s;
+}
 
+.remove-item:hover{
+    background: #e53935;
+    color: #fff;
+}
 .item-right{
     flex: 1;
     display: flex;

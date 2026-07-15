@@ -772,9 +772,19 @@
 
 
 
+
         function saveOrder(paymentMethod){
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+           let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+let checkoutProduct = JSON.parse(localStorage.getItem("checkoutProduct"));
+
+if (
+    checkoutProduct &&
+    cart.length === 0
+) {
+    cart.push(checkoutProduct);
+}
 
     let subtotal = 0;
 
@@ -1170,11 +1180,12 @@ placeOrderBtn.addEventListener("click", function () {
         return;
     }
 
-    if (paymentMethod === "Cash On Delivery") {
+   if (paymentMethod === "Cash On Delivery") {
 
     saveOrder(paymentMethod);
 
     localStorage.removeItem("cart");
+    localStorage.removeItem("checkoutProduct");
 
     window.location.href = "complete.html";
 
@@ -1198,13 +1209,11 @@ function renderOrderSummary() {
 
     let checkoutProduct = JSON.parse(localStorage.getItem("checkoutProduct"));
 
-    let cart = [];
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-    if (checkoutProduct) {
-        cart = [checkoutProduct];
-    } else {
-        cart = JSON.parse(localStorage.getItem("cart")) || [];
-    }
+        if (checkoutProduct) {
+            cart.unshift(checkoutProduct);
+        }
 
     let cartContainer = document.getElementById("checkout-products");
 
@@ -1246,6 +1255,7 @@ function renderOrderSummary() {
                         <span class="item-qty">
                             Qty : ${itemQty}
                         </span>
+
 
                         <span class="item-price">
                             ₹${itemTotal}
@@ -1306,7 +1316,13 @@ function getSelectedPayment() {
 
 function showPayNowScreen(method) {
 
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let checkoutProduct = JSON.parse(localStorage.getItem("checkoutProduct"));
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        if (checkoutProduct) {
+            cart.unshift(checkoutProduct);
+        }
 
     let subtotal = 0;
 
@@ -1466,6 +1482,7 @@ function showLoader(){
     setTimeout(function(){
 
         localStorage.removeItem("cart");
+        localStorage.removeItem("checkoutProduct");
 
         window.location.href="complete.html";
 

@@ -417,11 +417,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
                     <div class="cancel-product-info">
 
-                        <h4>${product.title}</h4>
+                         <h4>${product.title || product.name}</h4>
 
-                        <p>Qty : ${product.quantity}</p>
+                <p>Qty : ${product.quantity}</p>
 
-                        <p>₹${product.price}</p>
+                <p>${product.price}</p>
 
                     </div>
 

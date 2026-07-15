@@ -184,7 +184,7 @@
 
             <div>
 
-                <h2>18</h2>
+                <h2>11</h2>
 
                 <span>Wishlist</span>
 
@@ -223,7 +223,7 @@
 
             <div>
 
-                <h2>5</h2>
+                <h2>1</h2>
 
                 <span>In Transit</span>
 
@@ -394,10 +394,10 @@ function loadWishlist(){
 
            
 
-<button class="buy-btn"
-onclick='buyNow(
-${JSON.stringify(product)}
-)'>
+            <button class="buy-btn"
+            onclick='buyNow(
+            ${JSON.stringify(product)}
+            )'>
             Buy Now
         </button>
             <button class="remove-btn"
@@ -434,7 +434,6 @@ function buyNow(product){
     localStorage.setItem("checkoutProduct", JSON.stringify(product));
 
     // Aur temporary cart bhi ban jayega
-    localStorage.setItem("cart", JSON.stringify([product]));
 
     window.location.href = "checkout.html";
 }

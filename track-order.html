@@ -574,27 +574,17 @@ function removeWishlist(index){
     loadWishlist();
 
 }
-function buyNow(name, price, image){
+function buyNow(product){
 
-    let product = {
-        name:name,
-        price:price,
-        image:image,
-        quantity:1
-    };
+    product.quantity = 1;
 
+    // Checkout product bhi save hoga
+    localStorage.setItem("checkoutProduct", JSON.stringify(product));
 
-    localStorage.setItem(
-        "checkoutProduct",
-        JSON.stringify(product)
-    );
+    // Aur temporary cart bhi ban jayega
 
-
-    window.location.href="checkout.html";
-
+    window.location.href = "checkout.html";
 }
-
-
 
 
 
@@ -672,11 +662,11 @@ if(order){
 
             <div class="item-right">
 
-                <h4>${product.title}</h4>
+                <h4>${product.title || product.name}</h4>
 
                 <p>Qty : ${product.quantity}</p>
 
-                <p>₹${product.price}</p>
+                <p>${product.price}</p>
 
             </div>
 

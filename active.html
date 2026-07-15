@@ -608,11 +608,11 @@ if(order){
 
             <div class="item-right">
 
-                <h4>${product.title}</h4>
+                <h4>${product.title || product.name}</h4>
 
                 <p>Qty : ${product.quantity}</p>
 
-                <p>₹${product.price}</p>
+                <p>${product.price}</p>
 
             </div>
 

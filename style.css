@@ -1852,24 +1852,30 @@ input[type="password"]::-webkit-credentials-auto-fill-button {
     overflow-y:auto;
 }
 
-
 .wishlist-panel.active{
     right:0;
 }
 
 
-.wishlist-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px;
-    border-bottom:1px solid #ddd;
-}
+.wishlist-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
 
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 20px;
+
+    background: #fff; 
+    border-bottom: 1px solid #ddd;
+}
 
 .wishlist-header span{
     cursor:pointer;
     font-size:22px;
+}
+.wishlist-header h2{
+margin-bottom: 0px;
 }
 
 
