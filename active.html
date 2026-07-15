@@ -163,7 +163,6 @@ Product Details
 
 <div id="orderProducts"></div>
 
-<hr>
 
 <div class="summary-row">
 <span>Subtotal</span>
@@ -174,7 +173,10 @@ Product Details
 <span>Tax</span>
 <span id="tax"></span>
 </div>
-
+<div class="summary-row">
+<span>Shipping</span>
+<span>FREE</span>
+</div>
 <div class="summary-row">
 <span>Discount</span>
 <span id="discount"></span>
@@ -204,7 +206,6 @@ Shipping Address
 
 <p id="customerMobile"></p>
 
-<p id="customerEmail"></p>
 
 <p id="customerAddress"></p>
 
@@ -221,13 +222,38 @@ Payment Details
 
 </h3>
 
-<p><strong>Payment :</strong> <span id="paymentMethod"></span></p>
+<div class="track-row">
 
-<p><strong>Order ID :</strong> <span id="orderId"></span></p>
+    <strong>Payment :</strong>
 
-<p><strong>Order Date :</strong> <span id="orderDate"></span></p>
+     <span id="paymentMethod">
 
-<p><strong>Status :</strong> <span id="orderStatus"></span></p>
+     </span></div>
+
+<div class="track-row">
+    <strong>Status :</strong> 
+    <span id="orderStatus"></span>
+</div>
+
+<div class="track-row">
+    <strong>Order Date :</strong> 
+    <span id="orderDate"></span>
+</div>
+
+<div class="track-row">
+    <strong>Order ID :</strong>
+     <span id="orderId"></span>
+</div>
+
+
+
+
+
+ 
+
+                
+
+
 
 </div>
 
@@ -579,8 +605,7 @@ if(order){
     document.getElementById("customerMobile").innerText =
         order.shipping.mobile;
 
-    document.getElementById("customerEmail").innerText =
-        order.shipping.email;
+  
 
     document.getElementById("customerAddress").innerText =
         order.shipping.house + ", " +
