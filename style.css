@@ -2986,7 +2986,7 @@ main{
 
 display:grid;
 
-grid-template-columns:2fr 1fr;
+grid-template-columns:1.5fr 1fr;
 
 gap:50px;
 
@@ -3834,6 +3834,7 @@ box-shadow:0 5px 18px rgba(0,0,0,.08);
     0 10px 30px rgba(0,0,0,0.05);
     transition:.35s;
     max-height:275px;
+    max-width: 275px;
 
 }
 
