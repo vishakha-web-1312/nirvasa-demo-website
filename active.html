@@ -414,6 +414,17 @@ sidebarLinks.forEach(link => {
 
 });
 
+
+
+
+
+
+
+
+
+//WishlistPanel
+
+
 const wishlistPanel = document.getElementById("wishlistPanel");
 
 function openWishlist(){
@@ -471,11 +482,10 @@ function loadWishlist(){
 
            
 
-<button class="buy-btn" onclick="buyNow(
-        'Nirvasa SPF50+ Sunscreen Gel 50 ml',
-        '356',
-        'images/sunscreen.png'
-        )">
+            <button class="buy-btn"
+            onclick='buyNow(
+            ${JSON.stringify(product)}
+            )'>
             Buy Now
         </button>
             <button class="remove-btn"
@@ -504,25 +514,26 @@ function removeWishlist(index){
     loadWishlist();
 
 }
-function buyNow(name, price, image){
+function buyNow(product){
 
-    let product = {
-        name:name,
-        price:price,
-        image:image,
-        quantity:1
-    };
+    product.quantity = 1;
+
+    localStorage.setItem("checkoutProduct", JSON.stringify(product));
 
 
-    localStorage.setItem(
-        "checkoutProduct",
-        JSON.stringify(product)
-    );
-
-
-    window.location.href="checkout.html";
-
+    window.location.href = "checkout.html";
 }
+
+
+
+
+
+
+
+
+
+//Track-btn
+
 
 const trackBtn = document.querySelector(".track-btn");
 
@@ -542,13 +553,15 @@ if(trackBtn){
 
 
 
+//Cancel-btn
+
 const cancelBtn=document.querySelector(".cancel-btn");
 
 if(cancelBtn){
 
 cancelBtn.addEventListener("click",function(){
 
-    if(confirm("Are you sure you want to cancel this order?")){
+    if(confirm("Do you want to cancel this order?\n\nClick OK to cancel or Cancel to keep your order.")){
 
         let order = JSON.parse(localStorage.getItem("activeOrder"));
 
@@ -558,10 +571,10 @@ cancelBtn.addEventListener("click",function(){
 JSON.parse(localStorage.getItem("cancelledOrders")) || [];
 
 
+
 cancelledOrders.push(order);
 
 
-// sirf last 3 cancelled orders
 if(cancelledOrders.length > 3){
     cancelledOrders.shift();
 }
@@ -585,7 +598,7 @@ localStorage.setItem(
 
 
 
-
+//Active Product
 
 
 let order = JSON.parse(localStorage.getItem("activeOrder"));
@@ -653,6 +666,9 @@ else{
     alert("No Active Order Found");
 
 }
+
+
+
 </script>
 
 </body>

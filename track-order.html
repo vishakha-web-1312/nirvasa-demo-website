@@ -455,21 +455,17 @@
 const dropdownBtn = document.querySelector(".dropdown-btn");
 const orderDropdown = document.querySelector(".order-dropdown");
 
-// Dropdown Open/Close
 dropdownBtn.addEventListener("click", function (e) {
     e.preventDefault();
     orderDropdown.classList.toggle("open");
 });
 
-// Saare sidebar links
 const sidebarLinks = document.querySelectorAll(".sidebar-item > a");
 
-// Jab kisi aur item par click ho to dropdown close ho
 sidebarLinks.forEach(link => {
 
     link.addEventListener("click", function () {
 
-        // Agar My Orders button nahi hai
         if (!this.classList.contains("dropdown-btn")) {
 
             orderDropdown.classList.remove("open");
@@ -479,6 +475,20 @@ sidebarLinks.forEach(link => {
     });
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+//WishlistPanel
+
 
 const wishlistPanel = document.getElementById("wishlistPanel");
 
@@ -537,11 +547,10 @@ function loadWishlist(){
 
            
 
-<button class="buy-btn" onclick="buyNow(
-        'Nirvasa SPF50+ Sunscreen Gel 50 ml',
-        '356',
-        'images/sunscreen.png'
-        )">
+            <button class="buy-btn"
+            onclick='buyNow(
+            ${JSON.stringify(product)}
+            )'>
             Buy Now
         </button>
             <button class="remove-btn"
@@ -574,13 +583,16 @@ function buyNow(product){
 
     product.quantity = 1;
 
-    // Checkout product bhi save hoga
     localStorage.setItem("checkoutProduct", JSON.stringify(product));
 
-    // Aur temporary cart bhi ban jayega
 
     window.location.href = "checkout.html";
 }
+
+
+
+
+
 
 
 

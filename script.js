@@ -1,5 +1,4 @@
-let cartData = [];
-
+let cartData = JSON.parse(localStorage.getItem("cart")) || [];
 // QUANTITY VALIDATION
 
 document.addEventListener("click", function(e){
@@ -245,11 +244,13 @@ document.querySelectorAll(".product-card .cart-btn").forEach(button => {
                 qtyElement.textContent = totalQty;
                 const product = cartData.find(item => item.title === title);
 
-                if(product){
-                    product.quantity = totalQty;
-                }
+              if(product){
+                product.quantity = totalQty;
+            }
 
-                updateTotal();
+            localStorage.setItem("cart", JSON.stringify(cartData));
+
+            updateTotal();
 
         }
 
@@ -338,13 +339,15 @@ document.addEventListener("click", function(e){
           qty.textContent = current + 1;
           const title = plusBtn.closest(".cart-item").querySelector("h4").textContent;
 
-            cartData.find(item=>item.title===title).quantity++;
+           cartData.find(item=>item.title===title).quantity++;
 
-            updateTotal();
-}
-        else{
-          alert("Maximum quantity allowed is 10");
-}   
+            localStorage.setItem("cart", JSON.stringify(cartData));
+
+        updateTotal();
+        }
+                else{
+                alert("Maximum quantity allowed is 10");
+        }   
     }
 
     if(minusBtn){
@@ -359,6 +362,8 @@ document.addEventListener("click", function(e){
 
             cartData.find(item=>item.title===title).quantity--;
 
+
+            localStorage.setItem("cart", JSON.stringify(cartData));
             updateTotal();
         }
     }
@@ -367,10 +372,11 @@ document.addEventListener("click", function(e){
 
         deleteBtn.closest(".cart-item").remove();
         const title = deleteBtn.closest(".cart-item").querySelector("h4").textContent;
+            cartData = cartData.filter(item => item.title !== title);
 
-        cartData = cartData.filter(item => item.title !== title);
+            localStorage.setItem("cart", JSON.stringify(cartData));
 
-        updateTotal();
+            updateTotal();
 
         count--;
 

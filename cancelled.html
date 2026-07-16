@@ -202,6 +202,8 @@
 
 <script>
 
+    //Dropdown
+
 const dropdownBtn = document.querySelector(".dropdown-btn");
 const orderDropdown = document.querySelector(".order-dropdown");
 
@@ -256,6 +258,21 @@ sidebarLinks.forEach(link => {
     });
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+//WishlistPanel
+
 
 const wishlistPanel = document.getElementById("wishlistPanel");
 
@@ -314,11 +331,10 @@ function loadWishlist(){
 
            
 
-<button class="buy-btn" onclick="buyNow(
-        'Nirvasa SPF50+ Sunscreen Gel 50 ml',
-        '356',
-        'images/sunscreen.png'
-        )">
+            <button class="buy-btn"
+            onclick='buyNow(
+            ${JSON.stringify(product)}
+            )'>
             Buy Now
         </button>
             <button class="remove-btn"
@@ -347,25 +363,31 @@ function removeWishlist(index){
     loadWishlist();
 
 }
-function buyNow(name, price, image){
+function buyNow(product){
 
-    let product = {
-        name:name,
-        price:price,
-        image:image,
-        quantity:1
-    };
+    product.quantity = 1;
+
+    localStorage.setItem("checkoutProduct", JSON.stringify(product));
 
 
-    localStorage.setItem(
-        "checkoutProduct",
-        JSON.stringify(product)
-    );
-
-
-    window.location.href="checkout.html";
-
+    window.location.href = "checkout.html";
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
 

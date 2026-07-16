@@ -40,7 +40,6 @@
 
                     <li><a href="cancelled.html">Cancelled Orders</a></li>
 
-                    <li><a href="returned.html">Returned Orders</a></li>
 
                 </ul>
 
@@ -850,10 +849,14 @@ if (oldActiveOrder) {
 
     completedOrders.push(oldActiveOrder);
 
-    localStorage.setItem(
-        "completedOrders",
-        JSON.stringify(completedOrders)
-    );
+if (completedOrders.length > 5) {
+    completedOrders = completedOrders.slice(-5);
+}
+
+localStorage.setItem(
+    "completedOrders",
+    JSON.stringify(completedOrders)
+);
 
 }
     localStorage.setItem("activeOrder",JSON.stringify(order));
@@ -1323,6 +1326,8 @@ function showPayNowScreen(method) {
         if (checkoutProduct) {
             cart.unshift(checkoutProduct);
         }
+
+
 
     let subtotal = 0;
 
