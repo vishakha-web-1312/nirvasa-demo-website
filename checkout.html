@@ -1229,8 +1229,7 @@ function renderOrderSummary() {
 
     let subtotal = 0;
 
-    cart.forEach(item => {
-
+cart.forEach((item, index) => {
         let itemName = item.title || item.name;
         let itemPrice = Number(
             String(item.price).replace(/[^\d.]/g, "")
@@ -1259,6 +1258,9 @@ function renderOrderSummary() {
                             Qty : ${itemQty}
                         </span>
 
+                          <button class="remove-item" data-index="${index}">
+                        <i class="fa fa-trash"></i> 
+                         </button>
 
                         <span class="item-price">
                             ₹${itemTotal}
@@ -1515,9 +1517,23 @@ function showLoader(){
 }
 
 
+//checkout Remove btn
 
+document.addEventListener("click", function(e){
 
+    if(e.target.closest(".remove-item")){
 
+        const index = e.target.closest(".remove-item").dataset.index;
+
+        cart.splice(index,1);
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        location.reload();
+
+    }
+
+});
 
 
 

@@ -608,18 +608,16 @@ input:focus, select:focus {
 }
 .remove-item{
     border: none;
-    background: #ffecec;
-    color: #e53935;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+    background: none;
+    color: #777;
+    font-size: 14px;
     cursor: pointer;
     transition: .3s;
 }
 
 .remove-item:hover{
-    background: #e53935;
-    color: #fff;
+    
+    color: var(--danger);
 }
 .item-right{
     flex: 1;
@@ -650,8 +648,6 @@ input:focus, select:focus {
     font-weight: 500;
     color: #111;
 }
-
-
 
 
 

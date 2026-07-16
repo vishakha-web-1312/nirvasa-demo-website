@@ -648,9 +648,16 @@ if(order){
 
                 <h4>${product.title || product.name}</h4>
 
-                <p>Qty : ${product.quantity}</p>
+                
+    <div class="item-bottom">
+        <span class="item-qty">
+            Qty : ${product.quantity}
+        </span>
 
-                <p>${product.price}</p>
+        <span class="item-price">
+            ₹${product.price}
+        </span>
+    </div>
 
             </div>
 

@@ -3067,11 +3067,27 @@ box-shadow:0 5px 18px rgba(0,0,0,.08);
 .item-right{
 
     flex:1;
+     min-width:0;
 
    
 }
 
+.item-bottom{
+    display:flex;
+    align-items:center;
+    justify-content: space-between;
+    font-size:13px;
 
+     max-width: 240px;
+    color:#666;
+
+    margin:3px 0;
+}
+
+.item-price{
+    font-weight:600;
+    color:#222;
+}
 
 
 .item-right h4{
@@ -3080,7 +3096,12 @@ box-shadow:0 5px 18px rgba(0,0,0,.08);
     font-weight:400;
     color:#222;
     line-height:1.4;
+    margin-bottom:8px;
 
+        max-width: 243px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
 }
 
 
