@@ -605,7 +605,7 @@
 
                 </div>
 
-                <small class="error"></small>
+                <small class ="error"></small>
 
             </div>
 
@@ -1171,10 +1171,18 @@ placeOrderBtn.addEventListener("click", function () {
         return;
     }
 
-    if (cart.length === 0) {
-        alert("Cart empty!");
-        return;
-    }
+    let checkoutProduct = JSON.parse(localStorage.getItem("checkoutProduct"));
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        if (checkoutProduct && cart.length === 0) {
+            cart.push(checkoutProduct);
+        }
+
+
+        if (cart.length === 0) {
+            alert("Cart empty!");
+            return;
+        }
 
     let paymentMethod = getSelectedPayment();
 
@@ -1258,9 +1266,7 @@ cart.forEach((item, index) => {
                             Qty : ${itemQty}
                         </span>
 
-                          <button class="remove-item" data-index="${index}">
-                        <i class="fa fa-trash"></i> 
-                         </button>
+                        
 
                         <span class="item-price">
                             ₹${itemTotal}
@@ -1517,23 +1523,7 @@ function showLoader(){
 }
 
 
-//checkout Remove btn
 
-document.addEventListener("click", function(e){
-
-    if(e.target.closest(".remove-item")){
-
-        const index = e.target.closest(".remove-item").dataset.index;
-
-        cart.splice(index,1);
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        location.reload();
-
-    }
-
-});
 
 
 
