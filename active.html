@@ -571,7 +571,6 @@ cancelBtn.addEventListener("click",function(){
 JSON.parse(localStorage.getItem("cancelledOrders")) || [];
 
 
-
 cancelledOrders.push(order);
 
 
@@ -652,10 +651,10 @@ if(order){
                 <div class="item-bottom">
                     <span class="item-qty">
                         Qty : ${product.quantity}
-                    </span>
+                     </span>
 
-                    <span class="item-price">
-                        ₹${product.price}
+                     <span class="item-price">
+                        ${product.price}
                     </span>
                 </div>
 

@@ -236,11 +236,11 @@ if(orderPages.includes(currentPage)){
 
 const orderLinks = document.querySelectorAll(".dropdown-menu a");
 
-orderLinks.forEach(link => {
+    orderLinks.forEach(link => {
 
     let page = link.getAttribute("href");
 
-    if(page === currentPage){
+     if(page === currentPage){
 
         link.classList.add("active");
 
@@ -281,23 +281,23 @@ sidebarLinks.forEach(link => {
 //WishlistPanel
 
 
-const wishlistPanel = document.getElementById("wishlistPanel");
+    const wishlistPanel = document.getElementById("wishlistPanel");
 
-function openWishlist(){
+    function openWishlist(){
 
-    wishlistPanel.classList.add("active");
+        wishlistPanel.classList.add("active");
 
-    loadWishlist();
+        loadWishlist();
 
-}
+    }
 
-function closeWishlist(){
+    function closeWishlist(){
 
-    wishlistPanel.classList.remove("active");
+        wishlistPanel.classList.remove("active");
 
-}
+    }
 
-function loadWishlist(){
+    function loadWishlist(){
 
     let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
