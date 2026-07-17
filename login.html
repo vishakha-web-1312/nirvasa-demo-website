@@ -324,6 +324,11 @@ if (!validUser) {
 // If matching user found
 else {
 
+console.log("Logged In User:", validUser);
+  localStorage.setItem("currentUser", JSON.stringify(validUser));
+
+console.log("Current User:", JSON.parse(localStorage.getItem("currentUser")));
+
   alert("Login Successfully");
 
   form.reset();
