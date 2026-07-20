@@ -42,7 +42,7 @@
 
 
             <div>
-                <h4>Username </h4>
+                <h4 id="profileName" >Username </h4>
                 <span>Member Since Login</span>
             </div>
 
@@ -463,6 +463,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
+
+const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+if (currentUser) {
+
+    document.getElementById("profileName").textContent =
+        currentUser.firstname + " " + currentUser.lastname;
+
+    document.getElementById("welcomeName").textContent =
+        currentUser.firstname;
+
+}
 
 </script>
 </body>
