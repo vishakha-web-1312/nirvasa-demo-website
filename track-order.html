@@ -357,7 +357,7 @@
 
         </p>
 
-        <button class="address-btn">
+        <button class="address-btn" id="changeAddressBtn">
 
             Change Address
 
@@ -709,6 +709,56 @@ if (currentUser) {
 
     document.getElementById("welcomeName").textContent =
         currentUser.firstname;
+
+
+}
+
+
+
+
+document.getElementById("changeAddressBtn").addEventListener("click", changeAddress);
+
+function changeAddress(){
+
+    let order = JSON.parse(localStorage.getItem("activeOrder"));
+
+    if(!order) return;
+order.shipping.firstName =
+prompt("First Name", order.shipping.firstName);
+
+order.shipping.lastName =
+prompt("Last Name", order.shipping.lastName);
+
+order.shipping.mobile =
+prompt("Mobile Number", order.shipping.mobile);
+
+order.shipping.email =
+prompt("Email", order.shipping.email);
+    order.shipping.house =
+        prompt("Enter House No.", order.shipping.house);
+
+    order.shipping.city =
+        prompt("Enter City", order.shipping.city);
+
+    order.shipping.state =
+        prompt("Enter State", order.shipping.state);
+
+    order.shipping.country =
+        prompt("Enter Country", order.shipping.country);
+
+    order.shipping.pin =
+        prompt("Enter PIN Code", order.shipping.pin);
+
+    localStorage.setItem("activeOrder", JSON.stringify(order));
+
+    document.getElementById("customerAddress").innerText =
+        order.shipping.house + ", " +
+        order.shipping.city + ", " +
+        order.shipping.state + ", " +
+        order.shipping.country + " - " +
+        order.shipping.pin;
+
+    alert("Address Updated Successfully ✅");
 
 }
 
