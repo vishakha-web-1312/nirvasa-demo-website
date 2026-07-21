@@ -318,7 +318,7 @@
 
         </div>
 
-        <a href="courier.html">
+        <a href="#">
         <button class="track-site-btn">
 
             Track on Courier Website
@@ -448,8 +448,45 @@
 </div>
 
 
+<!-- Change Address Modal -->
+
+<div class="address-modal" id="addressModal">
+
+    <div class="address-box">
 
 
+        <div class="address-header">
+
+            <h2>Change Address</h2>
+
+            <i class="fa fa-times" onclick="closeAddressModal()"></i>
+
+        </div>
+
+
+
+        <div class="address-form">
+
+
+            <input type="text" id="editName" placeholder="Full Name">
+            <input type="text" id="editMobile" placeholder="Mobile Number">
+            <input type="text" id="editHouse" placeholder="House No / Street">
+            <input type="text" id="editCity" placeholder="City">
+            <input type="text" id="editState" placeholder="State">
+            <input type="text" id="editCountry" placeholder="Country">
+            <input type="text" id="editPin" placeholder="Pincode">
+
+            <button onclick="updateAddress()">
+                Update Address
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+</div>
 <script>
 
 const dropdownBtn = document.querySelector(".dropdown-btn");
@@ -707,61 +744,234 @@ if (currentUser) {
     document.getElementById("profileName").textContent =
         currentUser.firstname + " " + currentUser.lastname;
 
-    document.getElementById("welcomeName").textContent =
-        currentUser.firstname;
-
+   
 
 }
 
 
 
 
-document.getElementById("changeAddressBtn").addEventListener("click", changeAddress);
+document
+.getElementById("changeAddressBtn")
+.addEventListener("click",changeAddress);
+
+
 
 function changeAddress(){
 
-    let order = JSON.parse(localStorage.getItem("activeOrder"));
 
-    if(!order) return;
-order.shipping.firstName =
-prompt("First Name", order.shipping.firstName);
+let order = JSON.parse(localStorage.getItem("activeOrder"));
 
-order.shipping.lastName =
-prompt("Last Name", order.shipping.lastName);
 
-order.shipping.mobile =
-prompt("Mobile Number", order.shipping.mobile);
+if(!order)
+return;
 
-order.shipping.email =
-prompt("Email", order.shipping.email);
-    order.shipping.house =
-        prompt("Enter House No.", order.shipping.house);
 
-    order.shipping.city =
-        prompt("Enter City", order.shipping.city);
+document.getElementById("addressModal")
+.classList.add("active");
 
-    order.shipping.state =
-        prompt("Enter State", order.shipping.state);
 
-    order.shipping.country =
-        prompt("Enter Country", order.shipping.country);
 
-    order.shipping.pin =
-        prompt("Enter PIN Code", order.shipping.pin);
+// existing address automatically fill
 
-    localStorage.setItem("activeOrder", JSON.stringify(order));
+document.getElementById("editName").value =
+order.shipping.firstName + " " + order.shipping.lastName;
 
-    document.getElementById("customerAddress").innerText =
-        order.shipping.house + ", " +
-        order.shipping.city + ", " +
-        order.shipping.state + ", " +
-        order.shipping.country + " - " +
-        order.shipping.pin;
 
-    alert("Address Updated Successfully ✅");
+document.getElementById("editMobile").value =
+order.shipping.mobile;
+
+
+document.getElementById("editHouse").value =
+order.shipping.house;
+
+
+document.getElementById("editCity").value =
+order.shipping.city;
+
+
+document.getElementById("editState").value =
+order.shipping.state;
+
+
+document.getElementById("editCountry").value =
+order.shipping.country;
+
+
+document.getElementById("editPin").value =
+order.shipping.pin;
+
 
 }
 
+
+
+function selectAddress(address){
+
+
+
+let order =
+JSON.parse(localStorage.getItem("activeOrder"));
+
+
+
+order.shipping.firstName =
+address.name.split(" ")[0];
+
+
+order.shipping.lastName =
+address.name.split(" ")[1] || "";
+
+
+
+order.shipping.mobile =
+address.mobile;
+
+
+order.shipping.house =
+address.house;
+
+
+order.shipping.city =
+address.city;
+
+
+order.shipping.state =
+address.state;
+
+
+order.shipping.country =
+address.country;
+
+
+order.shipping.pin =
+address.pin;
+
+
+
+
+localStorage.setItem(
+"activeOrder",
+JSON.stringify(order)
+);
+
+
+
+document.getElementById("customerName").innerText =
+address.name;
+
+
+
+document.getElementById("customerMobile").innerText =
+address.mobile;
+
+
+
+document.getElementById("customerAddress").innerText =
+
+address.house + ", " +
+address.city + ", " +
+address.state + ", " +
+address.country + " - " +
+address.pin;
+
+
+
+closeAddressModal();
+
+
+
+}
+
+
+
+function closeAddressModal(){
+
+
+document
+.getElementById("addressModal")
+.classList.remove("active");
+
+
+}
+
+
+
+
+function updateAddress(){
+
+
+let order =
+JSON.parse(localStorage.getItem("activeOrder"));
+
+
+
+let name =
+document.getElementById("editName").value.split(" ");
+
+
+
+order.shipping.firstName = name[0];
+
+order.shipping.lastName = name[1] || "";
+
+order.shipping.mobile =
+document.getElementById("editMobile").value;
+
+
+order.shipping.house =
+document.getElementById("editHouse").value;
+
+
+order.shipping.city =
+document.getElementById("editCity").value;
+
+
+order.shipping.state =
+document.getElementById("editState").value;
+
+
+order.shipping.country =
+document.getElementById("editCountry").value;
+
+
+order.shipping.pin =
+document.getElementById("editPin").value;
+
+
+
+localStorage.setItem(
+"activeOrder",
+JSON.stringify(order)
+);
+
+
+
+document.getElementById("customerName").innerText =
+order.shipping.firstName + " " + order.shipping.lastName;
+
+
+document.getElementById("customerMobile").innerText =
+order.shipping.mobile;
+
+
+document.getElementById("customerAddress").innerText =
+
+order.shipping.house + ", " +
+order.shipping.city + ", " +
+order.shipping.state + ", " +
+order.shipping.country + " - " +
+order.shipping.pin;
+
+
+
+closeAddressModal();
+
+
+alert("Address Updated Successfully ✅");
+
+
+}
 </script>
 
 
