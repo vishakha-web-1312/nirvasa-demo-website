@@ -4268,7 +4268,7 @@ aside{
 
 .product-card{
 
-    min-width:100%;
+    min-width:80%;
     padding:18px;
 }
 
@@ -4542,6 +4542,368 @@ aside{
 
     text-align:center;
     font-size:13px;
+}
+
+}
+
+
+/* ==========================
+   TRACK ORDER RESPONSIVE
+========================== */
+
+/* ---------- Tablet ---------- */
+@media (max-width:992px){
+
+.order-container{
+    flex-direction:column;
+    padding:40px 30px;
+    gap:30px;
+}
+
+aside{
+    position:static;
+    width:90%;
+    max-width:100%;
+    height:auto;
+    padding:20px;
+}
+
+.sidebar-menu{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
+}
+
+.sidebar-item{
+    margin-bottom:0;
+}
+
+.sidebar-item a,
+.dropdown-btn{
+    padding:12px 18px;
+}
+
+main{
+    width:100%;
+}
+
+.order-top{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:20px;
+}
+
+.delivery-badge{
+    width:100%;
+    justify-content:center;
+}
+
+.track-layout{
+    grid-template-columns:1fr;
+    gap:25px;
+}
+
+.info-card{
+    width:100%;
+}
+
+.tracking-card{
+    padding:25px;
+}
+
+.address-box{
+    width:90%;
+}
+
+}
+
+
+
+/* ---------- Mobile ---------- */
+@media (max-width:768px){
+
+.order-container{
+    margin-top:130px;
+    padding:20px 15px;
+}
+
+aside{
+    padding:15px;
+}
+
+.sidebar-menu{
+    flex-direction:column;
+}
+
+.order-heading h2{
+    font-size:24px;
+}
+
+.order-heading p{
+    font-size:14px;
+}
+
+.delivery-badge{
+    width:90%;
+    text-align:center;
+    padding:12px;
+}
+
+.tracking-card{
+    padding:18px;
+}
+
+/* Timeline Vertical */
+
+.tracking-timeline{
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.timeline-item{
+  
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.timeline-content{
+    text-align:left;
+}
+
+.track-line,
+.track-line-1{
+   display: none
+   ;
+}
+
+.track-layout{
+    display:block;
+}
+
+.info-card{
+    width: 80%;
+    margin-bottom:20px;
+}
+
+.track-row{
+    flex-wrap:wrap;
+    gap:8px;
+}
+
+.track-site-btn,
+.address-btn{
+    width:100%;
+}
+
+.address-box{
+    width:95%;
+    padding:20px;
+}
+
+.address-form input{
+    width:100%;
+}
+
+.address-form button{
+    width:100%;
+}
+
+}
+/* ---------- Small Mobile ---------- */
+@media (max-width:480px){
+
+.order-container{
+    padding:15px 10px;
+}
+
+.order-heading h2{
+    font-size:20px;
+}
+
+.order-heading p{
+    font-size:13px;
+}
+
+.delivery-badge{
+    font-size:13px;
+}
+
+.tracking-card{
+    padding:15px;
+}
+
+.timeline-icon{
+    width:40px;
+    height:40px;
+    font-size:15px;
+}
+
+.timeline-content h4{
+    font-size:15px;
+}
+
+.track-row{
+    font-size:13px;
+}
+
+.track-site-btn,
+.address-btn{
+    font-size:14px;
+    padding:12px;
+}
+
+.address-box{
+    padding:15px;
+}
+
+.address-header h2{
+    font-size:20px;
+}
+
+}
+
+
+/* ==========================
+   WISHLIST RESPONSIVE
+========================== */
+
+/* ---------- Tablet ---------- */
+@media (max-width:992px){
+
+.wishlist-panel{
+    width:380px;
+}
+
+.wishlist-card{
+    gap:15px;
+}
+
+.wishlist-img{
+    width:90px;
+    height:90px;
+}
+
+.wishlist-info h4{
+    font-size:16px;
+}
+
+.buy-btn,
+.remove-btn{
+    padding:10px 14px;
+}
+
+}
+
+
+/* ---------- Mobile ---------- */
+@media (max-width:768px){
+
+.wishlist-panel{
+    width:100%;
+    max-width:100%;
+}
+
+.wishlist-header{
+    padding:18px;
+}
+
+.wishlist-header h2{
+    font-size:22px;
+}
+
+#wishlistItems{
+    padding:15px;
+}
+
+.wishlist-card{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:15px;
+}
+
+.wishlist-img{
+    width:130px;
+    height:130px;
+    object-fit:cover;
+}
+
+.wishlist-info{
+    width:100%;
+}
+
+.wishlist-info h4{
+    font-size:17px;
+}
+
+.wishlist-info p{
+    margin:8px 0 15px;
+}
+
+.buy-btn,
+.remove-btn{
+    width:100%;
+}
+
+.empty-wishlist{
+    padding:40px 20px;
+}
+
+.empty-wishlist i{
+    font-size:55px;
+}
+
+}
+/* ---------- Small Mobile ---------- */
+@media (max-width:480px){
+
+.wishlist-panel{
+    width:90%;
+}
+
+.wishlist-header{
+    padding:15px;
+}
+
+.wishlist-header h2{
+    font-size:20px;
+}
+
+#wishlistItems{
+    padding:12px;
+}
+
+.wishlist-card{
+    padding:15px;
+}
+
+.wishlist-img{
+    width:110px;
+    height:110px;
+}
+
+.wishlist-info h4{
+    font-size:15px;
+}
+
+.wishlist-info p{
+    font-size:14px;
+}
+
+.buy-btn,
+.remove-btn{
+    font-size:14px;
+    padding:12px;
+}
+
+.empty-wishlist h3{
+    font-size:18px;
+}
+
+.empty-wishlist p{
+    font-size:14px;
 }
 
 }
